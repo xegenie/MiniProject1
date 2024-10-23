@@ -16,9 +16,7 @@ public interface RentalService {
 	public int rvDelete(BookStock bookStock, User user);
 	
 	// 연체
-	public int overdue(BookStock bookStock, User user);
-	
-	// 연체
+	public long overdue(BookStock bookStock, User user);
 	
 	// 대출
 	public int rental(BookStock bookStock, User user);
