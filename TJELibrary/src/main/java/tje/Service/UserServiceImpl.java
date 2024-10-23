@@ -80,12 +80,14 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+
 	@Override
 	public RentalList select(int no) {
-		// 회원 대출 내역 조회
-		return rusult;
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
+
 
 
 
