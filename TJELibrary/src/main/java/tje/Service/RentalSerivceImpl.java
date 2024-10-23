@@ -1,5 +1,7 @@
 package tje.Service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -94,9 +96,36 @@ public class RentalSerivceImpl implements RentalService {
 	}
 
 	@Override
-	public int overdue(BookStock bookStock, User user) {
-		// 연체
-		return 0;
+	public long overdue(BookStock bookStock, User user) {
+		
+		// 연체 (반납 예정일)
+		
+		RentalList rentalList = new RentalList();
+		Map<Object, Object> fields = new HashMap<Object, Object>() {{
+		put("book_id", bookStock.getBookId());
+		put("stock_id", bookStock.getStockId());
+		put("id", user.getId());
+		put("state", "대출");
+		}};
+		try {
+			rentalList = rentalListDAO.selectBy(fields);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Calendar overday = Calendar.getInstance();  // 오늘 날짜
+		overday.setTime(rentalList.getRentalDate()); // RentalList에서 반납 예정일 가져오기
+		overday.add(Calendar.DAY_OF_MONTH, 7);
+
+	    Calendar today = Calendar.getInstance();  // 오늘 날짜
+
+	    long dM = today.getTimeInMillis() - overday.getTimeInMillis(); // 밀리초 차이
+	    long dD = dM / (24 * 60 * 60 * 1000); // 일수 차이 계산
+
+	    System.out.println("차이(일) : " + dD);
+
+	    // 반납 예정일이 지났다면, dD를 반환하거나 다른 처리 로직을 추가할 수 있습니다.
+	    return (dD > 0) ? dD : 0; // 반납 예정일이 지났다면 dD 반환, 그렇지 않으면 0
 	}
 	
 	@Override
@@ -149,6 +178,12 @@ public class RentalSerivceImpl implements RentalService {
 		rentalList.setStockId(bookstock.getStockId());
 		rentalList.setState("반납");
 		
+		long a = overdue(bookstock, user);
+		
+		if ( a > 0 ) {
+			rentalList.setOverDate((int)a);
+		}
+		
 		try {
 			result = rentalListDAO.insert(rentalList);
 			if ( result > 0 ) System.out.println("반납 등록 성공!");
@@ -158,6 +193,7 @@ public class RentalSerivceImpl implements RentalService {
 		}
 		if ( result == 0 ) return 0;
 		
+		// 대출 상태
 		int statusResult = 0;
 		bookstock.setStatus("대출 가능");
 		try {
