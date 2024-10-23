@@ -45,7 +45,6 @@ public class BookServiceImpl implements BookService{
 		try {
 			result = bookDAO.insert(book);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -58,7 +57,6 @@ public class BookServiceImpl implements BookService{
 		try {
 			result = userDAO.delete(id);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// 적용된 데이터 개수를 반환
@@ -77,7 +75,6 @@ public class BookServiceImpl implements BookService{
 		try {
 			result = bookDAO.update(book);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// 적용된 데이터 개수를 반환

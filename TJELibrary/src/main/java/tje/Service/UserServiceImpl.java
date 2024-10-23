@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService{
 		try {
 			result = userDAO.insert(user);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if( result == 0 ) return 0;
@@ -64,30 +63,29 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int delete(String id) {
-	// 회원 삭제
-	int result = 0;
-	try {
-		result = userDAO.delete(id);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		// 회원 삭제
+		int result = 0;
+		try {
+			result = userDAO.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 적용된 데이터 개수를 반환
+		// - result(결과) : 0 --> 데이터 삭제 실패
+		// 1 --> 삭제 수정 성공
+		if (result > 0)
+			System.out.println("데이터 삭제 성공!");
+		else
+			System.err.println("데이터 삭제 실패!");
+		return result;
 	}
-	// 적용된 데이터 개수를 반환
-	// - result(결과)	: 0 --> 데이터 삭제 실패
-	//				  1 --> 삭제 수정 성공
-	if( result > 0 ) System.out.println("데이터 삭제 성공!");
-	else System.err.println("데이터 삭제 실패!");
-	return result;
-}
+
 	@Override
 	public RentalList select(int no) {
 		// 회원 대출 내역 조회
-		
+		return rusult;
 	}
 }
-
-
-
 
 
 
