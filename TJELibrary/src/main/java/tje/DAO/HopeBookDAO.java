@@ -17,6 +17,7 @@ public class HopeBookDAO extends BaseDAOImpl<HopeBook>{
 	@Override
 	public HopeBook map(ResultSet rs) throws Exception {
 		HopeBook hope_book = new HopeBook();
+		hope_book.setNo(rs.getInt("no"));
 		hope_book.setId(rs.getString("id"));
 		hope_book.setBookName(rs.getString("book_name"));
 		hope_book.setAuthor(rs.getString("author"));
@@ -26,7 +27,7 @@ public class HopeBookDAO extends BaseDAOImpl<HopeBook>{
 
 	@Override
 	public String pk() {
-		return null;
+		return "no";
 	}
 
 	@Override
