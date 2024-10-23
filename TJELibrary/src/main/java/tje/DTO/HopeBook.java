@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HopeBook {
-
+	
+	private int no;
 	private String id;
 	private String bookName;
 	private String author;
