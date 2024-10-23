@@ -21,4 +21,11 @@ public class RentalList {
 	private Date rentalDate;
 	private Date returnDate;
 	private int overDate;
+	
+    public RentalList(int stockId, int bookId, String id) {
+        this.stockId = stockId;
+        this.bookId = bookId;  // Store the bookId
+        this.id = id;
+    }
+
 }
