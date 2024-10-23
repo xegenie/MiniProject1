@@ -8,12 +8,12 @@ public interface BookService {
 	public Book select(int id);
 	
 	// 책 등록
-	public Book insert(Book book);
+	public int insert(Book book);
 	
 	// 책 삭제
-	public Book delete(int id);
+	public int delete(int id);
 	
 	// 책 수정
-	public Book update(Book book);
+	public int update(Book book);
 	
 }
