@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+.container,
+header,
+footer
+{
+	width: var(--container-size);
+	margin: 0 auto;
+}
+
+section {
+	margin: 100px auto;
+	min-height: 300px;
+}
+
+.text-title {
+	font-size: 32px;
+}
