@@ -39,7 +39,9 @@ public class BoardServiceImpl implements BoardService {
         int result = 0;
         try {
             result = boardDAO.insert(board);
+            if(result > 0) System.out.println("게시글 등록 성공!");
         } catch (Exception e) {
+        	System.err.println("게시글 등록 실패!");
             e.printStackTrace();  // 예외 처리
         }
         return result;
@@ -50,7 +52,9 @@ public class BoardServiceImpl implements BoardService {
         int result = 0;
         try {
             result = boardDAO.delete(boardID);
+            if(result > 0) System.out.println("게시글 삭제 성공!");
         } catch (Exception e) {
+        	System.err.println("게시글 삭제 실패!");
             e.printStackTrace();  // 예외 처리
         }
         return result;
@@ -61,7 +65,9 @@ public class BoardServiceImpl implements BoardService {
         int result = 0;
         try {
             result = boardDAO.update(board);
+            if(result > 0) System.out.println("게시글 수정 성공!");
         } catch (Exception e) {
+        	System.err.println("게시글 수정 실패!");
             e.printStackTrace();  // 예외 처리
         }
         return result;
@@ -71,15 +77,23 @@ public class BoardServiceImpl implements BoardService {
     public Comments select(String commentID) {
     	Comments comments = null;
     	try {
-			
+    		comments = commentDAO.select(commentID);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
         return comments;
     }
 
     @Override
     public int insert(Comments comments) {
-        return commentDAO.insert(comments);
+    	int result = 0;
+    	try {
+			result = commentDAO.insert(comments);
+			if(result > 0) System.out.println("댓글 등록 성공!");
+		} catch (Exception e) {
+			System.err.println("댓글 등록 실패!");
+			e.printStackTrace();
+		}
+        return result;
     }
 }
