@@ -1,0 +1,10 @@
+.statuscard{
+	background-color:#8E8B82; 
+	color:#ffffff;
+}
+
+.mpbtn:hover, .mpbtnnow{
+	cursor:pointer;
+	background-color:#947D69; 
+	color:#ffffff;
+}

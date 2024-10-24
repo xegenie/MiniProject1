@@ -15,13 +15,12 @@
 <body>
 	<jsp:include page="/layout/header.jsp" />
 	<%-- [Contents] ######################################################### --%>
-		
+	<main class="mainbackground">
+	
 	<div class="container">
-		<section>
-			<h1 class="text-title">메인 화면</h1>
-			<h3>project💻 - ALOHA CLASS🌴</h3>
-		</section>
+		
 	</div>
+	</main>
 	
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
