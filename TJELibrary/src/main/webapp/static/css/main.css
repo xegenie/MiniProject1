@@ -1,7 +1,13 @@
 @charset "UTF-8";
-.main-background {
-    background-image: url('/path/to/your/image.jpg');
+.mainbackground {
+	background-image: url('../img/mainbg.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh; /* 화면 전체 높이 */
+	padding-top: 3rem;
+}
+.mainicon {
+	font-size:60px;
+	line-height: 60px;
+	color: #ffffff;
 }
