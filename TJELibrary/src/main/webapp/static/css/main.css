@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.main-background {
+    background-image: url('/path/to/your/image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* 화면 전체 높이 */
+}

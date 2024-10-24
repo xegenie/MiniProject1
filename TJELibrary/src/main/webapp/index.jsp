@@ -15,8 +15,12 @@
 <body>
 	<jsp:include page="/layout/header.jsp" />
 	<%-- [Contents] ######################################################### --%>
-		
+	<main class="mainbackground">
 	
+	<div class="container">
+		
+	</div>
+	</main>
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
 	<jsp:include page="/layout/script.jsp" />
