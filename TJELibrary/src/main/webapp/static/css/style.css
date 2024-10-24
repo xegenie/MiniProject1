@@ -17,3 +17,13 @@ section {
 .text-title {
 	font-size: 32px;
 }
+
+
+/* 배경 */
+.bg-gradient {
+	background: rgb(148,125,105) !important;
+	background: linear-gradient(90deg, rgba(148,125,105,1) 0%, rgba(156,131,109,1) 40%, rgba(238,238,238,1) 80%) !important;
+}
+.bg-gray {
+	background-color: var(--bg-gray-color);
+}
