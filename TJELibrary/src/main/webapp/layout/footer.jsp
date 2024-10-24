@@ -10,7 +10,7 @@
   .footer {
     background: #947d69;
     height: 259px;
-    position: fixed; /* 화면 하단에 고정 */
+    position: relative; /* 화면 하단에 고정 */
     left: 0;
     bottom: 0;
     width: 100%; /* 전체 화면 너비 */

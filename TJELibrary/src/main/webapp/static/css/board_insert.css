@@ -1,0 +1,35 @@
+.title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-title{
+	font-size: 20px;
+}
+
+.input-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-group label{
+    width: 20%;
+    text-align: center;
+}
+.input-group input{
+    width: 80%;
+    padding: 10px 6px;
+    border-radius: 6px;
+    border : 1px solid #ddd;
+    outline: none;
+}
+
+.input-group textarea{
+    width: 100%;
+    padding-left: 6px;
+    border-radius: 6px;
+    border : 1px solid #ddd;
+    outline: none;
+}
