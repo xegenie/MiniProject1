@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
 
-.container,
-header,
-footer
+.container
 {
 	width: var(--container-size);
 	margin: 0 auto;

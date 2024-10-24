@@ -22,7 +22,7 @@
 		</div>
 		
 		<div class="container1">
-			<div class="d-flex align-items-center justify-content-start column-gap-5 py-3 ms-5">
+			<div class="d-flex align-items-center justify-content-center column-gap-5 py-3 me-5">
 				<div class="item">
 					<a href=""><img class="logo" src="<%= root %>/static/img/logo.png" /></a>
 				</div>
