@@ -53,7 +53,7 @@
 					</div>
 				</div>
 			</div>
-		<div class="container">
+		<div class="container pb-5">
 			<div class=" row justify-content-between fs-3 text-center">
 				<div class="col-4 row rounded-3 align-item-center p-0 border overflow-hidden">
 					<div class="col-6 py-4">대출(연체)</div>
@@ -69,13 +69,24 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<div>
-			
+		<div class="container pt-5"> <!-- 버튼과 표 -->
+			<div class="row d-flex text-center bg-gray"> <!-- 버튼 -->
+				<div class="col-2 border justify-content-center flex-fill py-2" style="background-color:#947D69; color:#ffffff">대출 현황</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">대출 이력</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">예약 현황</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">찜한 도서</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">희망 도서</div>
 			</div>
+			<div class="row d-flex text-center bg-gray semi-bold"> <!-- 버튼 -->
+				<div class="col-2 border justify-content-center flex-fill py-2">대출 현황</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">대출 이력</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">예약 현황</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">찜한 도서</div>
+				<div class="col-2 border justify-content-center flex-fill py-2">희망 도서</div>
+			</div>		
 		</div>
 	</main>
-<%-- 	<jsp:include page="/layout/footer.jsp" /> --%>
+	<jsp:include page="/layout/footer.jsp" />
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
