@@ -10,10 +10,10 @@
 
 <%
 // chapter 
-String chapterTitle = "내 서재";
+String chapterTitle = "통합검색";
 String chapter1 = "HOME";
-String chapter2 = "내 서재";
-String chapter3 = "대출현황";
+String chapter2 = "자료검색";
+String chapter3 = "통합검색";
 
 %>
 <!DOCTYPE html>
@@ -30,36 +30,6 @@ String chapter3 = "대출현황";
 <div class="pb-4 pt-5">
 		<%@ include file="/layout/chapter.jsp" %>
 	</div>
-    <div class="container">
-      <div class="div5">검색결과 총</div>
-      <div class="_15-679"> 15,679 </div>
-      <div class="div6">건</div>
-      <img class="link-image" src="link-image0.png" />
-      <img class="link-image2" src="link-image1.png" />
-    </div>
-    <div class="frame-21">
-      <div class="input">
-        <div class="_1">1</div>
-      </div>
-      <div class="input2">
-        <div class="_2">2</div>
-      </div>
-      <div class="input2">
-        <div class="_3">3</div>
-      </div>
-      <div class="input2">
-        <div class="_4">4</div>
-      </div>
-      <div class="input3">
-        <div class="_5">5</div>
-      </div>
-      <div class="input2">
-        <div class="div7">&gt;</div>
-      </div>
-      <div class="input2">
-        <div class="div8">&gt;&gt;</div>
-      </div>
-    </div>
     <div class="container2">
       <div class="book">
         <div class="div9">
@@ -379,8 +349,16 @@ String chapter3 = "대출현황";
           </div>
         </div>
       </div>
+    <div class="pageNo d-flex jutify-content-center column-gap-3">
+        <div class="_1">1</div>
+        <div class="_2">2</div>
+        <div class="_3">3</div>
+        <div class="_4">4</div>
+        <div class="_5">5</div>
+        <div class="div7">&gt;</div>
+        <div class="div8">&gt;&gt;</div>
     </div>
-
+    </div>
 	
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
