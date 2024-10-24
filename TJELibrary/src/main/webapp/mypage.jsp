@@ -29,47 +29,53 @@
 	<title>project💻 - ALOHA CLASS🌴</title>
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
-	
 </head>
 <body>
-<%-- 	<jsp:include page="/layout/header.jsp" /> --%>
-	<div class="pb-4">
-		<%@ include file="/layout/chapter.jsp" %>
-	</div>
-	<div>
-		<div class="container">
-			<div class="row px-5 py-4 bg-gray">
-				<div class="col-12 col-sm-6 py-1">
-					<p><b>회원ID :</b> <%= user.getId() %></p>					
-				</div>
-				<div class="col-12 col-sm-6 py-1">
-					<p><b>전화번호: </b><%= user.getTelNumber() %></p>
-				</div>
-				<div class="col-12 col-sm-6 py-1">
-					<p><b>이름: </b><%= user.getName() %></p>
-				</div>
-				<div class="col-12 col-sm-6 py-1">
-					<p><b>대출 가능 여부: </b></p>
-				</div>
-			</div>
+	<jsp:include page="/layout/header.jsp" />
+	<main class="pb-5">
+		<div class="pt-5 pb-4">
+			<%@ include file="/layout/chapter.jsp" %>
 		</div>
-	</div>
-	<div>
-		<div class="d-flex justify-content-between">
-			<div class="row rounded-3 border">
-				<div class="col-6">대출(연체)</div>
-				<div class="col-6">0</div>
-			</div>
-			<div class="rounded-3 border">
-				
-			</div>
-			<div class="rounded-3 border">
-				
-			</div>
-			</div>
-		</div>
-	</div>
 	
+			<div class="container pb-5">
+				<div class="row px-5 py-4 bg-gray">
+					<div class="col-12 col-sm-6 py-1">
+						<p><b>회원ID :</b> <%= user.getId() %></p>					
+					</div>
+					<div class="col-12 col-sm-6 py-1">
+						<p><b>전화번호: </b><%= user.getTelNumber() %></p>
+					</div>
+					<div class="col-12 col-sm-6 py-1">
+						<p><b>이름: </b><%= user.getName() %></p>
+					</div>
+					<div class="col-12 col-sm-6 py-1">
+						<p><b>대출 가능 여부: </b></p>
+					</div>
+				</div>
+			</div>
+		<div class="container">
+			<div class=" row justify-content-between fs-3 text-center">
+				<div class="col-4 row rounded-3 align-item-center p-0 border overflow-hidden">
+					<div class="col-6 py-4">대출(연체)</div>
+					<div class="col-6 py-4" style="background-color:#8E8B82; color:#ffffff">0(0)</div>
+				</div>
+				<div class="col-4 row rounded-3 align-item-center p-0 border overflow-hidden">
+					<div class="col-6 py-4">예약</div>
+					<div class="col-6 py-4" style="background-color:#8E8B82; color:#ffffff">0</div>
+				</div>
+				<div class="col-4 row rounded-3 align-item-center p-0 border overflow-hidden">
+					<div class="col-6 py-4">희망도서</div>
+					<div class="col-6 py-4" style="background-color:#8E8B82; color:#ffffff">0</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div>
+			
+			</div>
+		</div>
+	</main>
+<%-- 	<jsp:include page="/layout/footer.jsp" /> --%>
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
