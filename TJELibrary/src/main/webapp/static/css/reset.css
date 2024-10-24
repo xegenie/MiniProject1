@@ -29,6 +29,12 @@ body {
     --main-color : #DCE6FF;
     /* 👩‍🎨 서브 컬러 */
     --sub-color: #89B1FF;
+    --bg-gray-color: #E6E6E6;
+    --bg-gradient-from-color: #555555;
+    --bg-gradient-to-color: #ffffff;
+    
+    
+    
     /* 👩‍🎨 폰트 사이즈 */
     --text-title: 32px;
     --text-normal: 16px;
@@ -36,3 +42,12 @@ body {
     --container-size: 1200px;
     --container-lg-size: 1400px;
 }
+
+
+
+
+
+
+
+
+

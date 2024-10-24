@@ -2,5 +2,5 @@
  * 
  */
 document.addEventListener("DOMContentLoaded", function() {
-	alert("Hello JSP~!");
+	// alert("Hello JSP~!");
 })
