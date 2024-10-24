@@ -1,4 +1,3 @@
-.header,
 .header * {
   box-sizing: border-box;
 }
@@ -13,19 +12,19 @@
   
 }
 
+header .line {
+	width: 1200px;
+	border: 1px solid #000;
+}
+
 header .util {
   height: 36px;
 }
 
-header .container {
-  width: 1100px;
-  height: 80px;
-
+header .container1 {
+	margin-left: 430px;
 }
 
-.d-flex.justify-content-end {
-	margin-top: 10px;
-}
 
 .background-border {
   background: #947d69;
@@ -33,18 +32,9 @@ header .container {
   border-style: solid;
   border-color: #947d69;
   border-width: 2px;
-  width: 544px;
+  width: 445px;
   height: 48px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.input {
-  background: #947d69;	
-  border-style: solid;
-  border-color: transparent;
-  border-width: 0px 1px 0px 1px;
-  width: 450px;
-  height: 48px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -62,19 +52,17 @@ input.input-search::placeholder { color: #ffffff; }
   position: relative;
   left: 20px;
   padding-left: 4px;
-  width: 450px;
+  width: 350px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .search {
-  width: 22px;
-  height: 23px;
-  position: absolute;
-  left: 499px;
-  top: calc(50% - 13px);
-  object-fit: cover;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
 }
 .link3 {
   width: 80px;

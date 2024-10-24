@@ -6,34 +6,32 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/layout/common.jsp" %>
 <link rel="stylesheet" href="<%= root %>/static/css/header.css">
-<header>
+<header class="">
 	<div class="header">
-		<div class="container">
-			<div class="d-flex justify-content-end">
-				<div class="inner d-flex column-gap-3">
-						<div class="link">
-						<a href="">로그인</a>
-					</div>
-					<div class="link">
-						<a href="">내서재</a>
-					</div>
-					<div class="link">
-						<a href="">회원가입</a>
+	
+		<div class="border-bottom py-2">
+			<div class="container">
+				<div class="d-flex justify-content-end">
+					<div class="inner d-flex column-gap-3">
+							<a href="">로그인</a>
+							<a href="">내서재</a>
+							<a href="">회원가입</a>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
-		<div class="container">
-			<div class="d-flex justify-content-start align-items-center column-gap-5">
+		
+		<div class="container1">
+			<div class="d-flex align-items-center column-gap-5 py-3">
 				<div class="item">
-					<img class="logo" src="<%= root %>/static/img/logo.png" />
+					<a href=""><img class="logo" src="<%= root %>/static/img/logo.png" /></a>
 				</div>
 				<div class="item ">
-					<div class="input background-border">
+					<div class="background-border d-flex justify-content-start align-items-center column-gap-5">
 							<input class="input-search" placeholder="도서검색" />
-					</div>
-					<div class="search">
-						<i class="fa fa-search fa-lg" style="color: #fffafa;"></i>
+						<a href="" class="search">
+							<i class="fa fa-search fa-lg" style="color: #fffafa"></i>
+						</a>
 					</div>
 				</div>
 				<div class="item">
