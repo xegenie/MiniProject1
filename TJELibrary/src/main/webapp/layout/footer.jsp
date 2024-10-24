@@ -131,7 +131,7 @@
   }
 
   .footer_icon1 {
-    width: 2%;
+    width: 1.5%;
     height: 9.12%;
     position: absolute;
     right: 52.82%;
@@ -142,7 +142,7 @@
   }
 
   .footer_icon2 {
-    width: 2%;
+    width: 1.5%;
     height: 9.35%;
     position: absolute;
     right: 49.49%;
@@ -153,7 +153,7 @@
   }
 
   .footer_icon3 {
-    width: 2%;
+    width: 1.5%;
     height: 8.45%;
     position: absolute;
     right: 46.07%;
@@ -182,12 +182,16 @@
         <span class="copyright-aloha-class-all-rights-reserved-alohaclass-kr-span">
           Copyright ⓒ ALOHA CLASS. All Rights Reserved
         </span>
-        <span class="copyright-aloha-class-all-rights-reserved-alohaclass-kr-span2">
-          alohaclass.kr
-        </span>
+        <a href="https://www.xn--pe5b27r.com/" height="5" width="10" target="_blank">
+	        <span class="copyright-aloha-class-all-rights-reserved-alohaclass-kr-span2">
+	          alohaclass.kr
+	        </span>
+        </a>
       </span>
     </div>
-    <img class="footer_icon1" src="<%= root %>/static/img/footer_icon1.png">
+    <a href="https://github.com/xegenie/MiniProject1" height="5" width="10" target="_blank">
+    	<img class="footer_icon1" src="<%= root %>/static/img/footer_icon1.png" width="100px">
+    </a>
     <img class="footer_icon2" src="<%= root %>/static/img/footer_icon2.png">
     <img class="footer_icon3" src="<%= root %>/static/img/footer_icon3.png">
   </div>
