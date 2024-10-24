@@ -11,13 +11,13 @@
 		String chapterTitle = "글쓰기";
 		String chapter1 = "HOME";
 		String chapter2 = "게시판";
-		String chapter3 = "게시글 쓰기";
+		String chapter3 = "게시글 수정";
 	%>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>게시판 등록</title>
-	<link rel="stylesheet" href="static/css/board_insert.css">
+	<title>게시글 수정</title>
+	<link rel="stylesheet" href="static/css/board_update.css">
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
 </head>
@@ -29,7 +29,7 @@
 	<div class="container">
         <section>
         <div class="title-box">
-            <h1 class="main-title">게시글 쓰기</h1>
+            <h1 class="main-title">게시글 수정</h1>
         </div>
         <div class="input-group">
             <label for="title">제목</label>
@@ -39,8 +39,8 @@
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
         </div>
         <div class="board-box">
-	    		<a href="board_list.jsp" class="btn">목록</a>
-	    		<a href="" class="btn">글쓰기</a>
+	    		<a href="" class="btn">삭제</a>
+	    		<a href="" class="btn">수정</a>
     		</div>
         </section>
     </div>
