@@ -5,7 +5,7 @@
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <link rel="stylesheet" href="static/css/booklist.css">
 
 <%
@@ -18,81 +18,41 @@ String chapter3 = "통합검색";
 %>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>project💻 - ALOHA CLASS🌴</title>
-	<jsp:include page="/layout/meta.jsp" />
-	<jsp:include page="/layout/link.jsp" />
+  <title>project💻 - ALOHA CLASS🌴</title>
+  <jsp:include page="/layout/meta.jsp" />
+  <jsp:include page="/layout/link.jsp" />
 </head>
+
 <body>
-	<jsp:include page="/layout/header.jsp" />
-	
-	<%-- [Contents] ######################################################### --%>
-<div class="pb-4 pt-5">
-		<%@ include file="/layout/chapter.jsp" %>
-	</div>
-    <div class="container2">
-      <div class="book">
-        <div class="div9">
-          <div class="no">NO. 1</div>
-          <img class="frame-12" src="frame-120.png" />
+  <jsp:include page="/layout/header.jsp" />
+
+  <%-- [Contents] ######################################################### --%>
+  <div class="pb-4 pt-5">
+    <%@ include file="/layout/chapter.jsp" %>
+  </div>
+  <div class="container">
+    <div class="book">
+      <div class="head d-flex justify-content-start">
+        <div class="no">NO. 1</div>
+        <div class="단행본">단행본</div>
+      </div>
+      <div class="Description d-flex border-bottom">
+        <img class="book1" src="static/img/book1.png" />
+        <div class="content">
+          <div class="head">
+            <h2>필독! 개발자 온보딩 가이드</h2>
+          </div>
+          <div class="middle">
+            크리스 리코미니 지음 ; 붉은 여우 옮김 | 지식의숲 | 2012
+          </div>
+          <div class="bottom d-flex justify-content-start">
+            <span class="popular">인기도서</span> <span> | 도서정보</span>
+          </div>
+        <div class="div18">
+          <div class="div19">찜하기</div>
         </div>
-        <div class="div10">
-          <div class="div11">
-            <div class="border">
-              <div class="div12">단행본</div>
-            </div>
-          </div>
-          <div class="div13">
-            <div class="heading-1">필독! 개발자 온보딩 가이드</div>
-          </div>
-          <div class="div14">
-            <div class="list2">
-              <div class="_2012">
-                <span>
-                  <span class="_2012-span">
-                    크리스 리코미니 지음 ; 붉은 여우 옮김
-                  </span>
-                  <span class="_2012-span2">|</span>
-                  <span class="_2012-span3">지식의숲</span>
-                  <span class="_2012-span4">|</span>
-                  <span class="_2012-span5">2012</span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="div15">
-            <div class="div16">
-              <div class="list3">
-                <div class="item3">
-                  <div class="div17">
-                    <ul class="div-17-span">
-                      <li>소장정보</li>
-                    </ul>
-                  </div>
-                  <div class="vertical-divider"></div>
-                </div>
-                <div class="item4">
-                  <ul class="item-4-span">
-                    <li>도서정보</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="div18">
-              <div class="item5">
-                <div
-                  class="link3"
-                  style="
-                    background: url(link2.png) center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                  "
-                >
-                  <div class="div19">찜하기</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="book">
@@ -144,14 +104,11 @@ String chapter3 = "통합검색";
             </div>
             <div class="div18">
               <div class="item5">
-                <div
-                  class="link3"
-                  style="
+                <div class="link3" style="
                     background: url(link3.png) center;
                     background-size: cover;
                     background-repeat: no-repeat;
-                  "
-                >
+                  ">
                   <div class="div19">찜하기</div>
                 </div>
               </div>
@@ -208,14 +165,11 @@ String chapter3 = "통합검색";
             </div>
             <div class="div18">
               <div class="item5">
-                <div
-                  class="link3"
-                  style="
+                <div class="link3" style="
                     background: url(link4.png) center;
                     background-size: cover;
                     background-repeat: no-repeat;
-                  "
-                >
+                  ">
                   <div class="div19">찜하기</div>
                 </div>
               </div>
@@ -272,14 +226,11 @@ String chapter3 = "통합검색";
             </div>
             <div class="div18">
               <div class="item5">
-                <div
-                  class="link3"
-                  style="
+                <div class="link3" style="
                     background: url(link5.png) center;
                     background-size: cover;
                     background-repeat: no-repeat;
-                  "
-                >
+                  ">
                   <div class="div19">찜하기</div>
                 </div>
               </div>
@@ -334,14 +285,11 @@ String chapter3 = "통합검색";
             </div>
             <div class="div18">
               <div class="item5">
-                <div
-                  class="link3"
-                  style="
+                <div class="link3" style="
                     background: url(link6.png) center;
                     background-size: cover;
                     background-repeat: no-repeat;
-                  "
-                >
+                  ">
                   <div class="div19">찜하기</div>
                 </div>
               </div>
@@ -349,7 +297,7 @@ String chapter3 = "통합검색";
           </div>
         </div>
       </div>
-    <div class="pageNo d-flex jutify-content-center column-gap-3">
+      <div class="pageNo d-flex jutify-content-center column-gap-3">
         <div class="_1">1</div>
         <div class="_2">2</div>
         <div class="_3">3</div>
@@ -357,11 +305,13 @@ String chapter3 = "통합검색";
         <div class="_5">5</div>
         <div class="div7">&gt;</div>
         <div class="div8">&gt;&gt;</div>
+      </div>
     </div>
-    </div>
-	
-	<%-- [Contents] ######################################################### --%>
-	<jsp:include page="/layout/footer.jsp" />
-	<jsp:include page="/layout/script.jsp" />
+  </div>
+
+  <%-- [Contents] ######################################################### --%>
+  <jsp:include page="/layout/footer.jsp" />
+  <jsp:include page="/layout/script.jsp" />
 </body>
+
 </html>
