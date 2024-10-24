@@ -8,16 +8,16 @@
     <%
 	
 		// chapter 
-		String chapterTitle = "게시판";
+		String chapterTitle = "공지사항";
 		String chapter1 = "HOME";
-		String chapter2 = "게시판";
-		String chapter3 = "게시글 목록";
+		String chapter2 = "공지사항";
+		String chapter3 = "공지사항 목록";
 	%>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>게시글 목록</title>
-	<link rel="stylesheet" href="static/css/board_list.css">
+	<title>공지사항 목록</title>
+	<link rel="stylesheet" href="static/css/notice.css">
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
 </head>
@@ -28,14 +28,13 @@
 	</div>
     <div class ="container">
     	<section>
-    		<div class="board-box">
-	    		<h1 class ="board-title">게시판</h1>
-	    		<a href="board_insert.jsp" class="btn">글쓰기</a>
+    		<div class="notice-box">
+	    		<h1 class ="notice-title">공지사항</h1>
     		</div>
     		<div class="search-filter">
                 <!-- 검색ui -->
                 <div class="item">
-                    <form action="/board" method="get">
+                    <form action="/notice" method="get">
                     <select name="category" id="category" class="filter-select">
                         <option value="0">전체</option>
                         <option value="0">제목+내용</option>
@@ -49,14 +48,13 @@
             </div>
          
         </div>
-    		<table class="board-list">
+    		<table class="notice-list">
     			<thread>
     				<tr>
     					<th>No</th>
     					<th>제목</th>
     					<th>작성자</th>
     					<th>작성날짜</th>
-    					<th>좋아요</th>
     					<th>조회수</th>
     				</tr>
     			</thread>
@@ -64,81 +62,71 @@
                 <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
                 <tr>
                     <td>1</td>
-                    <td>게시글 제목 1</td>
+                    <td>공지사항 1</td>
                     <td>작성자1</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>게시글 제목 2</td>
+                    <td>공지사항 2</td>
                     <td>작성자2</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>게시글 제목 3</td>
+                    <td>공지사항 3</td>
                     <td>작성자3</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>게시글 제목 4</td>
+                    <td>공지사항 4</td>
                     <td>작성자4</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>게시글 제목 5</td>
+                    <td>공지사항 5</td>
                     <td>작성자5</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>6</td>
-                    <td>게시글 제목 6</td>
+                    <td>공지사항 6</td>
                     <td>작성자6</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>7</td>
-                    <td>게시글 제목 7</td>
+                    <td>공지사항 7</td>
                     <td>작성자7</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>8</td>
-                    <td>게시글 제목 8</td>
+                    <td>공지사항 8</td>
                     <td>작성자8</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
                 <tr>
                     <td>9</td>
-                    <td>게시글 제목 9</td>
+                    <td>공지사항 9</td>
                     <td>작성자9</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
-                </tr><tr>
+                </tr>
                     <td>10</td>
-                    <td>게시글 제목 10</td>
+                    <td>공지사항 10</td>
                     <td>작성자10</td>
                     <td>2024-10-%%</td>
-                    <td>좋아요</td>
                     <td>조회수</td>
                 </tr>
             	</tbody>

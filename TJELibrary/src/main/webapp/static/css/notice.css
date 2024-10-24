@@ -1,4 +1,4 @@
-.board-title{
+.notice-title{
 	font-size: 20px;
     margin-bottom: 20px;
 }
@@ -32,18 +32,18 @@
 }
 
 /* 게시글 목록 */
-.board-list{
+.notice-list{
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
-.board-list th, .board-list td{
+.notice-list th, .notice-list td{
     padding: 15px;
     border: 1px solid #ddd;
     text-align: center;
 }
-.board-list td:nth-of-type(2){text-align: left;}
-.board-list th{
+.notice-list td:nth-of-type(2){text-align: left;}
+.notice-list th{
     background-color: #947D69;
 }
 
@@ -84,7 +84,7 @@ a.btn{
 .btn:hover{
     filter: brightness(90%);
 }
-.board-box{
+.notice-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
