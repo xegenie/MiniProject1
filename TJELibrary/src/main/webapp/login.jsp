@@ -133,7 +133,7 @@
 				<label for="save-id" class="user-select-none">아이디 저장</label>
 			</div>
 			<div class="item">
-				<input type="checkbox" id="auto-login" name="auto-login" class="form-check-input mr-2">
+				<input type="checkbox" id="auto-login" name="auto-login" class="form-check-input me-2">
 				<label for="auto-login" class="user-select-none">자동 로그인</label>
 			</div>
 		</div>

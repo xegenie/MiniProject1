@@ -16,12 +16,6 @@
 	<jsp:include page="/layout/header.jsp" />
 	<%-- [Contents] ######################################################### --%>
 		
-	<div class="container">
-		<section>
-			<h1 class="text-title">메인 화면</h1>
-			<h3>project💻 - ALOHA CLASS🌴</h3>
-		</section>
-	</div>
 	
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
