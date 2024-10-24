@@ -1,3 +1,53 @@
 .body * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.book .no {
+	width: 173.55px;
+}
+
+.books {
+	height: 266px;
+}
+
+.Description {
+	width: 1002.45px;
+}
+
+.wishbtn {
+	color: #464646;
+	width: 60px;
+	height: 60px;
+	border-radius: 10%;
+	border: none;
+	box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+	transition: box-shadow 0.2s;
+}
+
+.wishbtn:active {
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+	background-color: #ffe6eb; /* 배경에 살짝 핑크 느낌 */
+}
+
+.fa-heart {
+	color: rgb(216, 216, 216);
+	transition: color 0.3s;
+}
+
+.active .fa-heart {
+	color: #ff7d93; /* 핑크색 */
+}
+
+.kind {
+	width: 85px;
+  font-size: 15px;
+	border: 2px solid rgb(192, 63, 192);
+	font-weight: bold;
+	color: rgb(192, 63, 192);
+	text-align: center;
+}
+
+.popular {
+  color: #4a18ff;
+  font-weight: bold;
 }
