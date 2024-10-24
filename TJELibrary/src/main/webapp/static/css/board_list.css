@@ -1,0 +1,75 @@
+.board-title{
+	font-size: var(--text-title);
+    margin-bottom: 20px;
+}
+
+.search-filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input, .search-button{
+    padding: 10px;
+    font-size: var(--text-normal);
+}
+
+.search-input{
+    flex-grow: 2;
+    margin-right: 10px;
+}
+
+.search-button{
+    flex-grow: 0.5;
+    background-color: #947D69;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+.search-button:hover{
+    filter: brightness(90%);
+}
+
+/* 게시글 목록 */
+.board-list{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.board-list th, .board-list td{
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.board-list td:nth-of-type(2){text-align: left;}
+.board-list th{
+    background-color: #947D69;
+}
+
+/* 페이지네이션 */
+.pagenation{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.page-link{
+    margin: 0 5px;
+    border: 1px solid var(--sub-color);
+    /* padding: 4px 10px; */
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.page-link:hover{
+    background-color: #947D69;
+    color: white;
+}
+.page-link.selected{
+    background-color: #947D69;
+    color: white;
+}
