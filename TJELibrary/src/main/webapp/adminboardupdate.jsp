@@ -9,23 +9,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="static/css/adminboardupdate.css">
+	<link rel="stylesheet" href="../static/css/adminboardupdate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 </head>
 <body>
-	<div>
-    <ul>
-        <p class="sub-title">관리자 페이지</p>
-        <li><a class="list" href="#">회원 관리</a></li>
-        <li><a href="#">게시글 관리</a></li>
-        <li><a href="#">댓글 관리</a></li>
-        <li><a href="#">도서 관리</a></li>
-        <li><a href="#">대출 관리</a></li>
-        <li><a href="#">희망도서 관리</a></li>
-        <li><a href="#">예약 관리</a></li>
-        <li><a href="#">공지사항</a></li>
-    </ul>
+	<%@ include file="/layout/admin/sidebar.jsp" %>
 
 <div style="margin-left:25%;padding:1px 16px;">
   <section>

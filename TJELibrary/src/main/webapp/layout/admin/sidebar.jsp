@@ -1,8 +1,6 @@
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
-<%@ include file="/layout/jstl.jsp" %>
-<%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
