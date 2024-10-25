@@ -6,13 +6,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="static/css/booklist.css">
 
 <%
 // chapter 
 String chapterTitle = "통합검색";
 String chapter1 = "HOME";
-String chapter2 = "자료검색";
+String chapter2 = "자료탐색";
 String chapter3 = "통합검색";
 %>
 <!DOCTYPE html>
@@ -22,16 +21,17 @@ String chapter3 = "통합검색";
 <title>project💻 - ALOHA CLASS🌴</title>
 <jsp:include page="/layout/meta.jsp" />
 <jsp:include page="/layout/link.jsp" />
+<link rel="stylesheet" href="static/css/book_list.css">
 </head>
 
 <body>
 	<jsp:include page="/layout/header.jsp" />
-	<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 	<%-- [Contents] ######################################################### --%>
 	<div class="pb-4 pt-5">
 		<%@ include file="/layout/chapter.jsp"%>
 	</div>
+	
 	<div class="container">
 		<div class="book d-flex border-bottom py-2">
 			<div class="head">
@@ -48,8 +48,7 @@ String chapter3 = "통합검색";
 					<div>
 						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
 					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2"
-						id="heartButton">
+					<button class="wishbtn d-flex flex-column align-items-center pt-2">
 						<i class="fa fa-heart"></i> <span>찜하기</span>
 					</button>
 				</div>
@@ -70,8 +69,7 @@ String chapter3 = "통합검색";
 					<div>
 						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
 					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2"
-						id="heartButton">
+					<button class="wishbtn d-flex flex-column align-items-center pt-2">
 						<i class="fa fa-heart"></i> <span>찜하기</span>
 					</button>
 				</div>
@@ -92,8 +90,7 @@ String chapter3 = "통합검색";
 					<div>
 						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
 					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2"
-						id="heartButton">
+					<button class="wishbtn d-flex flex-column align-items-center pt-2">
 						<i class="fa fa-heart"></i> <span>찜하기</span>
 					</button>
 				</div>
@@ -114,8 +111,7 @@ String chapter3 = "통합검색";
 					<div>
 						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
 					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2"
-						id="heartButton">
+					<button class="wishbtn d-flex flex-column align-items-center pt-2">
 						<i class="fa fa-heart"></i> <span>찜하기</span>
 					</button>
 				</div>
@@ -136,8 +132,7 @@ String chapter3 = "통합검색";
 					<div>
 						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
 					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2"
-						id="heartButton">
+					<button class="wishbtn d-flex flex-column align-items-center pt-2">
 						<i class="fa fa-heart"></i> <span>찜하기</span>
 					</button>
 				</div>
@@ -155,13 +150,16 @@ String chapter3 = "통합검색";
 	</div>
 	
 	<script>
-    const heartButton = document.getElementById('heartButton');
+	  const heartButtons = document.querySelectorAll('.wishbtn');
+	
+	  // 각 버튼에 클릭 이벤트를 개별적으로 추가합니다.
+	  heartButtons.forEach((button) => {
+	    button.addEventListener('click', () => {
+	      button.classList.toggle('active'); // 클릭 시 active 클래스 토글
+	    });
+	  });
+	</script>
 
-    // 클릭 시 active 상태를 토글합니다.
-    heartButton.addEventListener('click', () => {
-        heartButton.classList.toggle('active');
-      });
-  </script>
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
 	<jsp:include page="/layout/script.jsp" />
