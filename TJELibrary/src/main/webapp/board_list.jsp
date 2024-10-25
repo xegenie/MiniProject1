@@ -6,7 +6,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-	
 		// chapter 
 		String chapterTitle = "게시판";
 		String chapter1 = "HOME";
@@ -50,7 +49,7 @@
          
         </div>
     		<table class="board-list">
-    			<thread>
+    			<thead>
     				<tr>
     					<th>No</th>
     					<th>제목</th>
@@ -59,7 +58,7 @@
     					<th>좋아요</th>
     					<th>조회수</th>
     				</tr>
-    			</thread>
+    			</thead>
     			<tbody>
                 <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
                 <tr>
