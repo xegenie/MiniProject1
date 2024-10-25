@@ -1,14 +1,11 @@
 package tje.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import tje.DAO.BookDAO;
 import tje.DAO.UserAuthDAO;
 import tje.DAO.UserDAO;
 import tje.DTO.Book;
-import tje.DTO.User;
-import tje.DTO.UserAuth;
 
 public class BookServiceImpl implements BookService{
 
@@ -84,9 +81,30 @@ public class BookServiceImpl implements BookService{
 		else System.err.println("책 수정 실패!");
 		return result;
 	}
+	
+	
+	@Override
+	public List<Book> list() {
+		
+		List<Book> list = null;
+		
+		try {
+			list = bookDAO.list();
+		} catch (Exception e) {
+			System.err.println("책 목록 조회 실패");
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
 }
 
 
 		
 		
 		
+
+
+
+

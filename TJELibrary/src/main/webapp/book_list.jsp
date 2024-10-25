@@ -1,3 +1,8 @@
+<%@page import="tje.DTO.Book"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.DTO.BookStock"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -8,11 +13,16 @@
 
 
 <%
-// chapter 
-String chapterTitle = "통합검색";
-String chapter1 = "HOME";
-String chapter2 = "자료탐색";
-String chapter3 = "통합검색";
+	// chapter 
+	String chapterTitle = "통합검색";
+	String chapter1 = "HOME";
+	String chapter2 = "자료탐색";
+	String chapter3 = "통합검색";
+	
+	// 책 목록 조회
+	BookService bookService = new BookServiceImpl();
+	List<Book> list = bookService.list();
+	pageContext.setAttribute("list", list);
 %>
 <!DOCTYPE html>
 <html>
@@ -33,6 +43,33 @@ String chapter3 = "통합검색";
 	</div>
 	
 	<div class="container">
+		
+		<c:forEach var="book" items="${list}">
+			<div class="book d-flex border-bottom py-2">
+				<div class="head">
+					<div class="no">NO. ${ book.id }</div>
+					<img class="books" src="static/img/book1.png" />
+				</div>
+				<div class="Description px-3 d-flex flex-column row-gap-5">
+					<div class="kind rounded-5">단행본</div>
+					<div class="head">
+						<h2>${ book.title }</h2>
+					</div>
+<!-- 					<div class="middle">크리스 리코미니 지음 ; 붉은 여우 옮김 | 지식의숲 | 2024</div> -->
+					<div class="middle">${ book.author } 지음 | ${ book.publisher } | 2024 </div>
+					<div class="bottom d-flex justify-content-between align-items-end;">
+						<div>
+							<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
+						</div>
+						<button class="wishbtn d-flex flex-column align-items-center pt-2">
+							<i class="fa fa-heart"></i> <span>찜하기</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+		
+		<%--
 		<div class="book d-flex border-bottom py-2">
 			<div class="head">
 				<div class="no">NO. 1</div>
@@ -54,6 +91,8 @@ String chapter3 = "통합검색";
 				</div>
 			</div>
 		</div>
+		
+		
 		<div class="book d-flex border-bottom py-2">
 			<div class="head">
 				<div class="no">NO. 2</div>
@@ -138,6 +177,9 @@ String chapter3 = "통합검색";
 				</div>
 			</div>
 		</div>
+		
+		 --%>
+		 
 		<div class="pageNo d-flex justify-content-center column-gap-3 py-5">
 			<div class="_1">1</div>
 			<div class="_2">2</div>
