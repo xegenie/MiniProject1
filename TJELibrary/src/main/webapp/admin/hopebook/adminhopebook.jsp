@@ -194,10 +194,10 @@ td button:last-child {
           <thread>
               <tr>
                   <th>No.</th>
-                  <th>작성자 ID</th>
-                  <th>내용</th>
+                  <th>작성자</th>
+                  <th>제목</th>
                   <th>등록일자</th>
-                  <th>게시글 ID</th>
+                  <th>수정일자</th>
                   <th>관리</th>
               </tr>
           </thread>
