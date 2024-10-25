@@ -18,7 +18,7 @@ String chapter3 = "통합검색";
 <html>
 
 <head>
-<title>project💻 - ALOHA CLASS🌴</title>
+<title>도서목록</title>
 <jsp:include page="/layout/meta.jsp" />
 <jsp:include page="/layout/link.jsp" />
 <link rel="stylesheet" href="static/css/book_list.css">

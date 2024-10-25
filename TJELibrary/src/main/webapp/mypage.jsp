@@ -26,7 +26,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>project💻 - ALOHA CLASS🌴</title>
+	<title></title>
 	<link rel="stylesheet" href="static/css/mypage.css">
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
