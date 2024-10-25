@@ -12,3 +12,4 @@
 <%-- reset.css --%>  
 <link href="<%= root %>/static/css/reset.css" rel="stylesheet" />
 <link href="<%= root %>/static/css/style.css" rel="stylesheet" />
+<link href="<%= root %>/static/css/admin.css" rel="stylesheet" />

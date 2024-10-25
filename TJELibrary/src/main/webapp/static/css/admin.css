@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+.container
+{
+	width: var(--container-size);
+	margin: 0 auto;
+}
+
+section {
+	margin: 30px auto;
+	min-height: 300px;
+}
+
+.text-title {
+	font-size: 32px;
+}
+
+
+/* 배경 */
+.bg-gradient {
+	background: rgb(148,125,105) !important;
+	background: linear-gradient(90deg, rgba(148,125,105,1) 0%, rgba(156,131,109,1) 40%, rgba(238,238,238,1) 80%) !important;
+}
+.bg-gray {
+	background-color: var(--bg-gray-color);
+}
+
+
+/* 관리자 */
+.sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
