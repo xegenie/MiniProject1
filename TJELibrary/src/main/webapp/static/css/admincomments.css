@@ -8,7 +8,9 @@ ul {
     height: 100%;
     overflow: auto;
 }
-
+p{
+    font-size: 12px;
+}
 .sub-title{
     font-size: 24px; 
     font-weight: bold; 
@@ -183,7 +185,6 @@ a.btn:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    margin-left:425px;
 }
 
 td button {

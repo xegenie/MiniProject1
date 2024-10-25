@@ -8,7 +8,9 @@ ul {
     height: 100%;
     overflow: auto;
 }
-
+p{
+    font-size: 12px;
+}
 .sub-title{
     font-size: 24px; 
     font-weight: bold; 

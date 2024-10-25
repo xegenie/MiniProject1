@@ -7,9 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>관리자 게시판 목록</title>
-	<link rel="stylesheet" href="static/css/adminboardlist.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="static/css/adminboardupdate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 </head>
 <body>
 	<div>
@@ -29,7 +31,7 @@
   <section>
     <div class="container">
         <div class="title-box">
-            <h1 class="main-title">게시글 등록</h1>
+            <h1 class="main-title">게시글 수정</h1>
         </div>
         <p>제목</p>
         <div class="input-group">
@@ -37,12 +39,12 @@
         </div>
         <p>내용</p>
         <div class="input-group">
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요" ></textarea>
+            <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
         </div>
         <div class="board-box">
-	    		<a href="" class="btn">등록</a>
+	    		<a href="" class="btn">수정</a>
     		</div>
-  		<div class="rounded-search-container">
+            <div class="rounded-search-container">
                 <input type="text" class="rounded-search-input" placeholder="아이디/이름을 검색해주세요">
                 <button class="rounded-search-btn">
                     <i class="fa fa-search"></i>
@@ -199,6 +201,5 @@
 </section>
 
 </div>
-	
 </body>
 </html>
