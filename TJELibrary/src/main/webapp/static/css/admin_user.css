@@ -56,10 +56,6 @@
 	text-align: center;
 }
 
-.board-list td:nth-of-type(2) {
-	text-align: left;
-}
-
 .board-list th {
 	background-color: #4880FF;
 }
