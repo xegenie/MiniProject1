@@ -191,7 +191,7 @@ td button:last-child {
             </button>
         </div>
       <table class="board-list">
-          <thread>
+          <thead>
               <tr>
                   <th>No.</th>
                   <th>작성자 ID</th>
@@ -200,7 +200,7 @@ td button:last-child {
                   <th>게시글 ID</th>
                   <th>관리</th>
               </tr>
-          </thread>
+          </thead>
           <tbody>
           <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
           <tr>

@@ -8,7 +8,12 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<style>
-		/* 검색창 컨테이너 */
+		
+p{
+    font-size: 12px;
+}
+
+/* 검색창 컨테이너 */
 .rounded-search-container {
     display: flex;
     align-items: center;
@@ -158,7 +163,6 @@ a.btn:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    margin-left:425px;
 }
 
 td button {
@@ -175,20 +179,16 @@ td button:last-child {
     background-color: #f44336; 
 }
 	</style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
 </head>
 <body>
-<div>
-	<%@ include file="/layout/admin/sidebar.jsp" %>
-</div>
-
-
-<div style="margin-left:15%;padding:1px 16px;">
+	<div>
+		<%@ include file="/layout/admin/sidebar.jsp" %>
+	</div>
+	<div style="margin-left:25%;padding:1px 16px;">
   <section>
     <div class="container">
         <div class="title-box">
-            <h1 class="main-title">게시글 수정</h1>
+            <h1 class="main-title">공지사항 수정</h1>
         </div>
         <p>제목</p>
         <div class="input-group">
