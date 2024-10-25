@@ -1,30 +1,18 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/layout/jstl.jsp" %>
+<%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>관리자 게시판 목록</title>
-	<link rel="stylesheet" href="static/css/adminboardlist.css">
+	<link rel="stylesheet" href="adminboardlist.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-	<div>
-    <ul>
-        <p class="sub-title">관리자 페이지</p>
-        <li><a class="list" href="#">회원 관리</a></li>
-        <li><a href="#">게시글 관리</a></li>
-        <li><a href="#">댓글 관리</a></li>
-        <li><a href="#">도서 관리</a></li>
-        <li><a href="#">대출 관리</a></li>
-        <li><a href="#">희망도서 관리</a></li>
-        <li><a href="#">예약 관리</a></li>
-        <li><a href="#">공지사항</a></li>
-    </ul>
-
+<div>
+	<%@ include file="/layout/admin/sidebar.jsp" %>
+</div>
 <div style="margin-left:25%;padding:1px 16px;">
   <section>
     <div class="container">
@@ -50,7 +38,7 @@
             </div>
 </div>
 <table class="board-list">
-    <thread>
+    <thead>
         <tr>
             <th>No.</th>
             <th>제목</th>
@@ -60,7 +48,7 @@
             <th>조회수</th>
             <th>관리</th>
         </tr>
-    </thread>
+    </thead>
     <tbody>
     <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
     <tr>
