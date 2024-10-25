@@ -33,7 +33,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>대출 이력</title>
 	<link rel="stylesheet" href="static/css/loanHistory.css">
 </head>
 <body>

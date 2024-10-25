@@ -24,19 +24,19 @@
 
 			<div class="item2 d-flex flex-column row-gap-3 align-items-end">
 				<div class="no">
-					<span>No.</span> <input type="text">
+					<span>No.</span> <input type="text" placeholder="1">
 				</div>
 				<div class="id">
-					<span>ID</span> <input type="text">
+					<span>ID</span> <input type="text" placeholder="kimjoeun">
 				</div>
 				<div class="name">
-					<span>이름</span> <input type="text">
+					<span>이름</span> <input type="text" placeholder="김조은">
 				</div>
 				<div class="email">
-					<span>이메일</span> <input type="text">
+					<span>이메일</span> <input type="text" placeholder="kimjoeun@gmail.com">
 				</div>
 				<div class="phoneNo">
-					<span>핸드폰 번호</span> <input type="text">
+					<span>핸드폰 번호</span> <input type="text" placeholder="010-0000-0000">
 				</div>
 			</div>
 			<div class="insertBox mt-4 d-flex justify-content-end">
@@ -74,7 +74,7 @@
 					<td>email@gmail.com</td>
 					<td>phone_number</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -85,7 +85,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -96,7 +96,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -107,7 +107,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -118,7 +118,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -129,7 +129,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -140,7 +140,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -151,7 +151,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -162,7 +162,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>
@@ -173,7 +173,7 @@
 					<td>2024-10-%%</td>
 					<td>좋아요</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
 						<button type="button" onclick="deletePost()">삭제</button>
 					</td>
 				</tr>

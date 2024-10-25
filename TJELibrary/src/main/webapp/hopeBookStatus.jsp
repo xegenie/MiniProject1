@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>희망 도서</title>
 </head>
 <body>
 	<jsp:include page="mypage.jsp" />

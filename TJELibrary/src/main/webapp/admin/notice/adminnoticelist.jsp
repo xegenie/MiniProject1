@@ -230,7 +230,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -242,7 +242,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -254,7 +254,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -266,7 +266,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -278,7 +278,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -290,7 +290,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -302,7 +302,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -314,7 +314,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
@@ -326,7 +326,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr><tr>
@@ -337,7 +337,7 @@
         <td>좋아요</td>
         <td>조회수</td>
         <td>
-            <button type="button" onclick="editPost()">수정</button>
+            <button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>

@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>대출 현황</title>
 </head>
 <body>
 	

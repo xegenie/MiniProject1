@@ -15,7 +15,6 @@ String chapter3 = "고급검색";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>project💻 - ALOHA CLASS🌴</title>
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
 </head>

@@ -16,7 +16,7 @@ String chapter3 = "상세정보";
 <!DOCTYPE html>
 <html>
 <head>
-<title>project💻 - ALOHA CLASS🌴</title>
+<title>상세정보</title>
 <jsp:include page="/layout/meta.jsp" />
 <jsp:include page="/layout/link.jsp" />
 <link rel="stylesheet" href="static/css/book_detail.css">
