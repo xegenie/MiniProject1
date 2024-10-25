@@ -18,13 +18,13 @@ public class FilesDAO extends BaseDAOImpl<Files> {
 		Files files = new Files();
 		files.setNo(rs.getInt("no"));
 		files.setPTable(rs.getString("p_table"));
+		files.setPId(rs.getInt("p_id"));
 		files.setFileType(rs.getString("file_type"));
 		files.setFileName(rs.getString("file_name"));
 		files.setFilePath(rs.getString("file_path"));
 		files.setFileSize(rs.getInt("file_size"));
 		files.setCreateAt(rs.getDate("create_at"));
 		files.setUpdatedAt(rs.getDate("updated_at"));
-		files.setBbType(rs.getString("bb_type"));
 		return files;
 	}
 

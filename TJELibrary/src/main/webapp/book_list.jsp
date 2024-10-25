@@ -1,3 +1,5 @@
+<%@page import="com.alohaclass.jdbc.dto.Page"%>
+<%@page import="com.alohaclass.jdbc.dto.PageInfo"%>
 <%@page import="tje.DTO.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="tje.Service.BookServiceImpl"%>
@@ -19,10 +21,16 @@
 	String chapter2 = "자료탐색";
 	String chapter3 = "통합검색";
 	
+	String pageNoStr = request.getParameter("pageNo");
+	int pageNo = pageNoStr == null ? 1 : Integer.parseInt(pageNoStr);
+	
 	// 책 목록 조회
 	BookService bookService = new BookServiceImpl();
-	List<Book> list = bookService.list();
+	PageInfo<Book> pageInfo = bookService.page(pageNo, 5);
+	List<Book> list = pageInfo.getList();
+	Page pageObj = pageInfo.getPage();
 	pageContext.setAttribute("list", list);
+	pageContext.setAttribute("page", pageObj);
 %>
 <!DOCTYPE html>
 <html>
@@ -69,125 +77,24 @@
 			</div>
 		</c:forEach>
 		
-		<%--
-		<div class="book d-flex border-bottom py-2">
-			<div class="head">
-				<div class="no">NO. 1</div>
-				<img class="books" src="static/img/book1.png" />
-			</div>
-			<div class="Description px-3 d-flex flex-column row-gap-5">
-				<div class="kind rounded-5">단행본</div>
-				<div class="head">
-					<h2>필독! 개발자 온보딩 가이드</h2>
-				</div>
-				<div class="middle">크리스 리코미니 지음 ; 붉은 여우 옮김 | 지식의숲 | 2024</div>
-				<div class="bottom d-flex justify-content-between align-items-end;">
-					<div>
-						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
-					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2">
-						<i class="fa fa-heart"></i> <span>찜하기</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="book d-flex border-bottom py-2">
-			<div class="head">
-				<div class="no">NO. 2</div>
-				<img class="books" src="static/img/book2.png" />
-			</div>
-			<div class="Description px-3 d-flex flex-column row-gap-5">
-				<div class="kind rounded-5">단행본</div>
-				<div class="head">
-					<h2>세상에서 가장 쉬운 코딩책</h2>
-				</div>
-				<div class="middle">위캔코딩 지음 ; 붉은 여우 옮김 | 지식의숲 | 2024</div>
-				<div class="bottom d-flex justify-content-between align-items-end;">
-					<div>
-						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
-					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2">
-						<i class="fa fa-heart"></i> <span>찜하기</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="book d-flex border-bottom py-2">
-			<div class="head">
-				<div class="no">NO. 3</div>
-				<img class="books" src="static/img/book3.png" />
-			</div>
-			<div class="Description px-3 d-flex flex-column row-gap-5">
-				<div class="kind rounded-5">단행본</div>
-				<div class="head">
-					<h2>어떤 개발자가 되고 싶니?</h2>
-				</div>
-				<div class="middle">박동기 글; 송진욱 그림; 안미연 옮김 | 좋은책어린이 | 2024</div>
-				<div class="bottom d-flex justify-content-between align-items-end;">
-					<div>
-						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
-					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2">
-						<i class="fa fa-heart"></i> <span>찜하기</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="book d-flex border-bottom py-2">
-			<div class="head">
-				<div class="no">NO. 4</div>
-				<img class="books" src="static/img/book4.png" />
-			</div>
-			<div class="Description px-3 d-flex flex-column row-gap-5">
-				<div class="kind rounded-5">단행본</div>
-				<div class="head">
-					<h2>GPT 제너레이션</h2>
-				</div>
-				<div class="middle">이시한 지음; 김난령 옮김; 최승혜 그림 | 좋은책어린이 | 2024</div>
-				<div class="bottom d-flex justify-content-between align-items-end;">
-					<div>
-						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
-					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2">
-						<i class="fa fa-heart"></i> <span>찜하기</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="book d-flex border-bottom py-2">
-			<div class="head">
-				<div class="no">NO. 5</div>
-				<img class="books" src="static/img/book5.png" />
-			</div>
-			<div class="Description px-3 d-flex flex-column row-gap-5">
-				<div class="kind rounded-5">단행본</div>
-				<div class="head">
-					<h2>챗 GPT</h2>
-				</div>
-				<div class="middle">반병현 지음 | 행복우물 | 2024</div>
-				<div class="bottom d-flex justify-content-between align-items-end;">
-					<div>
-						<span class="popular">인기도서</span> <span>&nbsp;|&nbsp;도서정보</span>
-					</div>
-					<button class="wishbtn d-flex flex-column align-items-center pt-2">
-						<i class="fa fa-heart"></i> <span>찜하기</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		
-		 --%>
-		 
 		<div class="pageNo d-flex justify-content-center column-gap-3 py-5">
-			<div class="_1">1</div>
-			<div class="_2">2</div>
-			<div class="_3">3</div>
-			<div class="_4">4</div>
-			<div class="_5">5</div>
-			<div class="div7">&gt;</div>
-			<div class="div8">&gt;&gt;</div>
+		    <div>
+		    	<a href="<%= root %>/book_list.jsp?pageNo=${page.first}">&lt;&lt;</a>
+		    </div>
+		    <div>
+		    	<a href="<%= root %>/book_list.jsp?pageNo=${page.prev}">&lt;</a>
+		    </div>
+		    <c:forEach var="i" begin="${page.start}" end="${page.end}">
+		        <div class="${i == page.page ? 'active' : ''}">
+		        	<a href="<%= root %>/book_list.jsp?pageNo=${i}">${i}</a>
+		        </div>
+		    </c:forEach>
+		    <div>
+		    	<a href="<%= root %>/book_list.jsp?pageNo=${page.next}">&gt;</a>
+		    </div>
+		    <div>
+		    	<a href="<%= root %>/book_list.jsp?pageNo=${page.last}">&gt;&gt;</a>
+		    </div>
 		</div>
 	</div>
 	

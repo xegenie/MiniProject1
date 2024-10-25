@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Book {
 
-		private int id;
-		private String isbn;
-		private String title;
-		private String author;
-		private String publisher;
-		private String outline;
-		
-	}
+	private int id;
+	private String isbn;
+	private String title;
+	private String author;
+	private String publisher;
+	private String outline;
 	
+}
+
