@@ -126,6 +126,7 @@
 	    border-radius: 6px;
 	    border : 1px solid #ddd;
 	    outline: none;
+	    z-index:-1;
 	}
 	
 	.input-group textarea{
@@ -135,6 +136,7 @@
 	    border : 1px solid #ddd;
 	    outline: none;
 	    resize: none;
+	    z-index:-1;
 	}
 	
 	a.btn {
@@ -180,7 +182,7 @@
 	<div>
 		<%@ include file="/layout/admin/sidebar.jsp" %>
 	</div>
-<div style="margin-left:10%;padding:1px 16px;">
+<div style="margin-left:15%;padding:1px 16px;">
   <section>
     <div class="container">
         <div class="title-box">
