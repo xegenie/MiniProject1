@@ -130,11 +130,10 @@
     <thead>
         <tr>
             <th>No.</th>
-            <th>제목</th>
-            <th>작성자</th>
+            <th>도서명</th>
+            <th>저자</th>
             <th>작성날짜</th>
-            <th>좋아요</th>
-            <th>조회수</th>
+            <th>출판사</th>
             <th>관리</th>
         </tr>
     </thead>
@@ -145,7 +144,6 @@
         <td>게시글 제목 1</td>
         <td>작성자1</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -157,7 +155,6 @@
         <td>게시글 제목 2</td>
         <td>작성자2</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -169,7 +166,6 @@
         <td>게시글 제목 3</td>
         <td>작성자3</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -181,7 +177,6 @@
         <td>게시글 제목 4</td>
         <td>작성자4</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -193,7 +188,6 @@
         <td>게시글 제목 5</td>
         <td>작성자5</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -205,7 +199,6 @@
         <td>게시글 제목 6</td>
         <td>작성자6</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -217,7 +210,6 @@
         <td>게시글 제목 7</td>
         <td>작성자7</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -229,7 +221,6 @@
         <td>게시글 제목 8</td>
         <td>작성자8</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -241,7 +232,6 @@
         <td>게시글 제목 9</td>
         <td>작성자9</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
@@ -252,7 +242,6 @@
         <td>게시글 제목 10</td>
         <td>작성자10</td>
         <td>2024-10-%%</td>
-        <td>좋아요</td>
         <td>조회수</td>
         <td>
             <button type="button" onclick="editPost()">수정</button>
