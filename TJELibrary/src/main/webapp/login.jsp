@@ -136,8 +136,8 @@
 				<label for="auto-login" class="user-select-none">자동 로그인</label>
 			</div>
 		</div>
-        <button type="submit" class="login-button">로그인</button>
-        <button class="text-center my-3 text-danger btn">회원가입하러 가기</button>
+        <button type="submit" class="login-button mb-3">로그인</button>
+        <a href="signup.jsp" class="text-center my-3 text-danger">회원가입하러 가기</a>
       </form>
     </div>
   </div>
