@@ -15,11 +15,11 @@
 	<main>
 		<div class="container"> <!-- 버튼과 표 -->
 				<div class="row d-flex text-center bg-gray"> <!-- 버튼 -->
-					<div onClick="location.href='#'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">대출 현황</div>
-					<div onClick="location.href='#'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">대출 이력</div>
-					<div onClick="location.href='#'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">예약 현황</div>
-					<div onClick="location.href='#'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">찜한 도서</div>
-					<div class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtnnow">희망 도서</div>
+					<div onClick="location.href='loanStatus.jsp'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">대출 현황</div>
+					<div onClick="location.href='loanHistory.jsp'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">대출 이력</div>
+					<div onClick="location.href='reservationStatus.jsp'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">예약 현황</div>
+					<div onClick="location.href='wishList.jsp'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtn">찜한 도서</div>
+					<div onClick="location.href='hopeBookSatus.jsp'" class="border border-white col-2 border justify-content-center flex-fill py-2 mpbtnnow"><a href="hopeBookStatus.jsp">희망 도서</a></div>
 			</div>
 			<div class="pt-3">
 				<table class="table">
