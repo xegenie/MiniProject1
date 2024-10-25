@@ -1,0 +1,181 @@
+ul {
+    list-style-type: none;
+    background-color: white;
+    width: 25%;
+    padding: 0;
+    margin:  0;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sub-title{
+    font-size: 24px; 
+    font-weight: bold; 
+    text-align: center;
+}
+li{
+    padding: 15px;
+}
+li a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 8px 15px 8px 15px;
+    font-weight: bold;
+}
+
+li a.list {
+    background-color: #4880FF;
+    color: #fff;
+}
+
+li a:hover:not(.job) {
+    background-color: skyblue;
+    color: #fff;
+}
+
+.search-input, .search-button{
+    padding: 10px;
+    font-size: var(--text-normal);
+}
+
+.search-input{
+    flex-grow: 2;
+    margin-right: 10px;
+}
+
+.search-button{
+    flex-grow: 0.5;
+    background-color: #4880FF;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+.search-button:hover{
+    filter: brightness(90%);
+}
+
+/* 게시글 목록 */
+.board-list{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.board-list th, .board-list td{
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.board-list td:nth-of-type(2){text-align: left;}
+.board-list th{
+    background-color: #4880FF;
+}
+
+/* 페이지네이션 */
+.pagenation{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.page-link{
+    margin: 0 5px;
+    border: 1px solid var(--sub-color);
+    /* padding: 4px 10px; */
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.page-link:hover{
+    background-color: #4880FF;
+    color: white;
+}
+.page-link.selected{
+    background-color: #4880FF;
+    color: white;
+}
+
+/* 게시글 등록 */
+.title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:10px;
+
+}
+
+.main-title{
+	font-size: 30px;
+}
+
+.input-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom:10px;
+    margin-top: 10px;
+}
+
+.input-group label{
+    width: 10%;
+    text-align: center;
+    font-size:20px;
+}
+
+
+.input-group input{
+    width: 500px;
+    padding: 10px 6px;
+    border-radius: 6px;
+    border : 1px solid #ddd;
+    outline: none;
+}
+
+.input-group textarea{
+    width: 645px;
+    padding-left: 6px;
+    border-radius: 6px;
+    border : 1px solid #ddd;
+    outline: none;
+    resize: none;
+}
+
+a.btn{
+    padding: 8px 100px;
+    background-color: #4880FF;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn:hover{
+    filter: brightness(90%);
+}
+.board-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+td button {
+    margin-right: 5px; /* 버튼 사이의 간격 조정 */
+    padding: 5px 10px; /* 버튼의 안쪽 여백 조정 */
+    background-color: #4CAF50; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색 */
+    border: none; /* 테두리 제거 */
+    border-radius: 3px; /* 버튼 모서리 둥글게 */
+    cursor: pointer; /* 커서 모양 변경 */
+}
+
+td button:last-child {
+    background-color: #f44336; /* 삭제 버튼은 다른 색상으로 */
+}
