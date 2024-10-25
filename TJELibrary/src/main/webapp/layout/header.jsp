@@ -13,9 +13,9 @@
 			<div class="container">
 				<div class="d-flex justify-content-end">
 					<div class="inner d-flex column-gap-3">
-							<a href="">로그인</a>
-							<a href="">내서재</a>
-							<a href="">회원가입</a>
+							<a href="login.jsp">로그인</a>
+							<a href="loanStatus.jsp">내서재</a>
+							<a href="signup.jsp">회원가입</a>
 					</div>
 				</div>
 			</div>	
@@ -24,9 +24,9 @@
 		<div class="container1">
 			<div class="d-flex align-items-center justify-content-center column-gap-5 py-3 me-5">
 				<div class="item">
-					<a href=""><img class="logo" src="<%= root %>/static/img/logo.png" /></a>
+					<a href="index.jsp"><img class="logo" src="<%= root %>/static/img/logo.png" /></a>
 				</div>
-				<div class="item ">
+				<div class="item">
 					<div class="background-border d-flex justify-content-start align-items-center column-gap-5">
 							<input class="input-search" placeholder="도서검색" />
 						<a href="" class="search">
@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<a href="/" class="btn-custom">고급검색</a>
+					<a href="search.jsp" class="btn-custom">고급검색</a>
 				</div>
 
 			</div>
