@@ -144,14 +144,6 @@
           <input type="phoneNo" id="phoneNo" placeholder="••••••••••">
         </div>
 		<div class="d-flex justify-content-start align-items-center column-gap-3 mb-3">
-			<div class="item">
-				<input type="checkbox" id="save-id" name="save-id" class="form-check-input me-2"> 
-				<label for="save-id" class="user-select-none">아이디 저장</label>
-			</div>
-			<div class="item">
-				<input type="checkbox" id="auto-login" name="auto-login" class="form-check-input me-2">
-				<label for="auto-login" class="user-select-none">자동 로그인</label>
-			</div>
 		</div>
         <button type="submit" class="login-button">가입하기</button><br>
          <button type="submit" class="login-button">뒤로가기</button>
