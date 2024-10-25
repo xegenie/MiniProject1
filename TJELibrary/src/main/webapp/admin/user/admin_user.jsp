@@ -49,6 +49,14 @@
 	</div>
 
 	<%-- [Contents] ######################################################### --%>
+	<script>
+	// 예약완료 알림 표시
+    const insert = document.querySelector('.insertBtn');
+
+    insert.addEventListener('click', () => {
+      alert('등록 완료!');
+    });
+  </script>
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>

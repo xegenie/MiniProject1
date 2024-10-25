@@ -31,3 +31,7 @@
 	background-color: #3965cc;
 	transform: scale(0.98); /* 살짝 눌린 효과 */
 }
+
+.item2 .insertBtn:hover {
+	background-color: #c0d3ff;
+}
