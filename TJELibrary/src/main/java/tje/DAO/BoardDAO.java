@@ -11,7 +11,7 @@ public class BoardDAO extends BaseDAOImpl<Board>{
 	@Override
 	public Board map(ResultSet rs) throws Exception {
 		Board board = new Board();
-		board.setBoardID(rs.getInt("id"));
+		board.setBoardNo(rs.getInt("board_id"));
 		board.setTitle(rs.getString("title"));
 		board.setContent(rs.getString("content"));
 		board.setWriter(rs.getString("writer"));
@@ -23,7 +23,7 @@ public class BoardDAO extends BaseDAOImpl<Board>{
 	
 	@Override
 	public String pk() {
-		return "id";
+		return "board_id";
 	}
 
 	@Override

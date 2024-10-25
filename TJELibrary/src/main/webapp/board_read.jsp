@@ -1,3 +1,7 @@
+<%@page import="tje.DTO.Board"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.BoardServiceImpl"%>
+<%@page import="tje.Service.BoardService"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -12,6 +16,11 @@
 		String chapter1 = "HOME";
 		String chapter2 = "게시판";
 		String chapter3 = "댓글";
+		
+		int boardNo = Integer.parseInt(request.getParameter("no"));
+	    BoardService boardService = new BoardServiceImpl();
+	    Board board = boardService.select(boardNo);
+	    pageContext.setAttribute("board", board);
 	%>
 <html>
 <head>
@@ -29,27 +38,16 @@
 	<div class="container">
         <section>
         <div class="title">
-            <label for="title">고1인데 개발을 배워보려고 합니다.</label>
+            <label for="title">${board.title}</label>
         </div>
         <div>
-        	<p>익명게시판 2일전 조회수 26</p>
+        	<p>${board.writer} ${board.regDate}</p>
         </div>
         <hr>
         <div class="content">
-        	<h3>내용dddddddddddddddddddddddddddddddddddddddddd<br>
-       		dddddddddddddddddddddddddd</h3>
+        	<h3>${board.content}</h3>
         </div>
         <hr>
-        <div class="img-container">
-        <div class="heart-group">
-		    <img class="icon1" src="static/img/heart.png">
-		    <p>0</p>
-	    </div>
-	    <div class="answer-group">
-		    <img class="icon4" src="static/img/answer.png">
-		    <p>0</p>
-	    </div>
-	    </div>
         <div class="input-group">
 		    <textarea name="content" id="content" cols="30" rows="10"></textarea>
 		</div>
