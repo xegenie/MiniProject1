@@ -4,10 +4,23 @@
     background-size: cover;
     background-position: center;
     height: 100vh; /* 화면 전체 높이 */
-	padding-top: 3rem;
 }
 .mainicon {
 	font-size:60px;
 	line-height: 60px;
 	color: #ffffff;
+}
+
+.bookhead {
+	background-color:rgba(54, 18, 18, 0.3);
+	color: #ffffff;
+	border-top-color:rgba(122, 57, 0, 1);
+	border-bottom-color: rgba(122, 57, 0, 1);
+	border-width: 3px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+.bookimg {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
