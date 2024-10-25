@@ -25,9 +25,11 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Board select(int boardID) {
+    	System.out.println(boardID);
         Board board = null;
         try {
             board = boardDAO.select(boardID);
+            System.out.println(board);
         } catch (Exception e) {
             e.printStackTrace();  // 예외 처리
         }
