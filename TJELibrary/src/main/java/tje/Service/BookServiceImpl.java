@@ -1,11 +1,14 @@
 package tje.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import tje.DAO.BookDAO;
 import tje.DAO.UserAuthDAO;
 import tje.DAO.UserDAO;
 import tje.DTO.Book;
+import tje.DTO.User;
 
 public class BookServiceImpl implements BookService{
 

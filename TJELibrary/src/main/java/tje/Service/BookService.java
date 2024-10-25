@@ -3,6 +3,7 @@ package tje.Service;
 import java.util.List;
 
 import tje.DTO.Book;
+import tje.DTO.User;
 
 public interface BookService {
 	
