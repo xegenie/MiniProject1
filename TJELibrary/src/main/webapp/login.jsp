@@ -6,7 +6,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
 	<style>
@@ -117,7 +116,7 @@
 <body>
   <div class="login-container">
     <div class="form-wrapper">
-      <h1 class="heading">Manager<br>Sign in</h1>
+      <h1 class="heading">Sign in</h1>
       <form class="sign-in-form">
         <div class="input-container">
           <label for="username">아이디</label>
