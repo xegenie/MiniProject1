@@ -1,3 +1,5 @@
+<%@page import="tje.Service.RentalSerivceImpl"%>
+<%@page import="tje.Service.RentalService"%>
 <%@page import="tje.DTO.RentalList"%>
 <%@page import="java.util.List"%>
 <%@page import="tje.Service.BookServiceImpl"%>
@@ -21,12 +23,12 @@
 // 	user = userService.select(id);
 	user = userService.select("joeun");
 	
-	RentalList rentalList = new RentalList();
+	RentalService rentalService = new RentalSerivceImpl();
+	List<RentalList> rentalList = rentalService.selectlist(user);
+	int count = rentalList.size();
 	
-	Book book = new Book();
+	Book book = null;
 	BookService bookService = new BookServiceImpl();
-	List<Book> booklist = bookService.selectbyId(user);
-	int count = booklist.size();
 	
 %>
 <!DOCTYPE html>
@@ -63,17 +65,30 @@
 				  </thead>
 				  <tbody class="table-group-divider text-center">
 				  <%
-				  	for(int i=0; i<count; i++){
+// 				  	for(int i=0; i<count; i++){
+// 				  		RentalList rl = rentalList.get(i);
+// 				  		book = bookService.select(rl.getBookId());
 				  %>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>2024/09/05</td>
-				      <td>2024/09/05</td>
-				      <td>반납</td>
-				    </tr>
+					    <tr>
+<%-- 					      <th scope="row"><%= i+1 %></th> --%>
+					      <td><%=book.getTitle() %></td>
+<%-- 					      <td><%=rl.getRentalDate() %></td> --%>
+					      <%
+// 							if(rl.getReturnDate() == null) {						      
+					      %>
+					      		<td>-</td>
+					      <%
+// 							} else {
+					      %>
+<%-- 					      		<td><%= rl.getReturnDate() %></td> --%>
+					      <%
+// 							}
+					      %>
+					      
+					      <td>반납</td>
+					    </tr>
 				   <%
-				  	}
+// 				  	}
 				   %>
 				  </tbody>
 				</table>
