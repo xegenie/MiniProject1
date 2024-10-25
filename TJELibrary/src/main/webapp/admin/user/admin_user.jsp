@@ -11,9 +11,12 @@
 	<title>관리자 회원관리</title>
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
-	<link rel="stylesheet" href="static/css/admin_user.css">
+	<link rel="stylesheet" href="<%= root %>/static/css/admin_user.css">
 </head>
 <body>
+	<div>
+	<jsp:include page="/layout/admin/sidebar.jsp" />
+	</div>
 	<%-- [Contents] ######################################################### --%>
 	<div class="container border-bottom border-end">
 		<div class="insert rounded-3 m-5">
