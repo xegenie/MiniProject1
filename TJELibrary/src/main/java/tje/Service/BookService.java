@@ -2,6 +2,8 @@ package tje.Service;
 
 import java.util.List;
 
+import com.alohaclass.jdbc.dto.PageInfo;
+
 import tje.DTO.Book;
 import tje.DTO.User;
 
@@ -11,7 +13,7 @@ public interface BookService {
 	public List<Book> list();
 	
 	// 책 목록 페이징
-	// TODO: 
+	public PageInfo<Book> page(int pageNo, int size);
 
 	// 책 정보 조회
 	public Book select(int id);
@@ -25,4 +27,9 @@ public interface BookService {
 	// 책 수정
 	public int update(Book book);
 	
+	// 북 id 최댓값
+	public int max();
 }
+
+
+

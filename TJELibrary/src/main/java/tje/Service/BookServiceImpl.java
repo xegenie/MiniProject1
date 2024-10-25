@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alohaclass.jdbc.dto.Page;
+import com.alohaclass.jdbc.dto.PageInfo;
+
 import tje.DAO.BookDAO;
 import tje.DAO.UserAuthDAO;
 import tje.DAO.UserDAO;
@@ -101,12 +104,35 @@ public class BookServiceImpl implements BookService{
 		
 		return list;
 	}
+	@Override
+	public int max() {
+		return bookDAO.max();
+	}
+	
+	@Override
+	public PageInfo<Book> page(int pageNo, int size) {
+		Page page = new Page();
+		page.setPage(pageNo);
+		page.setSize(size);
+		page.calc();
+		PageInfo<Book> pageInfo = null;
+		try {
+			pageInfo = bookDAO.page(page);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pageInfo;
+	}
 }
 
 
 		
 		
 		
+
+
+
+
 
 
 
