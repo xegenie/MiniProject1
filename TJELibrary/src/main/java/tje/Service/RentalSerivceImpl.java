@@ -1,8 +1,13 @@
 package tje.Service;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import tje.DAO.BookStockDAO;
@@ -132,37 +137,73 @@ public class RentalSerivceImpl implements RentalService {
 	public int rental(BookStock bookStock, User user) {
 		// 대출
 		
-		int result = 0;
+		BookStock dbBookStock = null;
+		RentalList dbRentalList = null;
 		
-		RentalList rentalList = new RentalList();
-		BookStock bookstock = new BookStock();
+		Map<Object, Object> fields = new HashMap<Object, Object>() {{
+            put("stock_id", bookStock.getStockId());
+            put("book_id", bookStock.getBookId());
+        }};
+        
+        Map<Object, Object> fields2 = new HashMap<Object, Object>() {{
+        	put("id", user.getId());
+            put("stock_id", bookStock.getStockId());
+            put("book_id", bookStock.getBookId());
+            put("state", "예약");
+        }};
+        
+		try {
+			dbBookStock = bookStockDAO.selectBy(fields);
+		} catch (Exception e) {
+			System.err.println("대출 중 bookStockDAO.selectBy()에서 에러 발생");
+			e.printStackTrace();
+		}
+		if (dbBookStock.getStatus().equals("대출 불가")) {
+			return 0;
+		} else if(dbBookStock.getStatus().equals("예약 중")){
+			try {
+				dbRentalList = rentalListDAO.selectBy(fields2);
+			} catch (Exception e) {
+				System.err.println("대출 중 rentalListDAO.selectBy()");
+				e.printStackTrace();
+			}
+			if(dbRentalList==null) return 0;
+			try {
+				rentalListDAO.deleteBy(fields2);
+			} catch (Exception e) {
+				System.err.println("대출 중 rentalListDAO.deleteBy(fields2)");
+				e.printStackTrace();
+			}
+		}
 		
-		rentalList.setId(user.getId());
-		rentalList.setBookId(bookstock.getBookId());
-		rentalList.setStockId(bookstock.getStockId());
-		rentalList.setState("대출");
+		RentalList rsRentalList = new RentalList();
+		rsRentalList.setId(user.getId());
+		rsRentalList.setBookId(bookStock.getBookId());
+		rsRentalList.setStockId(bookStock.getStockId());
+		rsRentalList.setState("대출");
+		LocalDate localDate = LocalDate.now();
+		Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+		Date date = Date.from(instant);
+		rsRentalList.setRentalDate(date);
 		
 		try {
-			result = rentalListDAO.insert(rentalList);
-			if ( result > 0 ) System.out.println("대출 등록 성공!");
+			rentalListDAO.insert(rsRentalList);
 		} catch (Exception e) {
 			System.err.println("대출 등록 실패!");
 			e.printStackTrace();
-			if ( result == 0 ) return 0;
 		}
 		
-		int statusResult = 0;
-		bookstock.setStatus("대출 불가");
+		BookStock rsBookStock = new BookStock();
+		rsBookStock.setBookId(bookStock.getBookId());
+		rsBookStock.setStockId(bookStock.getStockId());
+		rsBookStock.setStatus("대출 불가");
 		try {
-			statusResult = bookStockDAO.update(bookstock);
-			if ( statusResult > 0 ) System.out.println("스테이터스 등록 성공!");
+			bookStockDAO.update(rsBookStock, "status");
 		} catch (Exception e) {
 			System.err.println("스테이터스 변경 실패!");
 			e.printStackTrace();
-			if ( statusResult == 0 ) return 0;
 		}
-		
-		return statusResult;
+		return 1;
 	}
 
 	@Override
@@ -171,14 +212,37 @@ public class RentalSerivceImpl implements RentalService {
 		int result = 0;
 		
 		RentalList rentalList = new RentalList();
-		BookStock bookstock = new BookStock();
 		
 		rentalList.setId(user.getId());
-		rentalList.setBookId(bookstock.getBookId());
-		rentalList.setStockId(bookstock.getStockId());
-		rentalList.setState("반납");
+		rentalList.setBookId(bookStock.getBookId());
+		rentalList.setStockId(bookStock.getStockId());
+		rentalList.setState("대출");	
 		
-		long a = overdue(bookstock, user);
+		LocalDate localDate = LocalDate.now();
+		Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+		Date date = Date.from(instant);
+		rentalList.setReturnDate(date);
+		
+		try {
+			rentalListDAO.update(rentalList, "return_date");
+		} catch (Exception e) {
+			System.err.println("반납 중 rentalListDAO.update(rentalList, \"return_date\")");
+			e.printStackTrace();
+		}
+		
+		// 대출 상태
+		int statusResult = 0;
+		bookStock.setStatus("대출 가능");
+		try {
+			statusResult = bookStockDAO.update(bookStock);
+			if ( statusResult > 0 ) System.out.println("스테이터스 등록 성공!");
+		} catch (Exception e) {
+			System.err.println("스테이터스 변경 실패!");
+			e.printStackTrace();
+			if ( statusResult == 0 ) return 0;
+		}
+		
+		long a = overdue(bookStock, user);
 		
 		if ( a > 0 ) {
 			rentalList.setOverDate((int)a);
@@ -193,19 +257,32 @@ public class RentalSerivceImpl implements RentalService {
 		}
 		if ( result == 0 ) return 0;
 		
-		// 대출 상태
-		int statusResult = 0;
-		bookstock.setStatus("대출 가능");
+		rentalList.setState("반납");
 		try {
-			statusResult = bookStockDAO.update(bookstock);
-			if ( statusResult > 0 ) System.out.println("스테이터스 등록 성공!");
+			rentalListDAO.update(rentalList, "state");
 		} catch (Exception e) {
-			System.err.println("스테이터스 변경 실패!");
+			System.err.println("반납 중 rentalListDAO.update(rentalList, \"state\");");
 			e.printStackTrace();
-			if ( statusResult == 0 ) return 0;
 		}
 		
 		return statusResult;
+	}
+
+	@Override
+	public List<RentalList> selectlist(User user) {
+		List<RentalList> rentalListlist = null;
+		RentalListDAO rentalListDAO = new RentalListDAO();
+		Map<Object, Object> fields = new HashMap<Object, Object>() {{
+            put("id", user.getId());
+        }};
+        try {
+			rentalListlist = rentalListDAO.listBy(fields);
+		} catch (Exception e) {
+			System.out.println("대출내역목록조회 중 오류 발생");
+			e.printStackTrace();
+		}
+        if (rentalListlist == null) return null;
+		return rentalListlist;
 	}
 
 }
