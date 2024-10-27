@@ -16,9 +16,10 @@
 		String chapter2 = "게시판";
 		String chapter3 = "게시글 목록";
 		
+		String bType = "게시판";
 		BoardService boardService = new BoardServiceImpl();
-		List<Board> list = boardService.list();
-		pageContext.setAttribute("Boardlist",list);
+		List<Board> list = boardService.listByType(bType); // 인스턴스 메서드 호출
+		pageContext.setAttribute("Boardlist", list);
 	%>
 <html>
 <head>
@@ -66,20 +67,17 @@
     					<th>수정일자</th>
     				</tr>
     			</thead>
-    			<tbody id="board-list">
-                <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
-                <c:forEach items="${Boardlist}" var="board">
-            <tr>
-                <td>${board.boardNo}</td>
-                <td>
-                    <a href="board_read.jsp?no=${board.boardNo}">${board.title}</a>
-                </td>
-                <td>${board.writer}</td>
-                <td>${board.regDate}</td> 
-                <td>${board.updDate}</td> 
-            </tr>
-        </c:forEach>
-            </tbody>
+    			<tbody>
+				    <c:forEach items="${Boardlist}" var="board">
+				        <tr>
+				            <td>${board.boardNo}</td>
+				            <td><a href="board_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
+				            <td>${board.writer}</td>
+				            <td>${board.regDate}</td>
+				            <td>${board.updDate}</td>
+				        </tr>
+				    </c:forEach>
+				</tbody>
     		</table>
     			<div class="pagenation">
              <!-- ≪ ＜ ＞ ≫ -->

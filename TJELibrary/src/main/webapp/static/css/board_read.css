@@ -76,6 +76,50 @@ a.btn{
 	display: flex;
     justify-content: flex-start;
 }
+.comment-list {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* 개별 댓글 카드 스타일 */
+.comment-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 댓글 작성자와 작성일 */
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-date {
+    font-style: italic;
+    color: #999;
+}
+
+/* 댓글 내용 스타일 */
+.comment-content {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.4;
+}
 
 
 

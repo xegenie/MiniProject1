@@ -1,3 +1,7 @@
+<%@page import="tje.DTO.Board"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.BoardServiceImpl"%>
+<%@page import="tje.Service.BoardService"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -12,6 +16,11 @@
 		String chapter1 = "HOME";
 		String chapter2 = "공지사항";
 		String chapter3 = "공지사항 목록";
+		
+		String bType = "공지사항";
+		BoardService boardService = new BoardServiceImpl();
+		List<Board> list = boardService.listByType(bType); // 인스턴스 메서드 호출
+		pageContext.setAttribute("Boardlist", list);
 	%>
 <html>
 <head>
@@ -59,76 +68,15 @@
     				</tr>
     			</thread>
     			<tbody>
-                <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
-                <tr>
-                    <td>1</td>
-                    <td>공지사항 1</td>
-                    <td>작성자1</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>공지사항 2</td>
-                    <td>작성자2</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>공지사항 3</td>
-                    <td>작성자3</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>공지사항 4</td>
-                    <td>작성자4</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>공지사항 5</td>
-                    <td>작성자5</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>공지사항 6</td>
-                    <td>작성자6</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>공지사항 7</td>
-                    <td>작성자7</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>공지사항 8</td>
-                    <td>작성자8</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>공지사항 9</td>
-                    <td>작성자9</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
-                    <td>10</td>
-                    <td>공지사항 10</td>
-                    <td>작성자10</td>
-                    <td>2024-10-%%</td>
-                    <td>조회수</td>
-                </tr>
+                	<c:forEach items="${Boardlist}" var="board">
+				        <tr>
+				            <td>${board.boardNo}</td>
+				            <td><a href="board_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
+				            <td>${board.writer}</td>
+				            <td>${board.regDate}</td>
+				            <td>${board.updDate}</td>
+				        </tr>
+				    </c:forEach>
             	</tbody>
     		</table>
     			<div class="pagenation">

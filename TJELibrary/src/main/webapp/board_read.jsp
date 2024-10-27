@@ -1,3 +1,4 @@
+<%@page import="tje.DTO.Comments"%>
 <%@page import="tje.DTO.Board"%>
 <%@page import="java.util.List"%>
 <%@page import="tje.Service.BoardServiceImpl"%>
@@ -17,10 +18,14 @@
 		String chapter2 = "게시판";
 		String chapter3 = "댓글";
 		
-		int boardNo = Integer.parseInt(request.getParameter("no"));
+		int boardNo = Integer.parseInt(request.getParameter("board_id"));
 	    BoardService boardService = new BoardServiceImpl();
 	    Board board = boardService.select(boardNo);
 	    pageContext.setAttribute("board", board);
+	    
+	    int commentsNo = Integer.parseInt(request.getParameter("board_id"));
+	    BoardService commentService = new BoardServiceImpl();
+	    List<Comments> comments = commentService.selectByBoardId(boardNo);
 	%>
 <html>
 <head>
@@ -36,28 +41,35 @@
 		<%@ include file="/layout/chapter.jsp" %>
 	</div>
 	<div class="container">
-        <section>
-        <div class="title">
-            <label for="title">${board.title}</label>
-        </div>
-        <div>
-        	<p>${board.writer} ${board.regDate}</p>
-        </div>
-        <hr>
-        <div class="content">
-        	<h3>${board.content}</h3>
-        </div>
-        <hr>
-        <div class="input-group">
-		    <textarea name="content" id="content" cols="30" rows="10"></textarea>
-		</div>
-		<div class="button-group">
-		    <a href="#" class="btn">작성</a>
-	  </div>
-        <div class="board-box">
-	    		<a href="" class="btn">삭제</a>
-	    		<a href="" class="btn">수정</a>
-    		</div>
+        <!-- 게시글 정보 표시 -->
+        <section class="board-content">
+            <h2>${board.title}</h2>
+            <p>${board.writer} | ${board.regDate}</p>
+            <hr>
+            <div>${board.content}</div>
+        </section>
+
+        <!-- 댓글 목록 표시 -->
+        <section class="comment-list">
+            <h3>댓글</h3>
+            <c:forEach var="comment" items="${comments}">
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <span class="comment-author">${comment.author}</span>
+                        <span class="comment-date">${comment.regDate}</span>
+                    </div>
+                    <div class="comment-content">${comment.content}</div>
+                </div>
+            </c:forEach>
+        </section>
+
+        <!-- 댓글 작성 폼 -->
+        <section class="comment-form">
+            <form action="comment_add.jsp" method="post">
+                <input type="hidden" name="board_id" value="${boardNo}">
+                <textarea name="content" rows="4" placeholder="댓글을 입력하세요"></textarea>
+                <button type="submit">작성</button>
+            </form>
         </section>
     </div>
 
