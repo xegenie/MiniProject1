@@ -1,6 +1,8 @@
 package tje.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.alohaclass.jdbc.dto.Page;
 import com.alohaclass.jdbc.dto.PageInfo;
@@ -13,6 +15,7 @@ import tje.DAO.UserDAO;
 import tje.DTO.Book;
 import tje.DTO.BookStock;
 import tje.DTO.RentalList;
+
 
 public class BookServiceImpl implements BookService{
 

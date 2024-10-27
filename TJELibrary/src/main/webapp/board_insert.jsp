@@ -1,3 +1,5 @@
+<%@page import="tje.DTO.Board"%>
+<%@page import="tje.Service.BoardServiceImpl"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -12,6 +14,7 @@
 		String chapter1 = "HOME";
 		String chapter2 = "게시판";
 		String chapter3 = "게시글 쓰기";
+		
 	%>
 <html>
 <head>
@@ -28,6 +31,7 @@
 	</div>
 	<div class="container">
         <section>
+        <form action="board_insert_pro.jsp" method="post">
         <div class="title-box">
             <h1 class="main-title">게시글 쓰기</h1>
         </div>
@@ -40,8 +44,9 @@
         </div>
         <div class="board-box">
 	    		<a href="board_list.jsp" class="btn">목록</a>
-	    		<a href="" class="btn">글쓰기</a>
+	    		<input type="submit" value="글쓰기">
     		</div>
+    		</form>
         </section>
     </div>
 

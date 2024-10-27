@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary shadow" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
       <span class="fs-4 text-primary fw-semibold">관리자 페이지</span>
     </a>

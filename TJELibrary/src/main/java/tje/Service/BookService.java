@@ -8,6 +8,7 @@ import tje.DTO.Book;
 import tje.DTO.BookStock;
 import tje.DTO.RentalList;
 
+
 public interface BookService {
 	
 	// 책 목록

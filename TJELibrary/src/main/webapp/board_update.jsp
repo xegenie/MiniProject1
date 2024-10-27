@@ -31,17 +31,20 @@
         <div class="title-box">
             <h1 class="main-title">게시글 수정</h1>
         </div>
-        <div class="input-group">
-            <label for="title">제목</label>
-            <input type="text" name="title" placeholder="제목을 입력하세요" id="title">
-        </div>
-        <div class="input-group">
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        </div>
-        <div class="board-box">
-	    		<a href="" class="btn">삭제</a>
-	    		<a href="" class="btn">수정</a>
-    		</div>
+        <form action="board_update_pro.jsp" method="post">
+		    <input type="hidden" name="boardId" value="BoardNo">
+		    <div class="input-group">
+		        <label for="title">제목</label>
+		        <input type="text" name="title" placeholder="제목을 입력하세요" id="title">
+		    </div>
+		    <div class="input-group">
+		        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+		    </div>
+		    <div class="board-box">
+		        <button type="submit" name="action" value="delete" class="btn">삭제</button>
+		        <button type="submit" name="action" value="update" class="btn">수정</button>
+   		 </div>
+</form>
         </section>
     </div>
 

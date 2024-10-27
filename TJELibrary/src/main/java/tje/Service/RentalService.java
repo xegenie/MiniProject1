@@ -1,5 +1,7 @@
 package tje.Service;
 
+import java.util.List;
+
 import tje.DTO.BookStock;
 import tje.DTO.RentalList;
 import tje.DTO.User;
@@ -8,6 +10,9 @@ public interface RentalService {
 	
 	// 대출내역 조회
 	public RentalList select(User user);
+	
+	// id로 대출내역 여러개 조회
+	public List<RentalList> selectlist(User user);
 	
 	// 예약상태로 변경하고 대출내역에 등록
 	public int Reservation(BookStock bookstcok, User user);
