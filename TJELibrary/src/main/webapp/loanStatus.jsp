@@ -1,9 +1,46 @@
+<%@page import="tje.DTO.BookStock"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="tje.DTO.RentalList"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.DTO.Book"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.RentalSerivceImpl"%>
+<%@page import="tje.Service.RentalService"%>
+<%@page import="tje.Service.UserServiceImpl"%>
+<%@page import="tje.Service.UserService"%>
+<%@page import="tje.DTO.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// 세션 사용 아이디
+// 	String id = (String) session.getAttribute("id");
+	
+	User user = new User();
+	UserService userService = new UserServiceImpl();
+// 	user = userService.select(id);
+	user = userService.select("joeun");
+	
+	BookService bookService = new BookServiceImpl();
+	Book book = null;
+	
+	RentalService rentalService = new RentalSerivceImpl();
+	List<RentalList> rentalList = rentalService.selectlist(user);
+	int count = rentalList.size();
+	List<RentalList> loanStatusList = new ArrayList();
+	for(int i = 0; i<count; i++){
+		RentalList temp = rentalList.get(i);
+		if(temp.getState() == "대출") {
+			loanStatusList.add(temp);
+		}
+	}
+	
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,27 +71,35 @@
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider text-center">
+				    <%
+				  	for(int i=0; i<loanStatusList.size(); i++){
+				  		book = bookService.select(loanStatusList.get(i).getBookId());
+				  %>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>2024/09/05</td>
-				      <td>2024/09/05</td>
+				      <th scope="row"><%= i++ %></th>
+				      <td><%= book.getTitle() %></td>
+				      <td><%= loanStatusList.get(i).getRentalDate() %></td>
+				      <td><%= loanStatusList.get(i).getReturnDate() %></td>
+				      <%
+				      BookStock ckBookstock = new BookStock();
+				      ckBookstock.setBookId(loanStatusList.get(i).getBookId());
+				      ckBookstock.setStockId(loanStatusList.get(i).getStockId());
+				      ckBookstock.setStatus("대출");
+				      	int day = (int)rentalService.overdue(ckBookstock, user);
+						if(day>0) {				      
+				      %>
+				      <td>연체</td>
+				      <%
+						} else {
+				      %>
 				      <td>정상</td>
+				      <%
+						}
+				      %>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>팔꿈치를 주세요하이하이집갈래</td>
-				      <td>2024/09/05</td>
-				      <td>2024/09/05</td>
-				      <td>정상</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>2024/09/05</td>
-				      <td>2024/09/05</td>
-				      <td>정상</td>
-				    </tr>
+				    <%
+				  	}
+				    %>
 				  </tbody>
 				</table>
 			</div>	
