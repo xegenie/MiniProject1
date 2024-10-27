@@ -76,17 +76,6 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Comments select(String commentID) {
-    	Comments comments = null;
-    	try {
-    		comments = commentDAO.select(commentID);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        return comments;
-    }
-
-    @Override
     public int insert(Comments comments) {
     	int result = 0;
     	try {
@@ -97,5 +86,27 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
         return result;
+    }
+
+	@Override
+	public List<Comments> selectByBoardId(int boardID) {
+		List<Comments> commentsList = null;
+        try {
+        	commentsList = commentDAO.list();
+        } catch (Exception e) {
+            e.printStackTrace();  // 예외 처리
+        }
+        return commentsList;
+	}
+	
+	@Override
+    public List<Board> listByType(String bType) {
+        List<Board> boardList = null;
+        try {
+            boardList = boardDAO.selectByType(bType);
+        } catch (Exception e) {
+            e.printStackTrace();  // 예외 처리
+        }
+        return boardList;
     }
 }
