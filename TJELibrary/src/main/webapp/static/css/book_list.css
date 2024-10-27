@@ -7,7 +7,9 @@
 }
 
 .books {
+	width: 185.59px;
 	height: 266px;
+	object-fit: cover;
 }
 
 .Description {

@@ -6,15 +6,21 @@ import com.alohaclass.jdbc.dto.Page;
 import com.alohaclass.jdbc.dto.PageInfo;
 
 import tje.DAO.BookDAO;
+import tje.DAO.BookStockDAO;
+import tje.DAO.RentalListDAO;
 import tje.DAO.UserAuthDAO;
 import tje.DAO.UserDAO;
 import tje.DTO.Book;
+import tje.DTO.BookStock;
+import tje.DTO.RentalList;
 
 public class BookServiceImpl implements BookService{
 
 	UserDAO userDAO  = new UserDAO();
 	UserAuthDAO userAuthDAO  = new UserAuthDAO();
 	BookDAO bookDAO = new BookDAO();
+	BookStockDAO bookStockDAO = new BookStockDAO();
+	RentalListDAO rentalListDAO = new RentalListDAO();
 	
 	@Override
 	public Book select(int id) {
@@ -119,6 +125,32 @@ public class BookServiceImpl implements BookService{
 			e.printStackTrace();
 		}
 		return pageInfo;
+	}
+	@Override
+	public BookStock selectStock(int id) {
+		// 책 정보 조회
+		BookStock bookStock = null;
+		try {
+			// pk 기준으로 조회
+			bookStock = bookStockDAO.select(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bookStock;
+	}
+	@Override
+	public RentalList selectRental(int id) {
+		// 책 정보 조회
+		RentalList rentalList = null;
+		try {
+			// pk 기준으로 조회
+			rentalList = rentalListDAO.select(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rentalList;
 	}
 }
 

@@ -15,7 +15,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String path = "C:\\UPLOAD";
+	String userHome = System.getProperty("user.home");
+	String path = userHome + "\\git\\MiniProject1\\TJELibrary\\src\\main\\webapp\\static\\img";
 
 	DiskFileUpload upload = new DiskFileUpload();
 	
@@ -87,7 +88,6 @@
 	fileItem.write(file);		// 파일 업로드
 	
 	// DB 에 파일 데이터 등록
-	String bbType = ""; // bbType 변수를 정의합니다.
 	Files uploadFile = Files.builder() // Lombok Builder 사용
 						.pTable("book") // 실제 부모 테이블 이름을 설정해야 함
 						.pId(book.getId()) // 

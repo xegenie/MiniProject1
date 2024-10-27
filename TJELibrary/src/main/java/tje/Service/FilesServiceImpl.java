@@ -1,6 +1,10 @@
 package tje.Service;
 
+import com.alohaclass.jdbc.dto.Page;
+import com.alohaclass.jdbc.dto.PageInfo;
+
 import tje.DAO.FilesDAO;
+import tje.DTO.Book;
 import tje.DTO.Files;
 
 public class FilesServiceImpl implements FilesService {
@@ -44,6 +48,21 @@ public class FilesServiceImpl implements FilesService {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public PageInfo<Files> page(int pageNo, int size) {
+		Page page = new Page();
+		page.setPage(pageNo);
+		page.setSize(size);
+		page.calc();
+		PageInfo<Files> pageInfo = null;
+		try {
+			pageInfo = filesDAO.page(page);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pageInfo;
 	}
 
 }
