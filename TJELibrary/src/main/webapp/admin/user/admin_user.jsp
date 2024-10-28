@@ -47,26 +47,26 @@
 		<div class="insert rounded-3 m-5">
 			<div class="item1 fs-2 fw-bold mb-4">회원등록</div>
 
-			<div class="item2 d-flex flex-column row-gap-3 align-items-end">
-				<div class="no">
-					<span>No.</span> <input type="text" placeholder="1">
-				</div>
+			<form class="item2 d-flex flex-column row-gap-3 align-items-end" action="admin_user_pro.jsp" method="post">
 				<div class="id">
-					<span>ID</span> <input type="text" placeholder="kimjoeun">
+					<span>ID</span> <input type="text" name="userId" placeholder="kimjoeun">
+				</div>
+				<div class="pw">
+					<span>PW</span> <input type="text" name="userPw" placeholder="비밀번호를 입력하세요">
 				</div>
 				<div class="name">
-					<span>이름</span> <input type="text" placeholder="김조은">
+					<span>이름</span> <input type="text" name="userName" placeholder="김조은">
 				</div>
 				<div class="email">
-					<span>이메일</span> <input type="text" placeholder="kimjoeun@gmail.com">
+					<span>이메일</span> <input type="text" name="userEmail" placeholder="kimjoeun@gmail.com">
 				</div>
 				<div class="phoneNo">
-					<span>핸드폰 번호</span> <input type="text" placeholder="010-0000-0000">
+					<span>핸드폰 번호</span> <input type="text" name="userPhone" placeholder="010-0000-0000">
 				</div>
 			</div>
 			<div class="insertBox mt-4 d-flex justify-content-end">
-				<input class="insertBtn rounded-3" type="submit" value="등록">
-			</div>
+				<input class="insertBtn rounded-3" name="action" type="submit" value="등록">
+			</form>
 		</div>
 	</div>
 	<div class="container">
@@ -116,7 +116,7 @@
 	</div>
 <!-- 	<div class="container"> -->
 <!-- 		<div class="pagenation"> -->
-<!-- 			<!-- ≪ ＜ ＞ ≫ --> -->
+			<!-- ≪ ＜ ＞ ≫ -->
 <!-- 			<a href="" class="page-link">≪</a> -->
 <!-- 			<a href="" class="page-link">＜</a> -->
 <!-- 			<a href="" class="page-link selected">1</a>  -->
@@ -137,14 +137,6 @@
 			}
 		}
 	</script>
-	<script>
-	// 예약완료 알림 표시
-    const insert = document.querySelector('.insertBtn');
-
-    insert.addEventListener('click', () => {
-      alert('등록 완료!');
-    });
-  </script>
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
