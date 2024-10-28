@@ -79,7 +79,7 @@
     
     // 회원정보 가져오기
     // 세션에서 로그인한 회원 정보 가져오기
-    User user = (User)session.getAttribute("loginUser"); 
+    User user = (User)session.getAttribute("user"); 
 
 //     if (user == null) {
 //         // 회원 정보가 없을 경우 로그인 페이지로 이동

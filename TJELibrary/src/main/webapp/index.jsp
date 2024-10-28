@@ -21,19 +21,19 @@
 	<%-- [Contents] ######################################################### --%>
 	<main class="mainbackground">
 		<div class="row d-flex justify-content-center py-2" style="background-color:rgba(217, 202, 185, 0.6);">
-			<div class="col-1 justify-content-center text-center">
+			<a href="book_list.jsp" class="d-flex flex-column col-1 justify-content-center text-center">
 				<i class="fa-solid fa-magnifying-glass mainicon mx-auto"></i>
-				<p>자료탐색</p>
-			</div>
-			<div class="col-1 justify-content-center text-center">
+				자료탐색
+			</a>
+			<a href="board_list.jsp" class="d-flex flex-column col-1 justify-content-center text-center">
 				<i class="fa-solid fa-users mainicon mx-auto"></i>
-				<p>게시판</p>
-			</div>
-			<div class="col-1 justify-content-center text-center">
+				게시판
+			</a>
+			<a href="notice.jsp" class="d-flex flex-column col-1 justify-content-center text-center">
 				<i class="fa-solid fa-bell mainicon mx-auto"></i>
-				<p>공지사항</p>
-			</div>
-			<div class="col-1 justify-content-center text-center">
+				공지사항
+			</a>
+			<div class="d-flex flex-column col-1 justify-content-center text-center">
 				<i class="fa-solid fa-book mainicon mx-auto"></i>
 				<p>희망자료 신청</p>
 			</div>

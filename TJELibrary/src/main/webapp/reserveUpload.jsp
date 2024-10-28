@@ -23,9 +23,6 @@
 	pageEncoding="UTF-8"%>
 
 <%
-		String userId = "joeun";
-		// User user = (User)session.getAttribute("loginUser"); 
-		// userId = user.getId();
 		
 		String reqBookId = request.getParameter("bookId");
 		int bookId = Integer.parseInt( reqBookId == null ? "0" : reqBookId );
@@ -39,8 +36,10 @@
 		RentalService rentalService = new RentalSerivceImpl();
 		BookStockService bookStockService = new BookStockServiceImpl();
 		BookStock bookStock = bookStockService.select(stockId);
-		
-		User user = new User();
+		// userId 넘기기
+		String userId = "joeun";
+		User user = (User)session.getAttribute("user"); 
+		userId = user.getId();
 		user.setId(userId);
 		
 		result = rentalService.Reservation(bookStock, user);
@@ -48,14 +47,21 @@
 		
 		String bookIdStr = String.valueOf(bookId);
 		
-	    if ( result > 0 ) {
-	    	out.println("예약 완료!");
-	        response.sendRedirect(request.getContextPath() + "/book_detail.jsp?bookId=" + bookIdStr);
-// 	        return;
-	    } else {
-	    	response.sendRedirect(request.getContextPath() + "/book_detail.jsp?bookId=" + bookIdStr +"&error");
-// 	    	return;
-	    }
+		if (result > 0) {
+		%>
+		    <script type="text/javascript">
+		        alert('예약 완료!');
+		        window.location.href = '<%= request.getContextPath() %>/book_detail.jsp?bookId=<%= bookIdStr %>';
+		    </script>
+		<%
+		} else {
+		%>
+		    <script type="text/javascript">
+		        alert('예약 실패! 다시 시도 해 주십시오.');
+		        window.location.href = '<%= request.getContextPath() %>/book_detail.jsp?bookId=<%= bookIdStr %>&error';
+		    </script>
+		<%
+		}
 %>
 
 
