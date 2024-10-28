@@ -221,6 +221,15 @@
         </tr>
     </thead>
     <tbody>
+    <c:forEach items="${Boardlist}" var="board">
+				        <tr>
+				            <td>${board.boardNo}</td>
+				            <td><a href="notice_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
+				            <td>${board.writer}</td>
+				            <td>${board.regDate}</td>
+				            <td>${board.updDate}</td>
+				        </tr>
+				    </c:forEach>
     <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
     <tr>
         <td>1</td>
@@ -234,6 +243,15 @@
             <button type="button" onclick="deletePost()">삭제</button>
         </td>
     </tr>
+    <c:forEach items="${Boardlist}" var="board">
+				        <tr>
+				            <td>${board.boardNo}</td>
+				            <td><a href="notice_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
+				            <td>${board.writer}</td>
+				            <td>${board.regDate}</td>
+				            <td>${board.updDate}</td>
+				        </tr>
+				    </c:forEach>
     <tr>
         <td>2</td>
         <td>게시글 제목 2</td>
