@@ -304,4 +304,19 @@ public class RentalSerivceImpl implements RentalService {
 		return rentalListlist;
 	}
 
+	@Override
+	public List<RentalList> selectByState(String state) {
+		List<RentalList> stList = new ArrayList<RentalList>();
+		Map<Object, Object> fields = new HashMap<Object, Object>() {{
+            put("state", state);
+        }};
+        try {
+			stList = rentalListDAO.listBy(fields);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stList;
+	}
+
 }

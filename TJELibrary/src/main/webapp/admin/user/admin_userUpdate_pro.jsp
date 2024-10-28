@@ -14,13 +14,14 @@
 	UserDAO userDAO = new UserDAO();
 
 	User user = new User();
-	user.setId(request.getParameter("userId"));
+	user = userService.select(request.getParameter("userId"));
+	
 	user.setPassword(request.getParameter("userPw"));
 	user.setName(request.getParameter("userName"));
 	user.setEmail(request.getParameter("userEmail"));
 	user.setTelNumber(request.getParameter("userPhone"));
 	
-	int result = userDAO.update(user, "password","name","email","tel_number");
+	int result = userDAO.update(user);
 	if (result!=0) {
 %>
 		<script type="text/javascript">

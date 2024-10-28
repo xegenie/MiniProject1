@@ -8,27 +8,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	UserService userService = new UserServiceImpl();
-	List<User> userList = userService.list();
-	
-	String deleteUserId = request.getParameter("deleteUserId");
-	if (deleteUserId != null && !deleteUserId.isEmpty()) {
-        int deleteResult = userService.delete(deleteUserId);
-        if (deleteResult!=0) {
+UserService userService = new UserServiceImpl();
+List<User> userList = userService.list();
+
+String deleteUserId = request.getParameter("deleteUserId");
+if (deleteUserId != null && !deleteUserId.isEmpty()) {
+	int deleteResult = userService.delete(deleteUserId);
+	if (deleteResult != 0) {
 %>
-            <script type="text/javascript">
-                alert("삭제가 완료되었습니다.");
-                location.href = "admin_user.jsp";  // 삭제 완료 후 페이지 리로드
-            </script>
+<script type="text/javascript">
+	alert("삭제가 완료되었습니다.");
+	location.href = "admin_user.jsp"; // 삭제 완료 후 페이지 리로드
+</script>
 <%
-        } else {
+} else {
 %>
-            <script type="text/javascript">
-                alert("삭제에 실패했습니다.");
-            </script>
+<script type="text/javascript">
+	alert("삭제에 실패했습니다.");
+</script>
 <%
-        }
-    }
+}
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -47,25 +47,32 @@
 		<div class="insert rounded-3 m-5">
 			<div class="item1 fs-2 fw-bold mb-4">회원등록</div>
 
-			<form class="item2 d-flex flex-column row-gap-3 align-items-end" action="admin_user_pro.jsp" method="post">
+			<form class="item2 d-flex flex-column row-gap-3 align-items-end"
+				action="admin_user_pro.jsp" method="post">
 				<div class="id">
-					<span>ID</span> <input type="text" name="userId" placeholder="kimjoeun">
+					<span>ID</span> <input type="text" name="userId"
+						placeholder="kimjoeun">
 				</div>
 				<div class="pw">
-					<span>PW</span> <input type="text" name="userPw" placeholder="비밀번호를 입력하세요">
+					<span>PW</span> <input type="text" name="userPw"
+						placeholder="비밀번호를 입력하세요">
 				</div>
 				<div class="name">
-					<span>이름</span> <input type="text" name="userName" placeholder="김조은">
+					<span>이름</span> <input type="text" name="userName"
+						placeholder="김조은">
 				</div>
 				<div class="email">
-					<span>이메일</span> <input type="text" name="userEmail" placeholder="kimjoeun@gmail.com">
+					<span>이메일</span> <input type="text" name="userEmail"
+						placeholder="kimjoeun@gmail.com">
 				</div>
 				<div class="phoneNo">
-					<span>핸드폰 번호</span> <input type="text" name="userPhone" placeholder="010-0000-0000">
+					<span>핸드폰 번호</span> <input type="text" name="userPhone"
+						placeholder="010-0000-0000">
 				</div>
-			</div>
-			<div class="insertBox mt-4 d-flex justify-content-end">
-				<input class="insertBtn rounded-3" name="action" type="submit" value="등록">
+		<div class="insertBox mt-4 d-flex justify-content-end">
+			<input class="insertBtn rounded-3" name="action" type="submit"
+				value="등록">
+		</div>
 			</form>
 		</div>
 	</div>
@@ -93,18 +100,19 @@
 			<tbody>
 				<!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
 				<%
-				for(int i=0; i<userList.size(); i++) {
+				for (int i = 0; i < userList.size(); i++) {
 					String userId = userList.get(i).getId();
 				%>
 				<tr>
-					<td><%= i+1 %></td>
-					<td><%= userList.get(i).getId() %></td>
-					<td><%= userList.get(i).getName() %></td>
-					<td><%= userList.get(i).getEmail() %></td>
-					<td><%= userList.get(i).getTelNumber() %></td>
+					<td><%=i + 1%></td>
+					<td><%=userList.get(i).getId()%></td>
+					<td><%=userList.get(i).getName()%></td>
+					<td><%=userList.get(i).getEmail()%></td>
+					<td><%=userList.get(i).getTelNumber()%></td>
 					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp?userId=<%= userId %>';">수정</button>
-						<button type="button" onclick="deleteUser('<%= userId %>')">삭제</button>
+						<button type="button"
+							onclick="location.href='admin_userUpdate.jsp?userId=<%=userId%>';">수정</button>
+						<button type="button" onclick="deleteUser('<%=userId%>')">삭제</button>
 					</td>
 				</tr>
 				<%
@@ -114,26 +122,27 @@
 		</table>
 
 	</div>
-<!-- 	<div class="container"> -->
-<!-- 		<div class="pagenation"> -->
-			<!-- ≪ ＜ ＞ ≫ -->
-<!-- 			<a href="" class="page-link">≪</a> -->
-<!-- 			<a href="" class="page-link">＜</a> -->
-<!-- 			<a href="" class="page-link selected">1</a>  -->
-<!-- 			<a href="" class="page-link">2</a>  -->
-<!-- 			<a href="" class="page-link">3</a>  -->
-<!-- 			<a href="" class="page-link">4</a>  -->
-<!-- 			<a href="" class="page-link">5</a> -->
-<!-- 			<a href="" class="page-link">＞</a>  -->
-<!-- 			<a href="" class="page-link">≫</a> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="pagenation"> -->
+	<!-- ≪ ＜ ＞ ≫ -->
+	<!-- 			<a href="" class="page-link">≪</a> -->
+	<!-- 			<a href="" class="page-link">＜</a> -->
+	<!-- 			<a href="" class="page-link selected">1</a>  -->
+	<!-- 			<a href="" class="page-link">2</a>  -->
+	<!-- 			<a href="" class="page-link">3</a>  -->
+	<!-- 			<a href="" class="page-link">4</a>  -->
+	<!-- 			<a href="" class="page-link">5</a> -->
+	<!-- 			<a href="" class="page-link">＞</a>  -->
+	<!-- 			<a href="" class="page-link">≫</a> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 	<%-- [Contents] ######################################################### --%>
 	<script type="text/javascript">
 		function deleteUser(userId) {
 			request = new XMLHttpRequest()
-			if(confirm("정말로 삭제하시겠습니까?")) {
-				window.location.href = 'admin_user.jsp?deleteUserId=' + encodeURIComponent(userId);
+			if (confirm("정말로 삭제하시겠습니까?")) {
+				window.location.href = 'admin_user.jsp?deleteUserId='
+						+ encodeURIComponent(userId);
 			}
 		}
 	</script>
