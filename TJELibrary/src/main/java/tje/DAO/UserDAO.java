@@ -56,7 +56,7 @@ public class UserDAO extends BaseDAOImpl<User> {
     }
 
 	private Connection getConnection() {
-		String url = "jdbc:mysql://localhost:3306/library?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false"; // 데이터베이스 URL
+		String url = "jdbc:mysql://192.168.30.237:3306/library?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false"; // 데이터베이스 URL
 	    String user = "library"; // 사용자명
 	    String password = "123456"; // 비밀번호
 
