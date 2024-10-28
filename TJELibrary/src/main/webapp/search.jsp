@@ -7,15 +7,14 @@
     pageEncoding="UTF-8"%>
     <%
 // chapter 
-String chapterTitle = "통합검색";
+String chapterTitle = "고급검색";
 String chapter1 = "HOME";
 String chapter2 = "자료검색";
-String chapter3 = "통합검색";
+String chapter3 = "고급검색";
 %>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>project💻 - ALOHA CLASS🌴</title>
 	<jsp:include page="/layout/meta.jsp" />
 	<jsp:include page="/layout/link.jsp" />
 </head>

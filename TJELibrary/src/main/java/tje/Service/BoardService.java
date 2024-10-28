@@ -18,7 +18,9 @@ public interface BoardService {
 	// 게시글 수정
 	public int update(Board board);
 	// 댓글 조회
-	public Comments select(String commentID);
+	List<Comments> selectByBoardId(int boardID);
 	// 댓글 등록
 	public int insert(Comments comments);
+	
+	List<Board> listByType(String bType);
 }
