@@ -37,7 +37,7 @@
 		BookStockService bookStockService = new BookStockServiceImpl();
 		BookStock bookStock = bookStockService.select(stockId);
 		// userId 넘기기
-		String userId = "joeun";
+		String userId = "default";
 		User user = (User)session.getAttribute("user"); 
 		userId = user.getId();
 		user.setId(userId);
