@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE `comments` (
 	`board_id`	INT	NOT NULL	COMMENT '게시판 ID',
-	`comment_id`	VARCHAR(100)	NOT NULL	COMMENT '댓글 ID',
+	 `comment_id` INT NOT NULL AUTO_INCREMENT COMMENT '댓글 ID',
 	`content`	VARCHAR(200)	NOT NULL	COMMENT '댓글 내용',
 	`writer`	VARCHAR(100)	NOT NULL	COMMENT '작성자ID',
 	`reg_date`	TIMESTAMP	NOT NULL	DEFAULT CURRENT_TIMESTAMP	COMMENT '등록 일자'

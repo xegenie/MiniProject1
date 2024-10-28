@@ -39,18 +39,29 @@
     outline: none;
 }
 
-a.btn{
+.board-box {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-top: 20px; /* 상단 여백 추가 */
+}
+
+.btn {
     background-color: #947D69;
     color: white;
     cursor: pointer;
     border: none;
     text-align: center;
+    padding: 10px 15px; /* 버튼 내 여백 추가 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    margin-left: 10px; /* 버튼 간 여백 */
+    transition: background-color 0.3s; /* 부드러운 색상 전환 효과 */
 }
-.btn:hover{
-    filter: brightness(90%);
+
+.btn:hover {
+    background-color: #7a634e; /* 호버 시 색상 변경 */
 }
-.board-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.btn.action-btn {
+    background-color: #947D69 !important; /* !important로 우선순위 높임 */
+    color: white !important; /* !important로 우선순위 높임 */
 }

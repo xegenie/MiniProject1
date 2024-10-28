@@ -31,22 +31,26 @@
 	</div>
 	<div class="container">
         <section>
-        <form action="board_insert_pro.jsp" method="post">
-        <div class="title-box">
-            <h1 class="main-title">게시글 쓰기</h1>
-        </div>
-        <div class="input-group">
-            <label for="title">제목</label>
-            <input type="text" name="title" placeholder="제목을 입력하세요" id="title">
-        </div>
-        <div class="input-group">
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        </div>
-        <div class="board-box">
-	    		<a href="board_list.jsp" class="btn">목록</a>
-	    		<input type="submit" value="글쓰기">
-    		</div>
-    		</form>
+            <form action="board_insert_pro.jsp" method="post">
+                <div class="title-box">
+                    <h1 class="main-title">게시글 쓰기</h1>
+                </div>
+                <div class="input-group">
+                    <label for="title">제목</label>
+                    <input type="text" name="title" placeholder="제목을 입력하세요" id="title" required>
+                </div>
+
+                <input type="hidden" name="bType" value="게시판"> <!-- 기본값으로 설정 -->
+
+                <div class="input-group">
+                    <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요" required></textarea>
+                </div>
+                
+                <div class="board-box">
+                    <a href="board_list.jsp" class="btn">목록</a>
+                    <input type="submit" class="insertbtn" value="글쓰기">
+                </div>
+            </form>
         </section>
     </div>
 
