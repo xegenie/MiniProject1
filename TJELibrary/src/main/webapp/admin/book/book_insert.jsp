@@ -93,7 +93,7 @@
 					<td>${ book.outline }</td>
 					<td>
 						<a href="book_update.jsp?id=${book.id}&title=${book.title}&author=${book.author}&publisher=${book.publisher}&isbn=${book.isbn}&outline=${book.outline}">
-						<button type="submit">수정</button>
+						<button class="updateBtn" type="submit">수정</button>
 						</a>
 						<a href="filedelete_pro.jsp?id=${book.id}">
 						<button type="button">삭제</button>
