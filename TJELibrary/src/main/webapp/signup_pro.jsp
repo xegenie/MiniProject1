@@ -8,21 +8,28 @@
     String id = request.getParameter("id");
     String password = request.getParameter("password");
     String email = request.getParameter("email");
+    String name = request.getParameter("name");
     String telNumber = request.getParameter("tel_Number");
 
-    	User user = new User();
+    // 값 확인
+    if (password == null || password.isEmpty()) {
+        out.println("<script>alert('비밀번호를 입력하세요.'); history.back();</script>");
+    } else {
+        User user = new User();
         user.setId(id);
         user.setPassword(password);
         user.setEmail(email);
+        user.setName(name);
         user.setTelNumber(telNumber);
         
         UserService userService = new UserServiceImpl();
         int result = userService.signUp(user);
         
         if (result > 0) {
-        	session.setAttribute("user", user);
+            session.setAttribute("user", user);
             out.println("<script>alert('회원가입 성공. 로그인 해주세요.'); location.href='login.jsp';</script>");
         } else {
             out.println("<script>alert('회원가입 실패. 다시 시도하세요.'); history.back();</script>");
         }
+    }
 %>

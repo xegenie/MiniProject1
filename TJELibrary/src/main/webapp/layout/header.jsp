@@ -1,3 +1,4 @@
+<%@page import="tje.DTO.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
@@ -13,9 +14,20 @@
 			<div class="container">
 				<div class="d-flex justify-content-end">
 					<div class="inner d-flex column-gap-3">
-							<a href="login.jsp">로그인</a>
-							<a href="loanStatus.jsp">내서재</a>
-							<a href="signup.jsp">회원가입</a>
+						 <%
+                           User user = (User) session.getAttribute("user");
+                           if (user != null) {
+                        %>
+                            <a href="logout.jsp">로그아웃</a>
+                        <%
+                            } else {
+                        %>
+                            <a href="login.jsp">로그인</a>
+                        <%
+                            }
+                        %>
+                        <a href="loanStatus.jsp">내서재</a>
+                        <a href="signup.jsp">회원가입</a>
 					</div>
 				</div>
 			</div>	
