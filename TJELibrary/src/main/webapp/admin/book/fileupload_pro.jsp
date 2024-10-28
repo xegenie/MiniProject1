@@ -1,3 +1,6 @@
+<%@page import="tje.Service.BookStockServiceImpl"%>
+<%@page import="tje.Service.BookStockService"%>
+<%@page import="tje.DTO.BookStock"%>
 <%@page import="tje.Service.FilesServiceImpl"%>
 <%@page import="tje.Service.FilesService"%>
 <%@page import="tje.Service.BookServiceImpl"%>
@@ -30,6 +33,8 @@
 	String title = "";
 	String author = "";
 	String publisher = "";
+	String outline = "";
+	String isbn = "";
 	
 	FileItem fileItem = null;
 	while( params.hasNext() ) {
@@ -49,6 +54,12 @@
 			if(name.equals("publisher")) {
 				publisher = value;
 			}
+			if(name.equals("outline")) {
+				outline = value;
+			}
+			if(name.equals("isbn")) {
+				isbn = value;
+			}
 		}
 		
 		// 파일 데이터
@@ -63,8 +74,8 @@
 	book.setTitle(title);
 	book.setAuthor(author);
 	book.setPublisher(publisher);
-	book.setIsbn("isbn");
-	book.setOutline("outline");
+	book.setIsbn(isbn);
+	book.setOutline(outline);
 	
 	BookService bookService = new BookServiceImpl();
 	int result = bookService.insert(book);
@@ -73,6 +84,17 @@
 	
 	if( result == 0 ) {
 		// 책 정보 등록 실패
+		response.sendRedirect(root + "/admin/book/book_insert.jsp?error");
+	}
+	// 책 재고 등록
+	BookStock bookstock = new BookStock();
+	bookstock.setBookId(bookId);
+	
+	BookStockService bookstockService = new BookStockServiceImpl();
+	int result3 = bookstockService.insert(bookstock);
+	
+	if( result == 0 ) {
+		// 책 재고등록 실패
 		response.sendRedirect(root + "/admin/book/book_insert.jsp?error");
 	}
 	

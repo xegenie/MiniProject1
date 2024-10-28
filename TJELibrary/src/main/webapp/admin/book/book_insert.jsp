@@ -36,7 +36,7 @@
 		<div class="insert rounded-3 m-5">
 			<div class="item1 fs-2 fw-bold mb-4">도서등록</div>
 			<div class="item2">
-				<form class="d-flex flex-column row-gap-3 align-items-end"
+				<form class="d-flex flex-column row-gap-2 align-items-end"
 					action="<%=request.getContextPath()%>/admin/book/fileupload_pro.jsp"
 					method="post" enctype="multipart/form-data">
 					<div class="title">
@@ -51,10 +51,18 @@
 						<span>출판사</span> <input type="text" name="publisher"
 							placeholder="출판사를 입력하세요." required>
 					</div>
+					<div class="isbn">
+						<span>ISBN</span> <input type="text" name="isbn"
+							placeholder="ISBN을 입력하세요." required>
+					</div>
+					<div class="outline">
+						<span>책 개요</span> <input type="text" name="outline"
+							placeholder="책 개요를 입력하세요." required>
+					</div>
 					<div class="files">
 						<span>도서 이미지</span> <input type="file" name="file1" required>
 					</div>
-					<div class="insertBox mt-4 d-flex justify-content-end">
+					<div class="insertBox mt-3 d-flex justify-content-end">
 						<input class="insertBtn rounded-3" type="submit" value="등록">
 					</div>
 				</form>
@@ -62,7 +70,7 @@
 
 		</div>
 	</div>
-	<div class="container">
+	<div class="container ps-5">
 		<table class="board-list">
 			<thead>
 				<tr>

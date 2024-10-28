@@ -57,7 +57,8 @@
 	text-align: center;
 }
 
-.board-list td:nth-of-type(2) {
+.board-list td:nth-of-type(5) {
+	width: 310px;
 	text-align: left;
 }
 

@@ -20,4 +20,16 @@ public class BookStockServiceImpl implements BookStockService {
 		return bookStock;
 	}
 
+	@Override
+	public int insert(BookStock bookstock) {
+		int result = 0;
+		// 책 등록
+		try {
+			result = bookStockDAO.insert(bookstock);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
