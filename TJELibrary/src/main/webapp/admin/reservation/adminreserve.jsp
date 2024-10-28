@@ -176,6 +176,7 @@ td button:last-child {
 <body>
 	<div>
 	<%@ include file="/layout/admin/sidebar.jsp" %>
+	<% %>
 </div>
 <div style="margin-left:10%;padding:1px 16px;">
         <section>
@@ -184,7 +185,7 @@ td button:last-child {
                   <h1 class="main-title">예약 관리</h1>
           </div>
           <div class="rounded-search-container">
-            <input type="text" class="rounded-search-input">
+            <input type="text" class="rounded-search-input" placeholder="검색어를 입력하세요.">
             <button class="rounded-search-btn">
                 <i class="fa fa-search"></i>
             </button>
@@ -201,7 +202,6 @@ td button:last-child {
               </tr>
           </thead>
           <tbody>
-          <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
           <tr>
               <td>1</td>
               <td>게시글 제목 1</td>
@@ -303,18 +303,6 @@ td button:last-child {
           </tr>
           </tbody>
       </table>
-          <div class="pagenation">
-              <!-- ≪ ＜ ＞ ≫ -->
-              <a href="" class="page-link">≪</a>
-              <a href="" class="page-link">＜</a>
-              <a href="" class="page-link selected">1</a>
-              <a href="" class="page-link">2</a>
-              <a href="" class="page-link">3</a>
-              <a href="" class="page-link">4</a>
-              <a href="" class="page-link">5</a>
-              <a href="" class="page-link">＞</a>
-              <a href="" class="page-link">≫</a>
-      </div>
       </section>
       
       </div>
