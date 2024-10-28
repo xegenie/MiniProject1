@@ -60,7 +60,7 @@
 							placeholder="책 개요를 입력하세요." required>
 					</div>
 					<div class="files">
-						<span>도서 이미지</span> <input type="file" name="file1" required>
+						<span>도서 이미지</span> <input type="file" name="file" required>
 					</div>
 					<div class="insertBox mt-3 d-flex justify-content-end">
 						<input class="insertBtn rounded-3" type="submit" value="등록">
@@ -95,7 +95,9 @@
 						<a href="book_update.jsp?id=${book.id}&title=${book.title}&author=${book.author}&publisher=${book.publisher}&isbn=${book.isbn}&outline=${book.outline}">
 						<button type="submit">수정</button>
 						</a>
+						<a href="filedelete_pro.jsp?id=${book.id}">
 						<button type="button">삭제</button>
+						</a>
 					</td>
 				</tr>
 			</c:forEach>
