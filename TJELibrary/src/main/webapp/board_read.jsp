@@ -23,9 +23,10 @@
 	    Board board = boardService.select(boardNo);
 	    pageContext.setAttribute("board", board);
 	    
-	    int commentsNo = Integer.parseInt(request.getParameter("board_id"));
-	    BoardService commentService = new BoardServiceImpl();
-	    List<Comments> comments = commentService.selectByBoardId(boardNo);
+	    List<Comments> comments = boardService.selectByBoardId(boardNo);
+	    pageContext.setAttribute("comments", comments); // 댓글 목록 저장
+	    
+	    
 	%>
 <html>
 <head>
@@ -43,11 +44,14 @@
 	<div class="container">
         <!-- 게시글 정보 표시 -->
         <section class="board-content">
-            <h2>${board.title}</h2>
-            <p>${board.writer} | ${board.regDate}</p>
-            <hr>
-            <div>${board.content}</div>
-        </section>
+		    <div class="board-header">
+		        <h2>${board.title}</h2>
+			            <a href="board_update.jsp?board_id=${board.boardNo}" class="updbtn">게시글 수정</a>
+		    </div>
+		    <p>${board.writer} | ${board.regDate}</p>
+		    <hr>
+		    <div>${board.content}</div>
+		</section>
 
         <!-- 댓글 목록 표시 -->
         <section class="comment-list">
@@ -55,7 +59,7 @@
             <c:forEach var="comment" items="${comments}">
                 <div class="comment-item">
                     <div class="comment-header">
-                        <span class="comment-author">${comment.author}</span>
+                        <span class="comment-author">${comment.writer}</span>
                         <span class="comment-date">${comment.regDate}</span>
                     </div>
                     <div class="comment-content">${comment.content}</div>
@@ -63,14 +67,17 @@
             </c:forEach>
         </section>
 
-        <!-- 댓글 작성 폼 -->
         <section class="comment-form">
-            <form action="comment_add.jsp" method="post">
-                <input type="hidden" name="board_id" value="${boardNo}">
-                <textarea name="content" rows="4" placeholder="댓글을 입력하세요"></textarea>
-                <button type="submit">작성</button>
-            </form>
-        </section>
+		    <h3>댓글 작성</h3> <!-- 제목 추가 -->
+		    <form action="comment_add.jsp" method="post">
+		        <input type="hidden" name="board_id" value="${board.boardNo}">
+		        <textarea name="content" placeholder="댓글을 입력하세요"></textarea>
+		        <div class="button-group">
+		        <a href="board_list.jsp" class="btn">목록</a>
+		            <button type="submit">작성</button>
+		        </div>
+    		</form>
+		</section>
     </div>
 
 

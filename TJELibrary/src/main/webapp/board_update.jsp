@@ -1,3 +1,6 @@
+<%@page import="tje.Service.BoardServiceImpl"%>
+<%@page import="tje.DTO.Board"%>
+<%@page import="tje.Service.BoardService"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -12,6 +15,11 @@
 		String chapter1 = "HOME";
 		String chapter2 = "게시판";
 		String chapter3 = "게시글 수정";
+		
+		int boardNo = Integer.parseInt(request.getParameter("board_id"));
+	    BoardService boardService = new BoardServiceImpl();
+	    Board board = boardService.select(boardNo);
+	    pageContext.setAttribute("board", board);
 	%>
 <html>
 <head>
@@ -28,23 +36,24 @@
 	</div>
 	<div class="container">
         <section>
-        <div class="title-box">
-            <h1 class="main-title">게시글 수정</h1>
-        </div>
-        <form action="board_update_pro.jsp" method="post">
-		    <input type="hidden" name="boardId" value="BoardNo">
-		    <div class="input-group">
-		        <label for="title">제목</label>
-		        <input type="text" name="title" placeholder="제목을 입력하세요" id="title">
-		    </div>
-		    <div class="input-group">
-		        <textarea name="content" id="content" cols="30" rows="10"></textarea>
-		    </div>
-		    <div class="board-box">
-		        <button type="submit" name="action" value="delete" class="btn">삭제</button>
-		        <button type="submit" name="action" value="update" class="btn">수정</button>
-   		 </div>
-</form>
+            <div class="title-box">
+                <h1 class="main-title">게시글 수정</h1>
+            </div>
+            <form action="board_update_pro.jsp" method="post">
+                <input type="hidden" name="board_id" value="<%= board.getBoardNo()%>">
+                <div class="input-group">
+                    <label for="title">제목</label>
+                    <input type="text" name="title" placeholder="제목을 입력하세요" id="title" value="<%= board.getTitle() %>">
+                </div>
+                <div class="input-group">
+                    <label for="content">내용</label>
+                    <textarea name="content" id="content" cols="30" rows="10"><%= board.getContent() %></textarea>
+                </div>
+                <div class="board-box">
+                    <button type="submit" name="action" value="delete" class="btn action-btn">삭제</button>
+    				<button type="submit" name="action" value="update" class="btn action-btn">수정</button>
+                </div>
+            </form>
         </section>
     </div>
 

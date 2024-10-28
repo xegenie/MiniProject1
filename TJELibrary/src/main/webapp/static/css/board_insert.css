@@ -37,6 +37,7 @@
     border-radius: 6px;
     border : 1px solid #ddd;
     outline: none;
+    resize: none;
 }
 
 a.btn{
@@ -47,10 +48,23 @@ a.btn{
     text-align: center;
 }
 .btn:hover{
-    filter: brightness(90%);
+     background-color: #7a634f;
 }
 .board-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.insertbtn {
+    background-color: #947D69;
+    color: white;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.insertbtn:hover {
+    background-color: #7a634f; /* 호버 시 배경색 변화 */
 }

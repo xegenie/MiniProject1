@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Comments {
 	
-	private int boardID;
-	private String commentID;
+	private int boardId;
+	private int commentId;
 	private String content;
 	private String writer;
 	private Date regDate;

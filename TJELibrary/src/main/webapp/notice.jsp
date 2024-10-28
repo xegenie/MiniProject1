@@ -71,7 +71,7 @@
                 	<c:forEach items="${Boardlist}" var="board">
 				        <tr>
 				            <td>${board.boardNo}</td>
-				            <td><a href="board_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
+				            <td><a href="notice_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
 				            <td>${board.writer}</td>
 				            <td>${board.regDate}</td>
 				            <td>${board.updDate}</td>
