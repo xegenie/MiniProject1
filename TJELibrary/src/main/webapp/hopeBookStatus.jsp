@@ -1,9 +1,28 @@
+<%@page import="tje.DTO.HopeBook"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.HopeBookServiceImpl"%>
+<%@page import="tje.Service.HopeBookService"%>
+<%@page import="tje.Service.UserServiceImpl"%>
+<%@page import="tje.Service.UserService"%>
+<%@page import="tje.DTO.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// 세션 사용 아이디
+// 	String id = (String) session.getAttribute("id");
+	
+	User user = new User();
+	UserService userService = new UserServiceImpl();
+// 	user = userService.select(id);
+	user = userService.select("joeun");
+	
+	HopeBookService hopeBookService = new HopeBookServiceImpl();
+	List<HopeBook> hopeList = hopeBookService.selectById(user);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,24 +51,19 @@
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider text-center">
+				  <%
+				  for(int i=0; i<hopeList.size(); i++) {
+					  
+				  %>
 				    <tr>
-				      <td>팔꿈치를 주세요</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
+				      <td><%= hopeList.get(i).getBookName() %></td>
+				      <td><%= hopeList.get(i).getAuthor() %></td>
+				      <td><%= hopeList.get(i).getPublisher() %></td>
 				      <td>신청접수</td>
 				    </tr>
-				    <tr>
-				      <td>팔꿈치를 주세요</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
-				      <td>신청취소</td>
-				    </tr>
-				    <tr>
-				      <td>팔꿈치를 주세요</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
-				      <td>완료</td>
-				    </tr>
+				    <% 
+				  }
+				    %>
 				  </tbody>
 				</table>
 			</div>	
