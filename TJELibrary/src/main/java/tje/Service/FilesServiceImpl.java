@@ -25,6 +25,19 @@ public class FilesServiceImpl implements FilesService {
 		
 		return result;
 	}
+	
+	@Override
+	public int update(Files file) {
+		int result = 0;
+		
+		try {
+			result = filesDAO.update(file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 	@Override
 	public Files select(int no) {
@@ -81,6 +94,7 @@ public class FilesServiceImpl implements FilesService {
 		
 		return list;
 	}
+
 
 }
 

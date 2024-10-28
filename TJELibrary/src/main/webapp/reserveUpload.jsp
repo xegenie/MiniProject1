@@ -33,14 +33,6 @@
 		out.println("bookId : " + bookId);
 		out.println("stockId : " + stockId);
 
-		// 대출기록 정보
-// 		RentalList rentalList = new RentalList();
-// 		rentalList.setBookId(bookId);
-// 		rentalList.setId("joeun");
-// 		rentalList.setState("예약 중");
-// 		rentalList.setStockId(1);
-// 		rentalList.setOverDate(0);
-
 		// bookStock으로 넘기기
 		int result = 0;
 		

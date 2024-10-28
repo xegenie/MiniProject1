@@ -10,6 +10,8 @@ public interface FilesService {
 
 	public int insert(Files file);
 	
+	public int update(Files file);
+	
 	public Files select(int no);
 	
 	public int delete(int no);

@@ -93,7 +93,7 @@
 	BookStockService bookstockService = new BookStockServiceImpl();
 	int result3 = bookstockService.insert(bookstock);
 	
-	if( result == 0 ) {
+	if( result3 == 0 ) {
 		// 책 재고등록 실패
 		response.sendRedirect(root + "/admin/book/book_insert.jsp?error");
 	}

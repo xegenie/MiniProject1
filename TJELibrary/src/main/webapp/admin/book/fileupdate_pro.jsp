@@ -73,10 +73,14 @@
 		}	
 	}
 	
-	
 	// 책 정보 수정
 	BookDAO bookDAO = new BookDAO();
 	Book book = bookDAO.select(id);
+	
+	if (id <= 0) {
+	    response.sendRedirect(root + "/admin/book/book_insert.jsp?error=invalid_id,Id="+id);
+	    return;
+	}
 	
 	book.setTitle(title);
 	book.setAuthor(author);
@@ -88,18 +92,7 @@
 	int result = bookService.update(book);
 	
 	if( result == 0 ) {
-		// 책 정보 등록 실패
-		response.sendRedirect(root + "/admin/book/book_insert.jsp?error");
-	}
-	// 책 재고 등록
-	BookStock bookstock = new BookStock();
-	bookstock.setBookId(bookId);
-	
-	BookStockService bookstockService = new BookStockServiceImpl();
-	int result3 = bookstockService.insert(bookstock);
-	
-	if( result == 0 ) {
-		// 책 재고등록 실패
+		// 책 정보 업데이트 실패
 		response.sendRedirect(root + "/admin/book/book_insert.jsp?error");
 	}
 	
@@ -115,18 +108,22 @@
 	fileItem.write(file);		// 파일 업로드
 	
 	// DB 에 파일 데이터 등록
-	Files uploadFile = Files.builder() // Lombok Builder 사용
-						.pTable("book") // 실제 부모 테이블 이름을 설정해야 함
-						.pId(book.getId()) // 
-						.fileType("MAIN") // 예시: 실제 파일 종류를 설정해야 함
-						.fileName(fileName)
-						.filePath(path + File.separator + fileName)
-						.fileSize((int) fileSize) // int로 변환
-						.build();
-	
-	
 	FilesService fileService = new FilesServiceImpl();
-	int result2 = fileService.insert(uploadFile);
+	Files files = fileService.select(id); // 기존 파일 데이터 가져오기
+
+	// 기존 파일 데이터를 기반으로 업데이트할 새 파일 데이터 생성
+	files = Files.builder() // Lombok Builder 사용
+           .pTable(files.getPTable()) // 기존 테이블 이름 사용
+           .pId(files.getPId()) // 기존 ID 사용
+           .fileType(files.getFileType()) // 기존 파일 종류 사용 (또는 새로운 값 설정 가능)
+           .fileName(fileName) // 새 파일 이름
+           .filePath(path + File.separator + fileName) // 새 파일 경로
+           .fileSize((int) fileSize) // 새 파일 크기
+           .build();
+
+	// 파일 서비스에서 업데이트 수행
+	int result2 = fileService.update(files);
+
 
 	out.println("--------------------------------------------------");
 	out.println("요청 파라미터 이름 : " + fileFieldName + "<br>");
@@ -134,7 +131,7 @@
 	out.println("파일 컨텐츠 타입 : " + contentType + "<br>");
 	out.println("파일 크기 : " + fileSize + "<br>");
 	
-	out.println("파일 업로드 성공");
+	out.println("파일 업데이트 성공");
 	
 	if( result > 0 && result2 > 0 ) {
 		response.sendRedirect(root + "/admin/book/book_insert.jsp");

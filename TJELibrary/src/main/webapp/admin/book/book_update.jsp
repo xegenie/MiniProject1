@@ -43,30 +43,31 @@
 	<%-- [Contents] ######################################################### --%>
 	<div class="container border-bottom border-end">
 		<div class="insert rounded-3 m-5">
-			<div class="item1 fs-2 fw-bold mb-4">도서등록</div>
+			<div class="item1 fs-2 fw-bold mb-4">도서수정</div>
 			<div class="item2">
 				<form class="d-flex flex-column row-gap-2 align-items-end"
 					action="<%=request.getContextPath()%>/admin/book/fileupdate_pro.jsp?bookId=<%= bookId %>"
 					method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="<%= bookId %>" />
 					<div class="title">
-						<span><%= bookTitle %></span> <input type="text" name="title"
-							placeholder="도서명을 입력하세요." required>
+						<span>책 제목</span> <input type="text" name="title"
+							value="<%= bookTitle %>" required>
 					</div>
 					<div class="name">
-						<span><%= bookAuthor %></span> <input type="text" name="author"
-							placeholder="저자명을 입력하세요." required>
+						<span>저자</span> <input type="text" name="author"
+							value="<%= bookAuthor %>" required>
 					</div>
 					<div class="publisher">
-						<span><%= bookPublisher %></span> <input type="text" name="publisher"
-							placeholder="출판사를 입력하세요." required>
+						<span>출판사</span> <input type="text" name="publisher"
+							value="<%= bookPublisher %>" required>
 					</div>
 					<div class="isbn">
-						<span><%= bookIsbn %></span> <input type="text" name="isbn"
-							placeholder="ISBN을 입력하세요." required>
+						<span>ISBN</span> <input type="text" name="isbn"
+							value="<%= bookIsbn %>" required>
 					</div>
 					<div class="outline">
-						<span><%= bookOutline %></span> <input type="text" name="outline"
-							placeholder="책 개요를 입력하세요." required>
+						<span>책 개요</span> <input type="text" name="outline"
+							value="<%= bookOutline %>" required>
 					</div>
 					<div class="files">
 						<span>도서 이미지</span> <input type="file" name="file1" required>
@@ -101,8 +102,12 @@
 					<td>${ book.publisher }</td>
 					<td>${ book.outline }</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
+						<a href="book_update.jsp?id=${book.id}&title=${book.title}&author=${book.author}&publisher=${book.publisher}&isbn=${book.isbn}&outline=${book.outline}">
+						<button class="updateBtn" type="submit">수정</button>
+						</a>
+						<a href="filedelete_pro.jsp?id=${book.id}">
+						<button type="button">삭제</button>
+						</a>
 					</td>
 				</tr>
 			</c:forEach>
