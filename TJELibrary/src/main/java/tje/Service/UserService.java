@@ -1,5 +1,7 @@
 package tje.Service;
 
+import java.util.List;
+
 import tje.DTO.RentalList;
 import tje.DTO.User;
 
@@ -16,4 +18,7 @@ public interface UserService {
 	
 	// 회원 대출 내역 조회
 	public RentalList select(int no);
+	
+	// 회원 목록
+	public List<User> list();
 }

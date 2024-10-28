@@ -1,9 +1,11 @@
 package tje.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import tje.DAO.UserAuthDAO;
 import tje.DAO.UserDAO;
+import tje.DTO.Board;
 import tje.DTO.RentalList;
 import tje.DTO.User;
 import tje.DTO.UserAuth;
@@ -85,6 +87,18 @@ public class UserServiceImpl implements UserService{
 	public RentalList select(int no) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public List<User> list() {
+		List<User> userList = null;
+        try {
+            userList = userDAO.list();
+        } catch (Exception e) {
+            e.printStackTrace();  // 예외 처리
+        }
+        return userList;
 	}
 }
 

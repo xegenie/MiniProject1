@@ -5,6 +5,11 @@
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String editUserId = request.getParameter("userId");
+	UserService userService = new UserServiceImpl();
+	User user = userService.select(editUserId);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +33,8 @@
 					<input type="text" placeholder="1">
 				</div>
 				<div class="id">
-					<span>ID</span>
+<!-- 					<span>ID</span> -->
+					<span><%= user.getId() %></span>
 					<input type="text" placeholder="kimjoeun">
 				</div>
 				<div class="name">
