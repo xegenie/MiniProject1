@@ -5,31 +5,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String username = request.getParameter("username");
-	String password = request.getParameter("password");
-	String name = request.getParameter("name");
-	String email = request.getParameter("email");
-	
-	// User 객체 생성
-	User user = User.builder()
-						.id(UUID.randomUUID().toString())
-						.password(password)
-						.name(name)
-						.email(email)
-						.telNumber(telNumber)
-						.enabled(true)
-						.build();
-	
-	// 회원 가입 요청
-	UserService userService = new UserServiceImpl();
-	int result = userService.signup(User);
-	
-	// 회원가입 성공
-	if( result > 0 ) {
-		response.sendRedirect("index.jsp");				// 메인화면으로 이동
-	}
-	// 회원가입 실패
-	else {
-		response.sendRedirect("signup.jsp?error=0");	// 다시 회원가입페이지로 (에러포함)
-	}
+    String id = request.getParameter("id");
+    String password = request.getParameter("password");
+    String email = request.getParameter("email");
+    String telNumber = request.getParameter("tel_Number");
+
+    	User user = new User();
+        user.setId(id);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setTelNumber(telNumber);
+        
+        UserService userService = new UserServiceImpl();
+        int result = userService.signUp(user);
+        
+        if (result > 0) {
+        	session.setAttribute("user", user);
+            out.println("<script>alert('회원가입 성공. 로그인 해주세요.'); location.href='login.jsp';</script>");
+        } else {
+            out.println("<script>alert('회원가입 실패. 다시 시도하세요.'); history.back();</script>");
+        }
 %>

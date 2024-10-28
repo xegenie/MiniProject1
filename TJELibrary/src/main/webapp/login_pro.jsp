@@ -9,15 +9,16 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    String username = request.getParameter("username");
+    String id = request.getParameter("id");
     String password = request.getParameter("password");
 
     UserService userService = new UserServiceImpl();
-    User user = userService.login(username, password); // 로그인 메서드
+    User user = userService.select(id); // ID로 사용자 조회
 
-    if (user != null) {
+    // 비밀번호 확인
+    if (user != null && user.getPassword().equals(password)) {
         session.setAttribute("user", user); // 세션에 사용자 정보 저장
-        response.sendRedirect("home.jsp"); // 로그인 성공 후 홈으로 리다이렉트
+        response.sendRedirect("index.jsp"); // 로그인 성공 후 홈으로 리다이렉트
     } else {
         out.println("<script>alert('로그인 실패. 아이디와 비밀번호를 확인하세요.'); history.back();</script>");
     }

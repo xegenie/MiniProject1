@@ -12,40 +12,35 @@
 	<jsp:include page="/layout/link.jsp" />
 </head>
 <body>
-  <div class="login-container">
-    <div class="form-wrapper">
-      <h1 class="heading">Sign up</h1>
-      <form class="sign-in-form">
-        <div class="input-container">
-          <label for="username">아이디</label>
-          <input type="text" id="username" placeholder="kimjoeun">
+  <h1>회원가입</h1>
+    <form action="signup_pro.jsp" method="post">
+        <div>
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id" required>
         </div>
-        <div class="input-container">
-          <label for="email">이메일</label>
-          <input type="text" id="email" placeholder="kimjoeun">
+        <div>
+            <label for="email">이메일</label>
+            <input type="text" name="email" id="email" required>
         </div>
-        <div class="input-container">
-          <label for="password">비밀번호</label>
-          <input type="password" id="password" placeholder="••••••••••">
+        <div>
+            <label for="passowrd">비밀번호</label>
+            <input type="passowrd" name="passowrd" id="passowrd" required>
         </div>
-        <div class="input-container">
-          <label for="password2">비밀번호 확인</label>
-          <input type="password2" id="password2" placeholder="••••••••••">
+        <div>
+            <label for="passowrd">비밀번호 확인</label>
+            <input type="passowrd" name="passowrd" id="passowrd" required>
         </div>
-        <div class="input-container">
-          <label for="name">이름</label>
-          <input type="text" id="name" placeholder="이름">
+        <div>
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" required>
         </div>
-        <div class="input-container">
-          <label for="phoneNo">휴대전화</label>
-          <input type="phoneNo" id="phoneNo" placeholder="••••••••••">
+        <div>
+            <label for="telNumber">휴대전화</label>
+            <input type="tel" name="telNumber" id="telNumber" required>
         </div>
-		<div class="d-flex justify-content-start align-items-center column-gap-3 mb-3">
-		</div>
-        <button type="submit" class="login-button">가입하기</button><br>
-         <button type="submit" class="login-button">뒤로가기</button>
-      </form>
-    </div>
-  </div>
+        <div>
+            <input type="submit" value="회원가입">
+        </div>
+    </form>
 </body>
 </html>
