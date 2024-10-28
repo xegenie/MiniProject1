@@ -46,11 +46,16 @@ public class RentalSerivceImpl implements RentalService {
 	    int result = 0;  // 결과값(성공 여부) 반환용
 
 	    try {
+	        if (bookStock == null) {
+	            System.err.println("bookStock이 null입니다. 유효한 도서를 선택해 주세요.");
+	            return 0; // 실패 처리
+	        }
+	    	
 	        // 1. 도서가 '대출 가능'한 상태인지 확인
 	        if ("대출 가능".equals(bookStock.getStatus())) {
 	            // 2. 도서 상태를 '예약 중'으로 변경
 	            bookStock.setStatus("예약 중");
-	            bookStockDAO.update(bookStock,"status");  // 변경된 도서 상태 DB에 저장
+	            bookStockDAO.update(bookStock);  // 변경된 도서 상태 DB에 저장
 
 	            // 3. 대출 내역 등록
 	            RentalList rental = new RentalList(bookStock.getStockId(), bookStock.getBookId(), user.getId() );
