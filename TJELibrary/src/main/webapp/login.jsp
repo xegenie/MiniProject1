@@ -34,6 +34,6 @@
             <input type="submit" value="로그인">
         </div>
     </form>
-    <p>아직 회원이 아니신가요? <a href="register.jsp">회원가입</a></p>
+    <p>아직 회원이 아니신가요? <a href="signup.jsp">회원가입</a></p>
 </body>
 </html>
