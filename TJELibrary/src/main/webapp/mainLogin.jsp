@@ -61,7 +61,7 @@ element.style {
 	<div class="d-flex justify-content-center">
 		<div class="text-center loginscreen2">
 			<h1 style="margin-top: 50px">
-				<a href="main.jsp"><img src="<%= root %>/static/img/logo.png"></a>
+				<a href="index.jsp"><img src="<%= root %>/static/img/logo.png"></a>
 			</h1>
 			<div class="d-flex justify-content-center column-gap-5 my-5">
 				<div class="mx-4">

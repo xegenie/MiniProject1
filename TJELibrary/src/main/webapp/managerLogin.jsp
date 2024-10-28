@@ -118,25 +118,15 @@
   <div class="login-container">
     <div class="form-wrapper">
       <h1 class="heading">Manager<br>Sign in</h1>
-      <form class="sign-in-form" action="loginSession/session01_pro.jsp" method="post">
+      <form class="sign-in-form" action="managerLogin_pro.jsp" method="post">
         <div class="input-container">
           <label for="username">아이디</label>
-          <input type="text" id="username" name="username" placeholder="kimjoeun">
+          <input type="text" name="id" placeholder="kimjoeun">
         </div>
         <div class="input-container">
           <label for="password">비밀번호</label>
-          <input type="password" id="password" name="password" placeholder="••••••••••">
+          <input type="password" name="password" placeholder="••••••••••">
         </div>
-		<div class="d-flex justify-content-start align-items-center column-gap-3 mb-3">
-			<div class="item">
-				<input type="checkbox" id="save-id" name="save-id" class="form-check-input me-2"> 
-				<label for="save-id" class="user-select-none">아이디 저장</label>
-			</div>
-			<div class="item">
-				<input type="checkbox" id="auto-login" name="auto-login" class="form-check-input mr-2">
-				<label for="auto-login" class="user-select-none">자동 로그인</label>
-			</div>
-		</div>
         <button type="submit" class="login-button mb-3">로그인</button>
         <a href="signup.jsp" class="text-center my-3 text-danger">회원가입하러 가기</a>
       </form>
