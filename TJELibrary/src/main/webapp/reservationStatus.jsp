@@ -1,9 +1,45 @@
+<%@page import="tje.DTO.BookStock"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="tje.DTO.Book"%>
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.DTO.RentalList"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.RentalService"%>
+<%@page import="tje.Service.RentalSerivceImpl"%>
+<%@page import="tje.Service.UserServiceImpl"%>
+<%@page import="tje.Service.UserService"%>
+<%@page import="tje.DTO.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// 세션 사용 아이디
+// 	String id = (String) session.getAttribute("id");
+	
+	User user = new User();
+	UserService userService = new UserServiceImpl();
+// 	user = userService.select(id);
+	user = userService.select("joeun");
+	
+	BookService bookService = new BookServiceImpl();
+	Book book = null;
+	
+	RentalService rentalService = new RentalSerivceImpl();
+	List<RentalList> rentalList = rentalService.selectlist(user);
+	int count = rentalList.size();
+	List<RentalList> rvStatusList = new ArrayList();
+	for(int i = 0; i<count; i++){
+		RentalList temp = rentalList.get(i);
+		if(temp.getState() == "예약") {
+			rvStatusList.add(temp);
+		}
+	}
+	List<BookStock> rvBookStockList = new ArrayList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +68,36 @@
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider text-center">
+				  <%
+				  	for(int i=0; i<rvStatusList.size(); i++){
+				  		book = bookService.select(rvStatusList.get(i).getBookId());
+				  		BookStock rvBookStock = new BookStock();
+				  		rvBookStock.setBookId(rvStatusList.get(i).getBookId());
+				  		rvBookStock.setStockId(rvStatusList.get(i).getStockId());
+				  		rvBookStock.setStatus("예약 중");
+				  		rvBookStockList.add(rvBookStock);
+				  %>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>2024/09/05</td>
+				      <th scope="row"><%= i+1 %></th>
+				      <td><%= book.getTitle() %></td>
+				      <td><%= rvStatusList.get(i).getRentalDate() %></td>
 				      <td>
-				      	<button type="button" class="btn btn-primary">예약취소</button>
+				      <form action="post">
+				      	<button type="submit" name="rvdelete" class="btn btn-primary">예약취소</button>
+				      </form>
 				      </td>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>introvert감각적사고적판단적 널해석 16words</td>
-				      <td>2024/09/05</td>
-				      <td>
-				      	<button type="button" class="btn btn-primary">예약취소</button>
-				      </td>
-				    </tr>
+					<%
+						if(request.getParameter("rvdelete") != null) {
+							rentalService.rvDelete(rvBookStock, user);
+						%>
+						<script type="text/javascript">
+							alert("예약이 취소되었습니다.");
+						</script>
+						<%	
+						}
+				  	}
+					%>
 				  </tbody>
 				</table>
 			</div>	

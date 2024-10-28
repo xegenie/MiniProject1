@@ -1,9 +1,37 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="tje.Service.WishListServiceImpl"%>
+<%@page import="tje.Service.WishListService"%>
+<%@page import="tje.DTO.WishList"%>
+<%@page import="tje.DTO.Book"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.Service.UserServiceImpl"%>
+<%@page import="tje.Service.UserService"%>
+<%@page import="tje.DTO.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// 세션 사용 아이디
+// 	String id = (String) session.getAttribute("id");
+	
+	User user = new User();
+	UserService userService = new UserServiceImpl();
+// 	user = userService.select(id);
+	user = userService.select("joeun");
+	
+	BookService bookService = new BookServiceImpl();
+	Book book = null;
+	
+	WishList wishList = new WishList();
+	List<WishList> userWishLsit = new ArrayList();
+	WishListService wishListService = new WishListServiceImpl();
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,18 +66,7 @@
 				      <td>황정은</td>
 				      <td>큐큐</td>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>팔꿈치를 주세요하이하이집갈래</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
-				    </tr>
+				    
 				  </tbody>
 				</table>
 			</div>	

@@ -55,6 +55,11 @@ public class RentalSerivceImpl implements RentalService {
 	            // 3. 대출 내역 등록
 	            RentalList rental = new RentalList(bookStock.getStockId(), bookStock.getBookId(), user.getId() );
 	            rental.setState("예약");
+	            LocalDate localDate = LocalDate.now();
+	    		Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+	    		Date date = Date.from(instant);
+	    		rental.setRentalDate(date);
+	    		
 	            rentalListDAO.insert(rental);  // 대출 내역 DB에 등록
 
 	            System.out.println("예약이 완료되었습니다.");
