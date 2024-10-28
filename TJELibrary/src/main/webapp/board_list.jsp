@@ -20,6 +20,7 @@
 		BoardService boardService = new BoardServiceImpl();
 		List<Board> list = boardService.listByType(bType); // 인스턴스 메서드 호출
 		pageContext.setAttribute("Boardlist", list);
+		
 	%>
 <html>
 <head>
@@ -72,7 +73,7 @@
 				        <tr>
 				            <td>${board.boardNo}</td>
 				            <td><a href="board_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
-				            <td>${board.writer}</td>
+				            <td>${user.userId}</td>
 				            <td>${board.regDate}</td>
 				            <td>${board.updDate}</td>
 				        </tr>
