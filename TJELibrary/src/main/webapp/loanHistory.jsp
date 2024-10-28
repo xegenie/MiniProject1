@@ -65,30 +65,40 @@
 				  </thead>
 				  <tbody class="table-group-divider text-center">
 				  <%
-// 				  	for(int i=0; i<count; i++){
-// 				  		RentalList rl = rentalList.get(i);
-// 				  		book = bookService.select(rl.getBookId());
+				  	for(int i=0; i<count; i++){
+				  		RentalList rl = rentalList.get(i);
+				  		book = bookService.select(rl.getBookId());
 				  %>
 					    <tr>
-<%-- 					      <th scope="row"><%= i+1 %></th> --%>
+					      <th scope="row"><%= i+1 %></th>
 					      <td><%=book.getTitle() %></td>
-<%-- 					      <td><%=rl.getRentalDate() %></td> --%>
 					      <%
-// 							if(rl.getReturnDate() == null) {						      
+							if(rl.getState() == "예약") {						      
 					      %>
 					      		<td>-</td>
 					      <%
-// 							} else {
+							} else {
 					      %>
-<%-- 					      		<td><%= rl.getReturnDate() %></td> --%>
+					      		<td><%=rl.getRentalDate() %></td>
 					      <%
-// 							}
+							}
+					      %>
+					      <%
+							if(rl.getState() != "반납") {						      
+					      %>
+					      		<td>-</td>
+					      <%
+							} else {
+					      %>
+					      		<td><%= rl.getReturnDate() %></td>
+					      <%
+							}
 					      %>
 					      
-					      <td>반납</td>
+					      <td><%= rl.getState() %></td>
 					    </tr>
 				   <%
-// 				  	}
+				  	}
 				   %>
 				  </tbody>
 				</table>

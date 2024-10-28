@@ -50,10 +50,11 @@ public class RentalSerivceImpl implements RentalService {
 	        if ("대출 가능".equals(bookStock.getStatus())) {
 	            // 2. 도서 상태를 '예약 중'으로 변경
 	            bookStock.setStatus("예약 중");
-	            bookStockDAO.update(bookStock);  // 변경된 도서 상태 DB에 저장
+	            bookStockDAO.update(bookStock,"status");  // 변경된 도서 상태 DB에 저장
 
 	            // 3. 대출 내역 등록
 	            RentalList rental = new RentalList(bookStock.getStockId(), bookStock.getBookId(), user.getId() );
+	            rental.setState("예약");
 	            rentalListDAO.insert(rental);  // 대출 내역 DB에 등록
 
 	            System.out.println("예약이 완료되었습니다.");
@@ -76,12 +77,19 @@ public class RentalSerivceImpl implements RentalService {
 	    try {
 	        // 1. 도서가 '예약 중'인지 확인
 	        if ("예약 중".equals(bookStock.getStatus())) {
+	        	Map<Object, Object> rlfield = new HashMap<Object, Object>() {{
+	            	put("id", user.getId());
+	                put("stock_id", bookStock.getStockId());
+	                put("book_id", bookStock.getBookId());
+	                put("state", "예약");
+	            }};
 	            // 2. 도서 상태를 '대출 가능'으로 변경
 	            bookStock.setStatus("대출 가능");
-	            bookStockDAO.update(bookStock);  // 변경된 도서 상태 DB에 저장
+	        	
+	            bookStockDAO.update(bookStock, "status");  // 변경된 도서 상태 DB에 저장
 
 	            // 3. 대출 내역 삭제
-	            result = rentalListDAO.delete(bookStock);
+	            result = rentalListDAO.deleteBy(rlfield);
 
 	            if (result > 0) {
 	                System.out.println("예약이 취소되었습니다.");
@@ -234,35 +242,36 @@ public class RentalSerivceImpl implements RentalService {
 		int statusResult = 0;
 		bookStock.setStatus("대출 가능");
 		try {
-			statusResult = bookStockDAO.update(bookStock);
+			statusResult = bookStockDAO.update(bookStock,"status");
 			if ( statusResult > 0 ) System.out.println("스테이터스 등록 성공!");
 		} catch (Exception e) {
 			System.err.println("스테이터스 변경 실패!");
 			e.printStackTrace();
-			if ( statusResult == 0 ) return 0;
 		}
+		if ( statusResult == 0 ) return 0;
 		
 		long a = overdue(bookStock, user);
 		
 		if ( a > 0 ) {
+			rentalList.setState("연체");
 			rentalList.setOverDate((int)a);
+			try {
+				result = rentalListDAO.update(rentalList,"state","over_date");
+				if ( result > 0 ) System.out.println("반납 등록 성공!");
+			} catch (Exception e) {
+				System.err.println("반납 등록 실패!");
+				e.printStackTrace();
+			}
+			if ( result == 0 ) return 0;
 		}
-		
-		try {
-			result = rentalListDAO.insert(rentalList);
-			if ( result > 0 ) System.out.println("반납 등록 성공!");
-		} catch (Exception e) {
-			System.err.println("반납 등록 실패!");
-			e.printStackTrace();
-		}
-		if ( result == 0 ) return 0;
-		
-		rentalList.setState("반납");
-		try {
-			rentalListDAO.update(rentalList, "state");
-		} catch (Exception e) {
-			System.err.println("반납 중 rentalListDAO.update(rentalList, \"state\");");
-			e.printStackTrace();
+		else {
+			rentalList.setState("반납");
+			try {
+				rentalListDAO.update(rentalList, "state");
+			} catch (Exception e) {
+				System.err.println("반납 중 rentalListDAO.update(rentalList, \"state\");");
+				e.printStackTrace();
+			}
 		}
 		
 		return statusResult;
