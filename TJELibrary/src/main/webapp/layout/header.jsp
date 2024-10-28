@@ -22,7 +22,7 @@
                         <%
                             } else {
                         %>
-                            <a href="login.jsp">로그인</a>
+                            <a href="mainLogin.jsp">로그인</a>
                         <%
                             }
                         %>
