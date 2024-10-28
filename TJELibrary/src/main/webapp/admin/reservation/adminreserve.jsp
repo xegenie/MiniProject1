@@ -176,20 +176,29 @@ td button:last-child {
 <body>
 	<div>
 	<%@ include file="/layout/admin/sidebar.jsp" %>
-	<% %>
-</div>
+	</div>
 <div style="margin-left:10%;padding:1px 16px;">
+		<%
+		// 책 목록 전체 조회
+		Reser
+		BookService bookService = new BookServiceImpl();
+		List<Book> list = bookService.list(); // 모든 책 목록 조회
+		
+		// 조회된 리스트를 페이지 컨텍스트에 저장
+		pageContext.setAttribute("list", list);
+		%>
         <section>
-          <div class="container">
+        <div class="container">
               <div class="title-box">
                   <h1 class="main-title">예약 관리</h1>
-          </div>
+        	  </div>
           <div class="rounded-search-container">
             <input type="text" class="rounded-search-input" placeholder="검색어를 입력하세요.">
             <button class="rounded-search-btn">
                 <i class="fa fa-search"></i>
             </button>
-        </div>
+       	 </div>
+       	 
       <table class="board-list">
           <thead>
               <tr>
@@ -212,99 +221,10 @@ td button:last-child {
                   <button type="button" onclick="deletePost()">삭제</button>
               </td>
           </tr>
-          <tr>
-              <td>2</td>
-              <td>게시글 제목 2</td>
-              <td>작성자2</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>3</td>
-              <td>게시글 제목 3</td>
-              <td>작성자3</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>4</td>
-              <td>게시글 제목 4</td>
-              <td>작성자4</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>5</td>
-              <td>게시글 제목 5</td>
-              <td>작성자5</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>6</td>
-              <td>게시글 제목 6</td>
-              <td>작성자6</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>7</td>
-              <td>게시글 제목 7</td>
-              <td>작성자7</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>8</td>
-              <td>게시글 제목 8</td>
-              <td>작성자8</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>9</td>
-              <td>게시글 제목 9</td>
-              <td>작성자9</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr><tr>
-              <td>10</td>
-              <td>게시글 제목 10</td>
-              <td>작성자10</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
           </tbody>
       </table>
-      </section>
-      
       </div>
+      </section>
+</div>
 </body>
 </html>
