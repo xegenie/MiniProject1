@@ -1,3 +1,5 @@
+<%@page import="tje.DTO.User"%>
+<%@page import="tje.DTO.BookStock"%>
 <%@page import="tje.Service.RentalSerivceImpl"%>
 <%@page import="tje.Service.RentalService"%>
 <%@page import="tje.DTO.RentalList"%>
@@ -46,16 +48,26 @@ try {
 		}
 
 		// 대출기록 정보
-		RentalList rentalList = new RentalList();
-		rentalList.setBookId(bookId);
-		rentalList.setId("joeun");
-		rentalList.setState("예약 중");
-		rentalList.setStockId(1);
-		rentalList.setOverDate(0);
-
+// 		RentalList rentalList = new RentalList();
+// 		rentalList.setBookId(bookId);
+// 		rentalList.setId("joeun");
+// 		rentalList.setState("예약 중");
+// 		rentalList.setStockId(1);
+// 		rentalList.setOverDate(0);
 		RentalService rentalService = new RentalSerivceImpl();
 
-		int result = rentalService.insert(rentalList);
+
+		// 수정해본 것
+		BookStock bookStock = new BookStock();
+		bookStock.setBookId(bookId);
+		bookStock.setStockId(1);
+		bookStock.setStatus("예약 중");
+		
+		User user = new User();
+		user.setId("joeun");
+		
+		int result = rentalService.Reservation(bookStock, user);
+		//-------여기까지 수정
 
 		if (result == 0) {
 	// 책 정보 등록 실패
