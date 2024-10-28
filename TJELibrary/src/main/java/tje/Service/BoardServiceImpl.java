@@ -14,6 +14,7 @@ import tje.DAO.BoardDAO;
 import tje.DAO.CommentDAO;
 import tje.DTO.Board;
 import tje.DTO.Comments;
+import tje.DTO.User;
 
 public class BoardServiceImpl implements BoardService {
 	
@@ -45,17 +46,18 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int insert(Board board) {
-        String sql = "INSERT INTO board (title, content, reg_date, upd_date, b_type) VALUES (?, ?, ?, ?, ?)";
+    public int insert(Board board, User user) {
+        String sql = "INSERT INTO board (title, content, writer, reg_date, upd_date, b_type) VALUES (?, ?, ?, ?, ?, ?)";
         int result = 0;
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, board.getTitle());
             pstmt.setString(2, board.getContent());
-            pstmt.setTimestamp(3, new java.sql.Timestamp(new Date().getTime())); // 등록일자
-            pstmt.setTimestamp(4, new java.sql.Timestamp(new Date().getTime())); // 수정일자
-            pstmt.setString(5, board.getBType()); // bType 추가
+            pstmt.setString(3, user.getId());
+            pstmt.setTimestamp(4, new java.sql.Timestamp(new Date().getTime())); // 등록일자
+            pstmt.setTimestamp(5, new java.sql.Timestamp(new Date().getTime())); // 수정일자
+            pstmt.setString(6, board.getBType()); // bType 추가
 
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
