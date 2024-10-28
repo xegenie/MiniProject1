@@ -47,32 +47,34 @@
 	<div class="container border-bottom border-end">
 		<div class="insert rounded-3 m-5">
 			<div class="item1 fs-2 fw-bold mb-4">회원정보 수정</div>
-			
-			<form class="item2 d-flex flex-column row-gap-3 align-items-end" action="admin_userUpdate_pro.jsp" method="post">
+
+			<form class="item2 d-flex flex-column row-gap-3 align-items-end"
+				action="admin_userUpdate_pro.jsp" method="post">
 				<div class="id">
 					<span>ID</span>
-<%-- 					<span><%= user.getId() %></span> --%>
-					<input type="text" placeholder="kimjoeun" value="<%= user.getId() %>" readonly>
+					<%-- 					<span><%= user.getId() %></span> --%>
+					<input type="text" placeholder="kimjoeun" name="userId"
+						value="<%=user.getId()%>" readonly>
 				</div>
 				<div class="pw">
-					<span>PW</span>
-					<input type="text" placeholder="비밀번호를 입력하세요." value="<%= user.getPassword() %>">
+					<span>PW</span> <input type="text" placeholder="비밀번호를 입력하세요." name="userPw"
+						value="<%=user.getPassword()%>">
 				</div>
 				<div class="name">
-					<span>이름</span>
-					<input type="text" placeholder="김조은" value="<%= user.getName() %>">
+					<span>이름</span> <input type="text" placeholder="김조은" name="userName"
+						value="<%=user.getName()%>">
 				</div>
 				<div class="email">
-					<span>이메일</span>
-					<input type="text" placeholder="kimjoeun@gmail.com" value="<%= user.getEmail() %>">
+					<span>이메일</span> <input type="text" name="userEmail"
+						placeholder="kimjoeun@gmail.com" value="<%=user.getEmail()%>">
 				</div>
 				<div class="phoneNo">
-					<span>핸드폰 번호</span>
-					<input type="text" placeholder="010-0000-0000" value="<%= user.getTelNumber() %>">
+					<span>핸드폰 번호</span> <input type="text" placeholder="010-0000-0000" name="userPhone"
+						value="<%=user.getTelNumber()%>">
 				</div>
-			</div>				
-			<div class="insertBox mt-4 d-flex justify-content-end">
-				<input class="insertBtn rounded-3" type="submit" value="수정">
+				<div class="insertBox mt-4 d-flex justify-content-end">
+					<input class="insertBtn rounded-3" type="submit" value="수정" />
+				</div>
 			</form>
 		</div>
 	</div>

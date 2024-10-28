@@ -1,7 +1,16 @@
+<%@page import="tje.DTO.RentalList"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.RentalSerivceImpl"%>
+<%@page import="tje.Service.RentalService"%>
 <%@ include file="/layout/jstl.jsp"%>
 <%@ include file="/layout/common.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	RentalService rentalService = new RentalSerivceImpl();
+// 	List<RentalList> rlist = rentalService.selectlist(user); 
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,18 +65,19 @@
 		<div class="container insert rounded-3 m-5">
 			<div class="item1 fs-2 fw-bold mb-4">대출 관리</div>
 
-			<div class="item2 d-flex flex-column row-gap-3 align-items-end">
+			<form class="item2 d-flex flex-column row-gap-3 align-items-end"
+				action="rentallist_pro.jsp" method="post">
 				<div class="id">
-					<span>회원 ID</span> <input type="text">
+					<span>회원 ID</span> <input type="text" name="userId">
 				</div>
 				<div class="book">
-					<span>도서 ID</span> <input type="text">
+					<span>도서 ID</span> <input type="text" name="bookId">
 				</div>
 				<div class="book-stock">
-					<span>재고 ID</span> <input type="text">
+					<span>재고 ID</span> <input type="text" name="stockId">
 				</div>
-				<input class="insertBtn rounded-3" type="submit" value="등록">
-			</div>
+				<input class="insertBtn rounded-3" type="submit" value="대출">
+			</form>
 		</div>
 	</div>
 	<div class="container">
@@ -96,43 +106,37 @@
 					</thead>
 					<tbody class="table-group-divider text-center">
 						<tr>
-							<td>00001
-							</th>
+							<td><%=  %></td>
 							<td>121212<br>/241111
 							</td>
 							<td>실적 발표 직전</td>
 							<td>2024/11/20</td>
 							<td>2024/11/20</td>
-							<td>
-								<span class="badge text-bg-primary" style="cursor: pointer;">반납하기</span> 
-								<span class="badge text-bg-danger">연체</span>
-							</td>
+							<td><span class="badge text-bg-primary"
+								style="cursor: pointer;">반납하기</span> <span
+								class="badge text-bg-danger">연체</span></td>
 						</tr>
 						<tr>
 							<td>00001
-							</th>
 							<td>121212<br>/241111
 							</td>
 							<td>실적 발표 직전</td>
 							<td>2024/11/20</td>
 							<td>2024/11/20</td>
-							<td>
-								<span class="badge text-bg-primary" style="cursor: pointer;">반납하기</span> 
-								<span class="badge text-bg-success">정상</span>
-							</td>
+							<td><span class="badge text-bg-primary"
+								style="cursor: pointer;">반납하기</span> <span
+								class="badge text-bg-success">정상</span></td>
 						</tr>
 						<tr>
 							<td>00001
-							</th>
 							<td>121212<br>/241111
 							</td>
 							<td>실적 발표 직전</td>
 							<td>2024/11/20</td>
 							<td>2024/11/20</td>
-							<td>
-								<span class="badge text-bg-primary" style="cursor: pointer;">반납하기</span> 
-								<span class="badge text-bg-success">정상</span>
-							</td>
+							<td><span class="badge text-bg-primary"
+								style="cursor: pointer;">반납하기</span> <span
+								class="badge text-bg-success">정상</span></td>
 						</tr>
 					</tbody>
 				</table>
