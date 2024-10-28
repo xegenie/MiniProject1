@@ -59,7 +59,7 @@
             <c:forEach var="comment" items="${comments}">
                 <div class="comment-item">
                     <div class="comment-header">
-                        <span class="comment-author">${comment.writer}</span>
+                        <span class="comment-author">${user.id}</span>
                         <span class="comment-date">${comment.regDate}</span>
                     </div>
                     <div class="comment-content">${comment.content}</div>
