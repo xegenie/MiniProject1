@@ -161,12 +161,12 @@
 				</div>
 				<div class="status d-flex justify-content-around align-items-center">
 					<span>${ book.id }</span>
-					<span>대출 가능 ${ bookStock.status }</span>
+					<span>${ bookStock.status }</span>
 					<div class="reservation">
 						<form action="<%= request.getContextPath() %>/reserveUpload.jsp" method="post" enctype="multipart/form-data">
 						    <input type="hidden" name="userId" value="<%= userId %>" />
 						    <input type="hidden" name="bookId" value="<%= book.getId() %>" />
-<%-- 						    <input type="hidden" name="stockId" value="<%= bookStock.getStockId() %>" /> --%>
+						    <input type="hidden" name="stockId" value="<%= bookStock.getStockId() %>" />
 						    <input class="reserve-btn" type="submit" value="예약하기" />
 						</form>
 					</div>

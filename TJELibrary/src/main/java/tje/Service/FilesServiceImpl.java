@@ -1,5 +1,7 @@
 package tje.Service;
 
+import java.util.List;
+
 import com.alohaclass.jdbc.dto.Page;
 import com.alohaclass.jdbc.dto.PageInfo;
 
@@ -63,6 +65,21 @@ public class FilesServiceImpl implements FilesService {
 			e.printStackTrace();
 		}
 		return pageInfo;
+	}
+
+	@Override
+	public List<Files> list() {
+		List<Files> list = null;
+		
+		try {
+			list = filesDAO.list();
+		} catch (Exception e) {
+			System.err.println("책 목록 조회 실패");
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 
 }
