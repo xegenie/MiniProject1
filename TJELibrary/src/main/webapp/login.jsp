@@ -20,20 +20,24 @@
     <link rel="stylesheet" href="static/css/login.css">
 </head>
 <body>
-    <h1>로그인</h1>
-    <form action="login_pro.jsp" method="post">
-        <div>
-            <label for="username">아이디</label>
-            <input type="text" name="username" id="username" required>
+    <div class="login-container">
+        <div class="form-wrapper">
+            <h1 class="heading">로그인</h1>
+            <form action="login_pro.jsp" method="post" class="sign-in-form">
+                <div class="input-container">
+                    <label for="id">아이디</label>
+                    <input type="text" name="id" id="id" required>
+                </div>
+                <div class="input-container">
+                    <label for="password">비밀번호</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <input type="submit" class="login-button" value="로그인">
+                </div>
+            </form>
+            <p class="div">아직 회원이 아니신가요? <a href="signup.jsp">회원가입</a></p>
         </div>
-        <div>
-            <label for="password">비밀번호</label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <div>
-            <input type="submit" value="로그인">
-        </div>
-    </form>
-    <p>아직 회원이 아니신가요? <a href="signup.jsp">회원가입</a></p>
+    </div>
 </body>
 </html>

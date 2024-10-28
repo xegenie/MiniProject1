@@ -99,3 +99,27 @@
 		  align-items: center;
 		  justify-content: center;
 		}
+		/* 버튼 공통 스타일 */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #947d69; /* 버튼 배경색 */
+    color: #fff; /* 글자 색 */
+    border: none;
+    border-radius: 10px; /* 둥글게 */
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
+}
+
+.login-button:hover {
+    background-color: #836957; /* 마우스 오버 시 배경색 */
+}
+
+/* 필요 시 버튼 크기 조정 */
+@media (max-width: 768px) {
+    .login-button {
+        font-size: 14px; /* 작은 화면에서 폰트 크기 조정 */
+    }
+}
