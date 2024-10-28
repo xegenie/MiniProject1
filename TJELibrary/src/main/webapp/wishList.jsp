@@ -28,9 +28,9 @@
 	Book book = null;
 	
 	WishList wishList = new WishList();
-	List<WishList> userWishLsit = new ArrayList();
+	List<Book> bookList = new ArrayList();
 	WishListService wishListService = new WishListServiceImpl();
-	
+	bookList = wishListService.select(user);
 %>
 <!DOCTYPE html>
 <html>
@@ -60,13 +60,18 @@
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider text-center">
+				  <%
+				  	for (int i=0; i<bookList.size(); i++) {
+				  %>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>팔꿈치를 주세요</td>
-				      <td>황정은</td>
-				      <td>큐큐</td>
+				      <th scope="row"><%=i+1 %></th>
+				      <td><%= bookList.get(i).getTitle() %></td>
+				      <td><%= bookList.get(i).getAuthor() %></td>
+				      <td><%= bookList.get(i).getPublisher() %></td>
 				    </tr>
-				    
+				    <%
+				  	}
+				    %>
 				  </tbody>
 				</table>
 			</div>	

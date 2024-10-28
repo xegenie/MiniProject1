@@ -76,7 +76,7 @@
 				  		book = bookService.select(loanStatusList.get(i).getBookId());
 				  %>
 				    <tr>
-				      <th scope="row"><%= i++ %></th>
+				      <th scope="row"><%= i+1 %></th>
 				      <td><%= book.getTitle() %></td>
 				      <td><%= loanStatusList.get(i).getRentalDate() %></td>
 				      <td><%= loanStatusList.get(i).getReturnDate() %></td>
