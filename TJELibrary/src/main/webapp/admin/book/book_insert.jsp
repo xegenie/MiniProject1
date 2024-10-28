@@ -92,8 +92,10 @@
 					<td>${ book.publisher }</td>
 					<td>${ book.outline }</td>
 					<td>
-						<button type="button" onclick="editPost()">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
+						<a href="book_update.jsp?id=${book.id}&title=${book.title}&author=${book.author}&publisher=${book.publisher}&isbn=${book.isbn}&outline=${book.outline}">
+						<button type="submit">수정</button>
+						</a>
+						<button type="button">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>

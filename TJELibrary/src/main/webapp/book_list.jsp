@@ -62,10 +62,11 @@
 			<div class="book d-flex border-bottom py-2">
 				<div class="head">
 					<div class="no">NO. ${ book.id }</div>
+					<c:set var="bookId" value="${book.id}" />
 					<%
 					// 파일 조회
 					FilesService filesService = new FilesServiceImpl();
-					Files imgfile = filesService.select(i++); // 파일 정보 조회
+					Files imgfile = filesService.select( (int) pageContext.getAttribute("bookId") ); // 파일 정보 조회
 					String fullPath = imgfile.getFilePath(); // 전체 파일 경로 가져오기
 
 				    String[] parts = fullPath.split("static\\\\");

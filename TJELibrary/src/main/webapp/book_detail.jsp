@@ -163,12 +163,20 @@
 					<span>${ book.id }</span>
 					<span>${ bookStock.status }</span>
 					<div class="reservation">
-						<form action="<%= request.getContextPath() %>/reserveUpload.jsp" method="post" enctype="multipart/form-data">
-						    <input type="hidden" name="userId" value="<%= userId %>" />
-						    <input type="hidden" name="bookId" value="<%= book.getId() %>" />
-						    <input type="hidden" name="stockId" value="<%= bookStock.getStockId() %>" />
-						    <input class="reserve-btn" type="submit" value="예약하기" />
-						</form>
+						<c:choose>
+						    <c:when test="${bookStock.status == '대출 가능'}">
+						        <!-- 예약 버튼 폼 -->
+						        <form action="<%= request.getContextPath() %>/reserveUpload.jsp" method="post">
+						            <input type="hidden" name="userId" value="<%= userId %>" />
+						            <input type="hidden" name="bookId" value="<%= book.getId() %>" />
+						            <input type="hidden" name="stockId" value="<%= bookStock.getStockId() %>" />
+						            <input class="reserve-btn" type="submit" value="예약하기" />
+						        </form>
+						    </c:when>
+						    <c:otherwise>
+						        <span class="stockStatus">${bookStock.status}</span>
+						    </c:otherwise>
+						</c:choose>
 					</div>
 					<span>${ returnDay }</span>
 					<span>${ overDay }</span>
@@ -198,27 +206,6 @@
       });
     
   </script>
-  <%
-	String message = (String) session.getAttribute("message");
-	String errorMessage = (String) session.getAttribute("error");
-	if (message != null) {
-		%>
-		    <script>
-		        alert('<%= message %>'); // 예약 완료 알림 표시
-		    </script>
-		<%
-		    session.removeAttribute("message"); // 메시지 삭제
-		}
-
-		if (errorMessage != null) {
-		%>
-		    <script>
-		        alert('<%= errorMessage %>'); // 예약 실패 알림 표시
-		    </script>
-		<%
-		    session.removeAttribute("error"); // 오류 메시지 삭제
-		}
-		%>
 	<jsp:include page="/layout/footer.jsp" />
 	<jsp:include page="/layout/script.jsp" />
 </body>
