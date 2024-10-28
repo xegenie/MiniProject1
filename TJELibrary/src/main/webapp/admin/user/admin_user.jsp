@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="tje.DTO.User"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -5,6 +7,29 @@
 <%@ include file="/layout/common.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	UserService userService = new UserServiceImpl();
+	List<User> userList = userService.list();
+	
+	String deleteUserId = request.getParameter("deleteUserId");
+	if (deleteUserId != null && !deleteUserId.isEmpty()) {
+        int deleteResult = userService.delete(deleteUserId);
+        if (deleteResult!=0) {
+%>
+            <script type="text/javascript">
+                alert("삭제가 완료되었습니다.");
+                location.href = "admin_user.jsp";  // 삭제 완료 후 페이지 리로드
+            </script>
+<%
+        } else {
+%>
+            <script type="text/javascript">
+                alert("삭제에 실패했습니다.");
+            </script>
+<%
+        }
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,135 +92,51 @@
 			</thead>
 			<tbody>
 				<!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
+				<%
+				for(int i=0; i<userList.size(); i++) {
+					String userId = userList.get(i).getId();
+				%>
 				<tr>
-					<td>1</td>
-					<td>id</td>
-					<td>name</td>
-					<td>email@gmail.com</td>
-					<td>phone_number</td>
+					<td><%= i+1 %></td>
+					<td><%= userList.get(i).getId() %></td>
+					<td><%= userList.get(i).getName() %></td>
+					<td><%= userList.get(i).getEmail() %></td>
+					<td><%= userList.get(i).getTelNumber() %></td>
 					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
+						<button type="button" onclick="location.href='admin_userUpdate.jsp?userId=<%= userId %>';">수정</button>
+						<button type="button" onclick="deleteUser('<%= userId %>')">삭제</button>
 					</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>게시글 제목 2</td>
-					<td>작성자2</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>게시글 제목 3</td>
-					<td>작성자3</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>게시글 제목 4</td>
-					<td>작성자4</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>게시글 제목 5</td>
-					<td>작성자5</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>게시글 제목 6</td>
-					<td>작성자6</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td>게시글 제목 7</td>
-					<td>작성자7</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td>게시글 제목 8</td>
-					<td>작성자8</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>게시글 제목 9</td>
-					<td>작성자9</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>게시글 제목 10</td>
-					<td>작성자10</td>
-					<td>2024-10-%%</td>
-					<td>좋아요</td>
-					<td>
-						<button type="button" onclick="location.href='admin_userUpdate.jsp'; editPost();">수정</button>
-						<button type="button" onclick="deletePost()">삭제</button>
-					</td>
-				</tr>
+				<%
+				}
+				%>
 			</tbody>
 		</table>
 
 	</div>
-	<div class="container">
-		<div class="pagenation">
-			<!-- ≪ ＜ ＞ ≫ -->
-			<a href="" class="page-link">≪</a>
-			<a href="" class="page-link">＜</a>
-			<a href="" class="page-link selected">1</a> 
-			<a href="" class="page-link">2</a> 
-			<a href="" class="page-link">3</a> 
-			<a href="" class="page-link">4</a> 
-			<a href="" class="page-link">5</a>
-			<a href="" class="page-link">＞</a> 
-			<a href="" class="page-link">≫</a>
-		</div>
-	</div>
+<!-- 	<div class="container"> -->
+<!-- 		<div class="pagenation"> -->
+<!-- 			<!-- ≪ ＜ ＞ ≫ --> -->
+<!-- 			<a href="" class="page-link">≪</a> -->
+<!-- 			<a href="" class="page-link">＜</a> -->
+<!-- 			<a href="" class="page-link selected">1</a>  -->
+<!-- 			<a href="" class="page-link">2</a>  -->
+<!-- 			<a href="" class="page-link">3</a>  -->
+<!-- 			<a href="" class="page-link">4</a>  -->
+<!-- 			<a href="" class="page-link">5</a> -->
+<!-- 			<a href="" class="page-link">＞</a>  -->
+<!-- 			<a href="" class="page-link">≫</a> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<%-- [Contents] ######################################################### --%>
+	<script type="text/javascript">
+		function deleteUser(userId) {
+			request = new XMLHttpRequest()
+			if(confirm("정말로 삭제하시겠습니까?")) {
+				window.location.href = 'admin_user.jsp?deleteUserId=' + encodeURIComponent(userId);
+			}
+		}
+	</script>
 	<script>
 	// 예약완료 알림 표시
     const insert = document.querySelector('.insertBtn');
