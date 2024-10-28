@@ -1,3 +1,9 @@
+<%@page import="java.time.ZoneId"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.DTO.Book"%>
 <%@page import="tje.DTO.RentalList"%>
 <%@page import="java.util.List"%>
 <%@page import="tje.Service.RentalSerivceImpl"%>
@@ -8,14 +14,15 @@
 	pageEncoding="UTF-8"%>
 <%
 	RentalService rentalService = new RentalSerivceImpl();
-// 	List<RentalList> rlist = rentalService.selectlist(user); 
-
+	List<RentalList> rlist = rentalService.selectByState("대출"); 
+	BookService bookService = new BookServiceImpl();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>관리자 게시판 목록</title>
 <link rel="stylesheet" href="<%=root%>/static/css/admin_user.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style type="text/css">
@@ -105,43 +112,62 @@
 						</tr>
 					</thead>
 					<tbody class="table-group-divider text-center">
+					<%
+						for (int i=0; i<rlist.size(); i++) {
+						Book book= bookService.select(rlist.get(i).getBookId());
+						Date returnDate = rlist.get(i).getRentalDate();
+						LocalDate localDate = returnDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+						LocalDate newLocalDate = localDate.plusDays(7);
+						Date newReturnDate = Date.from(newLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+						LocalDate today = LocalDate.now();
+					%>
 						<tr>
-							<td><%=  %></td>
-							<td>121212<br>/241111
+							<td><%= rlist.get(i).getId() %></td>
+							<td><%=rlist.get(i).getBookId() %><br>/<%= rlist.get(i).getStockId() %>
 							</td>
-							<td>실적 발표 직전</td>
-							<td>2024/11/20</td>
-							<td>2024/11/20</td>
+							<td><%= book.getTitle() %></td>
+							<td><%= rlist.get(i).getRentalDate() %></td>
+							<td><%= newReturnDate %></td>
 							<td><span class="badge text-bg-primary"
-								style="cursor: pointer;">반납하기</span> <span
-								class="badge text-bg-danger">연체</span></td>
+								onclick="returnBook('<%= rlist.get(i).getNo() %>')"
+								style="cursor: pointer;">반납하기</span> 
+							<%
+								if(newLocalDate.isBefore(today)) {
+							%>
+								<span class="badge text-bg-danger">연체</span>
+							<%
+								} else {
+							%>
+								<span class="badge text-bg-success">정상</span>
+							<%
+								}
+							%></td>
 						</tr>
-						<tr>
-							<td>00001
-							<td>121212<br>/241111
-							</td>
-							<td>실적 발표 직전</td>
-							<td>2024/11/20</td>
-							<td>2024/11/20</td>
-							<td><span class="badge text-bg-primary"
-								style="cursor: pointer;">반납하기</span> <span
-								class="badge text-bg-success">정상</span></td>
-						</tr>
-						<tr>
-							<td>00001
-							<td>121212<br>/241111
-							</td>
-							<td>실적 발표 직전</td>
-							<td>2024/11/20</td>
-							<td>2024/11/20</td>
-							<td><span class="badge text-bg-primary"
-								style="cursor: pointer;">반납하기</span> <span
-								class="badge text-bg-success">정상</span></td>
-						</tr>
+						<%
+						}
+						%>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	 function returnBook(rentalNo) {
+		 if (confirm("정말로 반납하시겠습니까?")) {
+		        $.ajax({
+		            type: "POST",
+		            url: "returnBook.jsp",
+		            data: { rentalNo: rentalNo },
+		            success: function(response) {
+		                alert("반납이 완료되었습니다.");
+		                location.reload();
+		            },
+		            error: function() {
+		                alert("반납 처리 중 오류가 발생했습니다.");
+		            }
+		        });
+		    }
+	    }
+	</script>
 </body>
 </html>
