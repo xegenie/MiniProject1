@@ -39,7 +39,7 @@
     // 책 재고정보 조회
     BookStock bookStock = bookService.selectStock(bookId);
 	// 대출내역 조회
-	RentalList rentalList =  bookService.selectRental(bookId);
+	RentalList rentalList =  bookService.selectRental(bookStock.getStockId());
 	// 파일 조회
 		FilesService filesService = new FilesServiceImpl();
 		Files imgfile = filesService.select(bookId); // 파일 정보 조회
