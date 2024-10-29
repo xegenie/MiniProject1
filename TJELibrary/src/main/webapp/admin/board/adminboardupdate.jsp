@@ -1,3 +1,7 @@
+<%@page import="tje.DTO.Board"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.BoardServiceImpl"%>
+<%@page import="tje.Service.BoardService"%>
 <%@ include file="/layout/jstl.jsp" %>
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -126,7 +130,7 @@
     border-radius: 6px;
     border : 1px solid #ddd;
     outline: none;
-    z-index:-1;
+    z-index:1;
 }
 
 .input-group textarea{
@@ -136,10 +140,10 @@
     border : 1px solid #ddd;
     outline: none;
     resize: none;
-    z-index:-1;
+    z-index:1;
 }
 
-a.btn {
+.updatebtn {
     padding: 8px 100px;
     background-color: #4880FF;
     color: white;
@@ -149,7 +153,7 @@ a.btn {
     text-decoration: none; /* 밑줄 제거 */
 }
 
-a.btn:hover {
+.updatebtn:hover {
     filter: brightness(90%);
     text-decoration: none; /* 호버 시에도 밑줄이 생기지 않도록 */
 }
@@ -175,6 +179,49 @@ td button:last-child {
     background-color: #f44336; 
 }
 	</style>
+	
+	
+	<%
+		String boardIdParam = request.getParameter("board_id");
+	    String action = request.getParameter("action"); // 액션 파라미터 추가
+	    BoardService boardService = new BoardServiceImpl();
+	    Board board = null;
+
+	    // 게시글 삭제 처리
+	    if ("delete".equals(action) && boardIdParam != null) {
+	        try {
+	            int board_id = Integer.parseInt(boardIdParam);
+	            boardService.delete(board_id); // 게시글 삭제 메서드 호출
+	            out.println("<script>alert('게시글이 삭제되었습니다.'); window.location.href='adminboardlist.jsp';</script>");
+	            return; // 페이지 실행 중단
+	        } catch (Exception e) {
+	            out.println("<script>alert('게시글 삭제에 실패했습니다.'); window.location.href='adminboardlist.jsp';</script>");
+	            return; // 페이지 실행 중단
+	        }
+	    }
+
+	    // 게시글 정보 조회
+	    if (boardIdParam != null) {
+	        try {
+	            int board_id = Integer.parseInt(boardIdParam);
+	            board = boardService.select(board_id); // 게시글 정보 가져오기
+	        } catch (NumberFormatException e) {
+	            out.println("<script>alert('유효하지 않은 게시글 ID입니다.'); window.location.href='adminboardlist.jsp';</script>");
+	            return; // 페이지 실행 중단
+	        }
+	    }
+
+	    // 게시글이 null인지 체크
+	    if (board == null) {
+	        out.println("<script>alert('게시글을 찾을 수 없습니다.'); window.location.href='adminboardlist.jsp';</script>");
+	        return; // 페이지 실행 중단
+	    }
+
+	    // 게시글 목록 조회 (선택적)
+	    String bType = "게시판";
+	    List<Board> list = boardService.listByType(bType); // 인스턴스 메서드 호출
+	    pageContext.setAttribute("Boardlist", list);
+	%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 </head>
@@ -187,171 +234,56 @@ td button:last-child {
 <div style="margin-left:15%;padding:1px 16px;">
   <section>
     <div class="container">
-        <div class="title-box">
-            <h1 class="main-title">게시글 수정</h1>
-        </div>
-        <p>제목</p>
-        <div class="input-group">
-            <input type="text" name="title" placeholder="제목을 입력하세요" id="title">
-        </div>
-        <p>내용</p>
-        <div class="input-group">
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
-        </div>
-        <div class="board-box">
-	    		<a href="" class="btn">수정</a>
-    		</div>
-            <div class="rounded-search-container">
-                <input type="text" class="rounded-search-input" placeholder="아이디/이름을 검색해주세요">
-                <button class="rounded-search-btn">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
+        
+			<form action="adminboardupdate_pro.jsp" method="post">
+			<div class="title-box">
+		        <h1 class="main-title">게시글 수정</h1>
+		    </div>
+                <input type="hidden" name="board_id" value="<%= board.getBoardNo()%>">
+                <p>제목</p>
+                <div class="input-group">
+                    <input type="text" name="title" placeholder="제목을 입력하세요" id="title" value="<%= board.getTitle() %>">
+                </div>
+                <p>내용</p>
+                <div class="input-group">
+                    <textarea name="content" id="content" cols="30" rows="10"><%= board.getContent() %></textarea>
+                </div>
+                <div class="board-box">
+			    	<input type="submit" class="updatebtn" value="수정">
+			    </div>
+			</form>
 </div>
 <table class="board-list">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성날짜</th>
-            <th>좋아요</th>
-            <th>조회수</th>
-            <th>관리</th>
-        </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${Boardlist}" var="board">
+    			<thead>
+    				<tr>
+    					<th>No</th>
+    					<th>제목</th>
+    					<th>작성자</th>
+    					<th>등록일자</th>
+    					<th>수정일자</th>
+    					<th>관리</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+				    <c:forEach items="${Boardlist}" var="board">
 				        <tr>
 				            <td>${board.boardNo}</td>
-				            <td><a href="notice_read.jsp?board_id=${board.boardNo}">${board.title}</a></td>
-				            <td>${board.writer}</td>
+				            <td>${board.title}</td>
+				            <td>${user.id}</td>
 				            <td>${board.regDate}</td>
 				            <td>${board.updDate}</td>
+				             <td>
+					            <button type="button" onclick="location.href='adminboardupdate.jsp';">수정</button>
+					            <form action="" method="post" style="display:inline;">
+								    <input type="hidden" name="action" value="delete">
+								    <input type="hidden" name="board_id" value="${board.boardNo}"> <!-- boardId로 수정 -->
+								    <button type="submit">삭제</button>
+								</form>
+					        </td>
 				        </tr>
 				    </c:forEach>
-    <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
-    <tr>
-        <td>1</td>
-        <td>게시글 제목 1</td>
-        <td>작성자1</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>게시글 제목 2</td>
-        <td>작성자2</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>게시글 제목 3</td>
-        <td>작성자3</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>게시글 제목 4</td>
-        <td>작성자4</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>게시글 제목 5</td>
-        <td>작성자5</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>게시글 제목 6</td>
-        <td>작성자6</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>게시글 제목 7</td>
-        <td>작성자7</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>게시글 제목 8</td>
-        <td>작성자8</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>게시글 제목 9</td>
-        <td>작성자9</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr><tr>
-        <td>10</td>
-        <td>게시글 제목 10</td>
-        <td>작성자10</td>
-        <td>2024-10-%%</td>
-        <td>좋아요</td>
-        <td>조회수</td>
-        <td>
-            <button type="button" onclick="editPost()">수정</button>
-            <button type="button" onclick="deletePost()">삭제</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+				</tbody>
+    		</table>
     <div class="pagenation">
         <!-- ≪ ＜ ＞ ≫ -->
         <a href="" class="page-link">≪</a>

@@ -1,7 +1,7 @@
 <%@page import="tje.DTO.Board"%>
 <%@page import="java.util.List"%>
-<%@page import="tje.Service.BoardServiceImpl"%>
 <%@page import="tje.Service.BoardService"%>
+<%@page import="tje.Service.BoardServiceImpl"%>
 <%@ include file="/layout/jstl.jsp" %>
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,12 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title></title>
+	<title>관리자 공지사항 목록</title>
 	<style>
-	p{
-	    font-size: 12px;
-	}
 	
 	/* 검색창 컨테이너 */
 	.rounded-search-container {
@@ -147,7 +143,7 @@
 	    z-index:1;
 	}
 	
-	a.btn {
+	.insertbtn {
 	    padding: 8px 100px;
 	    background-color: #4880FF;
 	    color: white;
@@ -157,7 +153,7 @@
 	    text-decoration: none; /* 밑줄 제거 */
 	}
 	
-	a.btn:hover {
+	.insertbtn:hover {
 	    filter: brightness(90%);
 	    text-decoration: none; /* 호버 시에도 밑줄이 생기지 않도록 */
 	}
@@ -166,6 +162,7 @@
 	    justify-content: space-between;
 	    align-items: center;
 	    margin-bottom: 10px;
+	    margin-left:425px;
 	}
 	
 	td button {
@@ -181,72 +178,118 @@
 	td button:last-child {
 	    background-color: #f44336; 
 	}
+	
+	.updbtn {
+    padding: 5px 10px;
+    background-color: #90EE90; /* 연두색 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.updbtn:hover {
+    filter: brightness(90%);
+}
 	</style>
+<!-- 	<link rel="stylesheet" href="static/css/adminboardlist.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<%
+	<%
+    // 세션에서 User 객체 가져오기
+    User user = (User) session.getAttribute("user");
+    if (user == null) {
+        out.println("로그인이 필요합니다.");
+        return; // 또는 다른 처리를 추가
+    }
+    
+    // 게시글 삭제 처리
+    String action = request.getParameter("action"); 
+    String boardIdParam = request.getParameter("board_id"); 
+
+    if (boardIdParam != null) {
+        int board_id = Integer.parseInt(boardIdParam); 
+
+        // BoardService 인스턴스 생성
+        BoardService boardService = new BoardServiceImpl();
+        boolean isSuccess = false; // 작업 성공 여부
+
+        // 삭제 요청 처리
+        if ("delete".equals(action)) {
+            isSuccess = boardService.delete(board_id) > 0; // 삭제 성공 여부 확인
+        }
+
+        // 결과에 따른 알림 및 페이지 이동 처리
+        if (isSuccess) {
+            out.println("<script>alert('게시글이 삭제되었습니다.'); location.href='adminnoticelist.jsp';</script>");
+        } else {
+            out.println("<script>alert('게시글 삭제에 실패했습니다. 다시 시도하세요.'); history.back();</script>");
+        }
+    }
+
+    // 게시글 목록 조회 (선택적)
+    String bType = "공지사항";
     BoardService boardService = new BoardServiceImpl();
-    List<Board> boardList = boardService.listByType("공지사항");
-    request.setAttribute("boardList", boardList); // boardList를 request에 설정
+    List<Board> list = boardService.listByType(bType); // 인스턴스 메서드 호출
+    pageContext.setAttribute("Boardlist", list);
 %>
+
 <body>
 	<div>
 		<%@ include file="/layout/admin/sidebar.jsp" %>
 	</div>
-
 <div style="margin-left:15%;padding:1px 16px;">
   <section>
     <div class="container">
-        <div class="title-box">
-            <h1 class="main-title">공지사항 등록</h1>
-        </div>
-        	<p>제목</p>
-<div class="input-group">
-    <input type="text" name="title" placeholder="제목을 입력하세요" id="title" required>
-</div>
-<p>내용</p>
-<div class="input-group">
-    <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요" required></textarea>
-</div>
-<div class="board-box">
-    <form action="adminnoticelist.jsp" method="post">
-        <input type="hidden" name="action" value="post"> <!-- action 추가 -->
-        <button type="submit" class="btn">등록</button>
-    </form>
-</div>
-<div class="rounded-search-container">
-    <input type="text" class="rounded-search-input" placeholder="아이디/이름을 검색해주세요">
-    <button class="rounded-search-btn">
-        <i class="fa fa-search"></i>
-    </button>
-</div>
+    	<form action="adminnoticeinsert_pro.jsp" method="post">
+    <div class="title-box">
+        <h1 class="main-title">공지사항 등록</h1>
+    </div>
+    <p>제목</p>
+    <div class="input-group">
+        <input type="text" name="title" placeholder="제목을 입력하세요" id="title" required>
+    </div>
+    <p>내용</p>
+    <div class="input-group">
+        <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력하세요" required></textarea>
+    </div>
+    <input type="hidden" name="bType" value="공지사항"> <!-- bType 추가 -->
+    <div class="board-box">
+        <input type="submit" class="insertbtn" value="등록">
+    </div>
+</form>
 </div>
 <table class="board-list">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>등록일자</th>
-            <th>수정일자</th>
-            <th>관리</th>
-        </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${boardList}" var="board">
-        <tr>
-            <td>${board.boardNo}</td>
-            <td>${board.title}</td>
-            <td>${board.writer}</td>
-            <td>${board.regDate}</td>
-            <td>${board.updDate}</td>
-            <td>
-            	<button type="button" onclick="location.href='adminnoticeupdate.jsp'; editPost();">수정</button>
-				<button type="button" onclick="location.href='adminnoticedelete.jsp?action=delete&board_id=${board.boardNo}';">삭제</button>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+    			<thead>
+    				<tr>
+    					<th>No</th>
+    					<th>제목</th>
+    					<th>작성자</th>
+    					<th>등록일자</th>
+    					<th>수정일자</th>
+    					<th>관리</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+				    <c:forEach items="${Boardlist}" var="board">
+				        <tr>
+				            <td>${board.boardNo}</td>
+				            <td>${board.title}</td>
+				            <td>${user.id}</td>
+				            <td>${board.regDate}</td>
+				            <td>${board.updDate}</td>
+				             <td>
+					            <button class="updbtn" onclick="location.href='adminnoticeupdate.jsp?board_id=${board.boardNo}'">수정</button>
+					            <form action="" method="post" style="display:inline;">
+								    <input type="hidden" name="action" value="delete">
+								    <input type="hidden" name="board_id" value="${board.boardNo}"> <!-- boardId로 수정 -->
+								    <button type="submit">삭제</button>
+								</form>
+					        </td>
+				        </tr>
+				    </c:forEach>
+				</tbody>
+    		</table>
     <div class="pagenation">
         <!-- ≪ ＜ ＞ ≫ -->
         <a href="" class="page-link">≪</a>
@@ -262,5 +305,6 @@
 </section>
 
 </div>
+	
 </body>
 </html>
