@@ -143,12 +143,16 @@ public class BookServiceImpl implements BookService{
 		return bookStock;
 	}
 	@Override
-	public RentalList selectRental(int id) {
+	public RentalList selectRental(int bookId) {
 		// 책 정보 조회
 		RentalList rentalList = null;
 		try {
-			// pk 기준으로 조회
-			rentalList = rentalListDAO.select(id);
+			// 조건으로 조회
+//			WHERE book_id = 'bookId'
+			Map<Object, Object> fields = new HashMap<Object, Object>() {{
+	            put("book_id", bookId);
+	        }};
+	        rentalList = rentalListDAO.selectBy(fields);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
