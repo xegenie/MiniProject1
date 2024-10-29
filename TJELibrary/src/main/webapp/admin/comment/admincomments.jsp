@@ -1,3 +1,6 @@
+<%@page import="tje.DAO.CommentDAO"%>
+<%@page import="tje.DAO.UserAuthDAO"%>
+<%@page import="tje.DTO.UserAuth"%>
 <%@ page import="tje.Service.BoardService" %>
 <%@ page import="tje.Service.BoardServiceImpl" %>
 <%@ page import="tje.DTO.Board" %>
@@ -10,10 +13,18 @@
 <%
     // 세션에서 User 객체 가져오기
     User user = (User) session.getAttribute("user");
-    if (user == null) {
+	if ( user == null) {
         // user가 null인 경우 처리
         out.println("로그인이 필요합니다.");
         return; // 또는 다른 처리를 추가
+	}
+	
+	UserAuthDAO userAuthDAO = new UserAuthDAO();
+	UserAuth userAuth = userAuthDAO.select(user.getId());
+	
+	if ((userAuth.getAuth()).equals("ROLE_USER")) {
+    	out.println("관리자가 아닙니다.");
+    	return;
     }
     
     // 댓글 삭제 처리
@@ -43,7 +54,7 @@
 
     // 전체 댓글 조회
     BoardService boardService = new BoardServiceImpl();
-    List<Comments> comments = boardService.selectAllComments(user);  // 전체 댓글 조회
+    List<Comments> comments = boardService.selectAllComments();  // 전체 댓글 조회
     pageContext.setAttribute("comments", comments);
 %>
 
@@ -184,7 +195,7 @@
                         <c:forEach items="${comments}" var="comment">
                             <tr>
                                 <td>${comment.commentId}</td> <!-- 댓글 번호 -->
-                                <td>${user.id}</td> <!-- 작성자 ID -->
+                                <td>${comment.writer}</td> <!-- 작성자 ID -->
                                 <td>${comment.content}</td> <!-- 댓글 내용 -->
                                 <td>${comment.regDate}</td> <!-- 등록일자 -->
                                 <td>${comment.boardId}</td> <!-- 게시글 ID -->

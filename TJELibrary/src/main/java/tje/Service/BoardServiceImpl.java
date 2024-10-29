@@ -174,31 +174,17 @@ public class BoardServiceImpl implements BoardService {
     }
 
 	@Override
-	public List<Comments> selectAllComments(User user) {
-	    List<Comments> commentsList = new ArrayList<>();
+	public List<Comments> selectAllComments() {
+	    List<Comments> commentsList = null;
 	    
-	    // 전체 댓글을 조회하는 SQL 구문
-	    String sql = "SELECT comment_id, content, reg_date, board_id FROM comments";
 
-	    try (Connection conn = getConnection(); // DB 연결
-	         PreparedStatement pstmt = conn.prepareStatement(sql);
-	         ResultSet rs = pstmt.executeQuery()) {
-
-	        // ResultSet에서 댓글 데이터를 읽어와서 Comments 객체에 저장
-	        while (rs.next()) {
-	            Comments comment = new Comments();
-	            comment.setCommentId(rs.getInt("comment_id"));
-	            comment.setWriter(user.getId()); // User 객체에서 userId 설정
-	            comment.setContent(rs.getString("content"));
-	            comment.setRegDate(rs.getTimestamp("reg_date"));
-	            comment.setBoardId(rs.getInt("board_id"));
-
-	            commentsList.add(comment); // 리스트에 댓글 추가
-	        }
-
-	    } catch (SQLException e) {
-	        e.printStackTrace(); // 예외 처리
-	    }
+	    try {
+			commentsList =	commentDAO.list();
+		} catch (Exception e) {
+			System.err.println("댓글 조회 실패");
+			e.printStackTrace();
+		}
+	
 
 	    return commentsList; // 전체 댓글 목록 반환
 	}
