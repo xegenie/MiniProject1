@@ -6,6 +6,7 @@
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/admin/AdminAccess.jsp" %>
 <%
 	String editUserId = request.getParameter("userId");
 	UserService userService = new UserServiceImpl();
