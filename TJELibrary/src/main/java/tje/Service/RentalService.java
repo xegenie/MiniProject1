@@ -30,6 +30,6 @@ public interface RentalService {
 	public int rental(BookStock bookStock, User user);
 	
 	// 반납
-	public int returned(BookStock bookStock, User user);
+	public int returned(RentalList rentalList);
 	
 }
