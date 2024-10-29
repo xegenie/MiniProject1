@@ -25,7 +25,7 @@ public interface BoardService {
 	
 	List<Board> listByType(String bType);
 	
-	List<Comments> selectAllComments(User user);
+	List<Comments> selectAllComments();
 	
 	int deleteComment(int commentId);
 }
