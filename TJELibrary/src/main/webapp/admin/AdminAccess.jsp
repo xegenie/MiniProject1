@@ -16,9 +16,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-RentalService rentalService = new RentalSerivceImpl();
-List<RentalList> rlist = rentalService.selectByState("대출"); 
-BookService bookService = new BookServiceImpl();
+RentalService rentalServiceAd = new RentalSerivceImpl();
+List<RentalList> rlist = rentalServiceAd.selectByState("대출"); 
+BookService bookServiceAd = new BookServiceImpl();
 
 User userAdmin = (User) session.getAttribute("user");
 if (userAdmin == null) {
@@ -26,9 +26,9 @@ if (userAdmin == null) {
     return;
 }
 
-UserAuthDAO userAuthDAO = new UserAuthDAO();
-UserAuth userAuth = userAuthDAO.select(userAdmin.getId());
-if ("ROLE_USER".equals(userAuth.getAuth())) {
+UserAuthDAO AduserAuthDAO = new UserAuthDAO();
+UserAuth adUserAuth = AduserAuthDAO.select(userAdmin.getId());
+if ("ROLE_USER".equals(adUserAuth.getAuth())) {
     out.print("일반 사용자는 못들어옴요");
     return;
 }
