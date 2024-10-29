@@ -72,7 +72,7 @@
 					<span>핸드폰 번호</span> <input type="text" placeholder="010-0000-0000" name="userPhone"
 						value="<%=user.getTelNumber()%>">
 				</div>
-				<div class="insertBox mt-4 d-flex justify-content-end">
+				<div class="insertBox mt-2 d-flex justify-content-end">
 					<input class="insertBtn rounded-3" type="submit" value="수정" />
 				</div>
 			</form>

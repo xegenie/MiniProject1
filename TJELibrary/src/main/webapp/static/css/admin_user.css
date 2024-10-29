@@ -12,12 +12,14 @@
 	width: 150px;
 }
 
-.item2 input {
+.item2 input[type="text"] {
 	width: 350px;
 	background-color: #F5F6FA;
 	border: 1px solid #D5D5D5;
-	border-radius: 8px;
 	padding-left: 10px;
+}
+.item2 input[type="file"] {
+	width: 350px;
 }
 
 .insertBox {

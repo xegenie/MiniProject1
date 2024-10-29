@@ -69,7 +69,7 @@ if (deleteUserId != null && !deleteUserId.isEmpty()) {
 					<span>핸드폰 번호</span> <input type="text" name="userPhone"
 						placeholder="010-0000-0000">
 				</div>
-		<div class="insertBox mt-4 d-flex justify-content-end">
+		<div class="insertBox mt-2 d-flex justify-content-end">
 			<input class="insertBtn rounded-3" name="action" type="submit"
 				value="등록">
 		</div>
