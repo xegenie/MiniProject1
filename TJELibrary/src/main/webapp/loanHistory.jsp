@@ -19,6 +19,11 @@
 	User user = (User) session.getAttribute("user");
 	UserService userService = new UserServiceImpl();
 	
+	if (user == null) {
+	    out.print("로그인해라...");
+	    return;
+	}
+	
 //	user = userService.select("joeun");
 	
 	RentalService rentalService = new RentalSerivceImpl();
@@ -70,25 +75,17 @@
 					    <tr>
 					      <th scope="row"><%= i+1 %></th>
 					      <td><%=book.getTitle() %></td>
+					      <td><%=rl.getRentalDate() %></td>
+					      
+					      
 					      <%
-							if(rl.getState() == "예약") {						      
-					      %>
-					      		<td>-</td>
-					      <%
-							} else {
-					      %>
-					      		<td><%=rl.getRentalDate() %></td>
-					      <%
-							}
-					      %>
-					      <%
-							if(rl.getState() != "반납") {						      
-					      %>
-					      		<td>-</td>
-					      <%
-							} else {
+					      if(rl.getState().equals("반납")) {						      
 					      %>
 					      		<td><%= rl.getReturnDate() %></td>
+					      <%
+							} else {
+					      %>
+					      		<td>-</td>
 					      <%
 							}
 					      %>
