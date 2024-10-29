@@ -225,24 +225,24 @@ public class RentalSerivceImpl implements RentalService {
 	}
 
 	@Override
-	public int returned(BookStock bookStock, User user) {
+	public int returned(RentalList rentalList) {
 		// 반납 등록
 		int result = 0;
-		
-		RentalList rentalList = new RentalList();
-		
-		rentalList.setId(user.getId());
-		rentalList.setBookId(bookStock.getBookId());
-		rentalList.setStockId(bookStock.getStockId());
-		rentalList.setState("대출");	
-		
+
 		LocalDate localDate = LocalDate.now();
 		Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
 		Date date = Date.from(instant);
 		rentalList.setReturnDate(date);
 		
+		BookStock bookStock = new BookStock();
+		bookStock.setBookId(rentalList.getBookId());
+		bookStock.setStockId(rentalList.getStockId());
+		
+		User user = new User();
+		user.setId(rentalList.getId());
+		
 		try {
-			rentalListDAO.update(rentalList, "return_date");
+			rentalListDAO.update(rentalList);
 		} catch (Exception e) {
 			System.err.println("반납 중 rentalListDAO.update(rentalList, \"return_date\")");
 			e.printStackTrace();
@@ -252,7 +252,7 @@ public class RentalSerivceImpl implements RentalService {
 		int statusResult = 0;
 		bookStock.setStatus("대출 가능");
 		try {
-			statusResult = bookStockDAO.update(bookStock,"status");
+			statusResult = bookStockDAO.update(bookStock);
 			if ( statusResult > 0 ) System.out.println("스테이터스 등록 성공!");
 		} catch (Exception e) {
 			System.err.println("스테이터스 변경 실패!");
@@ -266,7 +266,7 @@ public class RentalSerivceImpl implements RentalService {
 			rentalList.setState("연체");
 			rentalList.setOverDate((int)a);
 			try {
-				result = rentalListDAO.update(rentalList,"state","over_date");
+				result = rentalListDAO.update(rentalList);
 				if ( result > 0 ) System.out.println("반납 등록 성공!");
 			} catch (Exception e) {
 				System.err.println("반납 등록 실패!");
@@ -277,7 +277,7 @@ public class RentalSerivceImpl implements RentalService {
 		else {
 			rentalList.setState("반납");
 			try {
-				rentalListDAO.update(rentalList, "state");
+				rentalListDAO.update(rentalList);
 			} catch (Exception e) {
 				System.err.println("반납 중 rentalListDAO.update(rentalList, \"state\");");
 				e.printStackTrace();

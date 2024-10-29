@@ -1,3 +1,6 @@
+<%@page import="tje.DTO.BookStock"%>
+<%@page import="tje.DAO.BookStockDAO"%>
+<%@page import="tje.DAO.RentalListDAO"%>
 <%@page import="java.time.ZoneId"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.util.Date"%>
@@ -16,6 +19,7 @@
 	RentalService rentalService = new RentalSerivceImpl();
 	List<RentalList> rlist = rentalService.selectByState("대출"); 
 	BookService bookService = new BookServiceImpl();
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -120,6 +124,7 @@
 						LocalDate newLocalDate = localDate.plusDays(7);
 						Date newReturnDate = Date.from(newLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 						LocalDate today = LocalDate.now();
+						int bookNo = rlist.get(i).getNo();
 					%>
 						<tr>
 							<td><%= rlist.get(i).getId() %></td>
@@ -128,9 +133,9 @@
 							<td><%= book.getTitle() %></td>
 							<td><%= rlist.get(i).getRentalDate() %></td>
 							<td><%= newReturnDate %></td>
-							<td><span class="badge text-bg-primary"
-								onclick="returnBook('<%= rlist.get(i).getNo() %>')"
-								style="cursor: pointer;">반납하기</span> 
+							<td><button class="badge text-bg-primary"
+								onclick="returnBook('<%= bookNo %>')"
+								style="cursor: pointer;">반납하기</button> 
 							<%
 								if(newLocalDate.isBefore(today)) {
 							%>
@@ -154,18 +159,8 @@
 	<script type="text/javascript">
 	 function returnBook(rentalNo) {
 		 if (confirm("정말로 반납하시겠습니까?")) {
-		        $.ajax({
-		            type: "POST",
-		            url: "returnBook.jsp",
-		            data: { rentalNo: rentalNo },
-		            success: function(response) {
-		                alert("반납이 완료되었습니다.");
-		                location.reload();
-		            },
-		            error: function() {
-		                alert("반납 처리 중 오류가 발생했습니다.");
-		            }
-		        });
+			 window.location.href = 'returnBook.jsp?returnUserNo='
+					+ encodeURIComponent(rentalNo);
 		    }
 	    }
 	</script>
