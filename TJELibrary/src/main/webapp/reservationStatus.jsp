@@ -29,14 +29,14 @@
 	RentalService rentalService = new RentalSerivceImpl();
 	List<RentalList> rentalList = rentalService.selectlist(user);
 	int count = rentalList.size();
-	List<RentalList> rvStatusList = new ArrayList();
+	List<RentalList> rvStatusList = new ArrayList<RentalList>();
 	for(int i = 0; i<count; i++){
 		RentalList temp = rentalList.get(i);
-		if(temp.getState() == "예약") {
+		if(temp.getState().equals("예약") ) {
 			rvStatusList.add(temp);
 		}
 	}
-	List<BookStock> rvBookStockList = new ArrayList();
+	List<BookStock> rvBookStockList = new ArrayList<BookStock>();
 %>
 <!DOCTYPE html>
 <html>
@@ -80,22 +80,11 @@
 				      <td><%= book.getTitle() %></td>
 				      <td><%= rvStatusList.get(i).getRentalDate() %></td>
 				      <td>
-				      <form action="post">
-				      	<button type="submit" name="rvdelete" class="btn btn-primary">예약취소</button>
-				      </form>
+				      	<button type="submit" onclick="rvDelete('<%= rvStatusList.get(i).getNo() %>')" name="rvdelete" class="btn btn-primary">
+				      	예약취소</button>
 				      </td>
 				    </tr>
-					<%
-						if(request.getParameter("rvdelete") != null) {
-							rentalService.rvDelete(rvBookStock, user);
-						%>
-						<script type="text/javascript">
-							alert("예약이 취소되었습니다.");
-						</script>
-						<%	
-						}
-				  	}
-					%>
+					<%} %>
 				  </tbody>
 				</table>
 			</div>	
@@ -104,5 +93,13 @@
 	<div class="pt-5">
 		<jsp:include page="/layout/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+	 function rvDelete(rvId) {
+		 if (confirm("정말로 취소하시겠습니까?")) {
+			 window.location.href = 'reservationStatus_pro.jsp?rvId='
+					+ encodeURIComponent(rvId);
+		    }
+	    }
+	</script>
 </body>
 </html>
