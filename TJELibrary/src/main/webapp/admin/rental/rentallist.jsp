@@ -1,3 +1,8 @@
+<%@page import="tje.DTO.UserAuth"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="tje.DAO.UserAuthDAO"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="tje.DTO.BookStock"%>
 <%@page import="tje.DAO.BookStockDAO"%>
 <%@page import="tje.DAO.RentalListDAO"%>
@@ -15,12 +20,7 @@
 <%@ include file="/layout/common.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	RentalService rentalService = new RentalSerivceImpl();
-	List<RentalList> rlist = rentalService.selectByState("대출"); 
-	BookService bookService = new BookServiceImpl();
-	
-%>
+<%@ include file="/admin/AdminAccess.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,6 +117,8 @@
 					</thead>
 					<tbody class="table-group-divider text-center">
 					<%
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+						
 						for (int i=0; i<rlist.size(); i++) {
 						Book book= bookService.select(rlist.get(i).getBookId());
 						Date returnDate = rlist.get(i).getRentalDate();
@@ -125,14 +127,17 @@
 						Date newReturnDate = Date.from(newLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 						LocalDate today = LocalDate.now();
 						int bookNo = rlist.get(i).getNo();
+						
+						String formattedReturnDate = dateFormat.format(returnDate);
+				        String formattedNewReturnDate = dateFormat.format(newReturnDate);
 					%>
 						<tr>
 							<td><%= rlist.get(i).getId() %></td>
 							<td><%=rlist.get(i).getBookId() %><br>/<%= rlist.get(i).getStockId() %>
 							</td>
 							<td><%= book.getTitle() %></td>
-							<td><%= rlist.get(i).getRentalDate() %></td>
-							<td><%= newReturnDate %></td>
+							<td><%= formattedReturnDate %></td>
+							<td><%= formattedNewReturnDate %></td>
 							<td><button class="badge text-bg-primary"
 								onclick="returnBook('<%= bookNo %>')"
 								style="cursor: pointer;">반납하기</button> 

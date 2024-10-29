@@ -7,6 +7,7 @@
 <%@ include file="/layout/common.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/admin/AdminAccess.jsp" %>
 <%
 UserService userService = new UserServiceImpl();
 List<User> userList = userService.list();
