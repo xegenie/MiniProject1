@@ -1,3 +1,5 @@
+<%@page import="tje.DAO.UserAuthDAO"%>
+<%@page import="tje.DTO.UserAuth"%>
 <%@page import="java.util.UUID"%>
 <%@page import="tje.Service.UserServiceImpl"%>
 <%@page import="tje.Service.UserService"%>
@@ -23,7 +25,17 @@
         user.setTelNumber(telNumber);
         
         UserService userService = new UserServiceImpl();
-        int result = userService.signUp(user);
+        int result = userService.signUp(user); // 회원가입
+        
+        if (result > 0) {
+        // 회원 권한 추가
+        UserAuthDAO userAuthDAO = new UserAuthDAO();
+        
+        UserAuth userAuth = new UserAuth();
+        userAuth.setUsername(user.getId());
+        userAuth.setAuth("ROLE_USER");
+        userAuthDAO.insert(userAuth);
+        }
         
         if (result > 0) {
             session.setAttribute("user", user);

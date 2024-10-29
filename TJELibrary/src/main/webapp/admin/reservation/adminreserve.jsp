@@ -1,3 +1,10 @@
+<%@page import="tje.Service.BookServiceImpl"%>
+<%@page import="tje.Service.BookService"%>
+<%@page import="tje.DTO.Book"%>
+<%@page import="tje.DTO.RentalList"%>
+<%@page import="java.util.List"%>
+<%@page import="tje.Service.RentalSerivceImpl"%>
+<%@page import="tje.Service.RentalService"%>
 <%@ include file="/layout/jstl.jsp" %>
 <%@ include file="/layout/common.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -171,25 +178,35 @@ td button {
 td button:last-child {
     background-color: #f44336; 
 }
-	</style>
+</style>
+
+
 </head>
 <body>
 	<div>
 	<%@ include file="/layout/admin/sidebar.jsp" %>
-	<% %>
-</div>
-<div style="margin-left:10%;padding:1px 16px;">
+	</div>
+	<%
+	// 책 목록 전체 조회
+	RentalService rentalService = new RentalSerivceImpl();
+	List<RentalList> list = rentalService.selectByState("예약");
+	
+	// 조회된 리스트를 페이지 컨텍스트에 저장
+	pageContext.setAttribute("list", list);
+	%>
+	<div style="margin-left:10%;padding:1px 16px;">
         <section>
-          <div class="container">
+        <div class="container">
               <div class="title-box">
                   <h1 class="main-title">예약 관리</h1>
-          </div>
+        	  </div>
           <div class="rounded-search-container">
             <input type="text" class="rounded-search-input" placeholder="검색어를 입력하세요.">
             <button class="rounded-search-btn">
                 <i class="fa fa-search"></i>
             </button>
-        </div>
+       	 </div>
+       	 
       <table class="board-list">
           <thead>
               <tr>
@@ -197,114 +214,46 @@ td button:last-child {
                   <th>도서명</th>
                   <th>저자</th>
                   <th>예약일자</th>
+                  <th>예약자ID</th>
                   <th>예약자명</th>
                   <th>관리</th>
               </tr>
           </thead>
+          <c:forEach var="reserveList" items="${ list }">
+          <c:set var="bookId" value="${reserveList.bookId}" />
+          <c:set var="userId" value="${reserveList.id}" />
+          <%
+          // 예약된 도서의 ID로 도서 정보 조회
+          int bookId = (int) pageContext.getAttribute("bookId");
+          String userId = (String) pageContext.getAttribute("userId");
+          
+          BookService bookService = new BookServiceImpl();
+          
+          Book book = bookService.select(bookId);
+          
+          UserService userService = new UserServiceImpl();
+          
+          User user = userService.select(userId);
+           %>
           <tbody>
           <tr>
-              <td>1</td>
-              <td>게시글 제목 1</td>
-              <td>작성자1</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
+              <td>${ reserveList.no }</td>
+              <td><%= book.getTitle() %></td>
+              <td><%= book.getAuthor() %></td>
+              <td>${ reserveList.rentalDate }</td>
+              <td>${ reserveList.id }</td>
+              <td><%= user.getName() %></td>
               <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>2</td>
-              <td>게시글 제목 2</td>
-              <td>작성자2</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>3</td>
-              <td>게시글 제목 3</td>
-              <td>작성자3</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>4</td>
-              <td>게시글 제목 4</td>
-              <td>작성자4</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>5</td>
-              <td>게시글 제목 5</td>
-              <td>작성자5</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>6</td>
-              <td>게시글 제목 6</td>
-              <td>작성자6</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>7</td>
-              <td>게시글 제목 7</td>
-              <td>작성자7</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>8</td>
-              <td>게시글 제목 8</td>
-              <td>작성자8</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr>
-          <tr>
-              <td>9</td>
-              <td>게시글 제목 9</td>
-              <td>작성자9</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
-              </td>
-          </tr><tr>
-              <td>10</td>
-              <td>게시글 제목 10</td>
-              <td>작성자10</td>
-              <td>2024-10-%%</td>
-              <td>좋아요</td>
-              <td>
-                  <button type="button" onclick="deletePost()">삭제</button>
+             	<a href="reservedelete_pro.jsp?no=${reserveList.no}&stockId=${reserveList.stockId}">
+                  <button type="button">삭제</button>
+                </a>
               </td>
           </tr>
           </tbody>
+          </c:forEach>
       </table>
-      </section>
-      
       </div>
+      </section>
+	</div>
 </body>
 </html>
