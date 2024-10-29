@@ -15,7 +15,7 @@ public class RentalListDAO extends BaseDAOImpl<RentalList>{
 		rentalList.setId(rs.getString("id"));
 		rentalList.setBookId(rs.getInt("book_id"));
 		rentalList.setStockId(rs.getInt("stock_id"));
-		rentalList.setState(rs.getString("rental_date"));
+		rentalList.setState(rs.getString("state"));
 		rentalList.setRentalDate(rs.getTimestamp("rental_date"));
 		rentalList.setReturnDate(rs.getTimestamp("return_date"));
 		rentalList.setOverDate(rs.getInt("over_date"));

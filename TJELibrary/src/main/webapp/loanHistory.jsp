@@ -76,21 +76,11 @@
 					      <th scope="row"><%= i+1 %></th>
 					      <td><%=book.getTitle() %></td>
 					      <td><%=rl.getRentalDate() %></td>
-					      
-					      
-					      <%
-					      if(rl.getState().equals("반납")) {						      
-					      %>
-					      		<td><%= rl.getReturnDate() %></td>
-					      <%
-							} else {
-					      %>
-					      		<td>-</td>
-					      <%
-							}
-					      %>
-					      
+					      <td>
+							    <%= rl.getState().equals("반납") ? rl.getReturnDate() : "-" %>
+						  </td>
 					      <td><%= rl.getState() %></td>
+					      
 					    </tr>
 				   <%
 				  	}

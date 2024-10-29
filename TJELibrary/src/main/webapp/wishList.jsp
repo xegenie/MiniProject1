@@ -26,7 +26,7 @@
 	Book book = null;
 	
 	WishList wishList = new WishList();
-	List<Book> bookList = new ArrayList();
+	List<Book> bookList = new ArrayList<Book>();
 	WishListService wishListService = new WishListServiceImpl();
 	bookList = wishListService.select(user);
 %>

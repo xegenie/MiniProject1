@@ -96,7 +96,7 @@ public class RentalSerivceImpl implements RentalService {
 	            // 2. 도서 상태를 '대출 가능'으로 변경
 	            bookStock.setStatus("대출 가능");
 	        	
-	            bookStockDAO.update(bookStock, "status");  // 변경된 도서 상태 DB에 저장
+	            bookStockDAO.update(bookStock);  // 변경된 도서 상태 DB에 저장
 
 	            // 3. 대출 내역 삭제
 	            result = rentalListDAO.deleteBy(rlfield);

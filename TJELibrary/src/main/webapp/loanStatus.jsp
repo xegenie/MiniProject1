@@ -1,3 +1,7 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.ZoneId"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
 <%@page import="tje.DTO.BookStock"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="tje.DTO.RentalList"%>
@@ -29,10 +33,10 @@
 	RentalService rentalService = new RentalSerivceImpl();
 	List<RentalList> rentalList = rentalService.selectlist(user);
 	int count = rentalList.size();
-	List<RentalList> loanStatusList = new ArrayList();
+	List<RentalList> loanStatusList = new ArrayList<RentalList>();
 	for(int i = 0; i<count; i++){
 		RentalList temp = rentalList.get(i);
-		if(temp.getState() == "대출") {
+		if(temp.getState().equals("대출")) {
 			loanStatusList.add(temp);
 		}
 	}
@@ -70,14 +74,24 @@
 				  </thead>
 				  <tbody class="table-group-divider text-center">
 				    <%
+				    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				  	for(int i=0; i<loanStatusList.size(); i++){
 				  		book = bookService.select(loanStatusList.get(i).getBookId());
-				  %>
+				  
+				      Date returnDate = loanStatusList.get(i).getRentalDate();
+						LocalDate localDate = returnDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+						LocalDate newLocalDate = localDate.plusDays(7);
+						Date newReturnDate = Date.from(newLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+						
+						String formattedReturnDate = dateFormat.format(returnDate);
+				        String formattedNewReturnDate = dateFormat.format(newReturnDate);
+				      %>
 				    <tr>
 				      <th scope="row"><%= i+1 %></th>
 				      <td><%= book.getTitle() %></td>
-				      <td><%= loanStatusList.get(i).getRentalDate() %></td>
-				      <td><%= loanStatusList.get(i).getReturnDate() %></td>
+				      <td><%= formattedReturnDate %></td>
+				      
+				      <td><%= formattedNewReturnDate %></td>
 				      <%
 				      BookStock ckBookstock = new BookStock();
 				      ckBookstock.setBookId(loanStatusList.get(i).getBookId());
