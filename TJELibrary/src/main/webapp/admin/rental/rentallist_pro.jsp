@@ -31,7 +31,7 @@
 <%-- 		window.location.href= '<%= request.getContextPath() %>/rentallist.jsp'; --%>
 		</script>
 	<%
-	response.sendRedirect("admin_user.jsp");
+	response.sendRedirect("rentallist.jsp");
 	} else {
 		%>
 		<script type="text/javascript">

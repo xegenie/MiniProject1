@@ -216,7 +216,7 @@ public class RentalSerivceImpl implements RentalService {
 		rsBookStock.setStockId(bookStock.getStockId());
 		rsBookStock.setStatus("대출 불가");
 		try {
-			bookStockDAO.update(rsBookStock, "status");
+			bookStockDAO.update(rsBookStock);
 		} catch (Exception e) {
 			System.err.println("스테이터스 변경 실패!");
 			e.printStackTrace();

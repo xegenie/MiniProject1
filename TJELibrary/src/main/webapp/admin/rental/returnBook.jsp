@@ -19,13 +19,6 @@ int rentalNo = Integer.parseInt(returnUserNo);
 RentalListDAO rentalListDAO = new RentalListDAO();
 RentalList rental = rentalListDAO.select(rentalNo);
 
-BookStockDAO bookStockDAO = new BookStockDAO();
-BookStock bookStock = bookStockDAO.select(rental.getStockId());
-bookStock.setStatus("대출 가능");
-
-User user = new User();
-user.setId(rental.getId());
-
 int result = rentalService.returned(rental);
 if (result != 0) {
 %>
