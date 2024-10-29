@@ -18,11 +18,9 @@
     pageEncoding="UTF-8"%>
 <%
 	// 세션 사용 아이디
-	String id = (String) session.getAttribute("user");
-	
-	User user = new User();
+	User user = (User) session.getAttribute("user");
 	UserService userService = new UserServiceImpl();
-	user = userService.select(id);
+	
 // 	user = userService.select("joeun");
 	
 	BookService bookService = new BookServiceImpl();
