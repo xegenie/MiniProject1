@@ -16,12 +16,12 @@
     pageEncoding="UTF-8"%>
 <%
 	// 세션 사용 아이디
-// 	String id = (String) session.getAttribute("id");
+	String id = (String) session.getAttribute("user");
 	
 	User user = new User();
 	UserService userService = new UserServiceImpl();
-// 	user = userService.select(id);
-	user = userService.select("joeun");
+	user = userService.select(id);
+// 	user = userService.select("joeun");
 	
 	RentalService rentalService = new RentalSerivceImpl();
 	List<RentalList> rentalList = rentalService.selectlist(user);
