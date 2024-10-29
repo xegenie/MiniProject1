@@ -24,4 +24,8 @@ public interface BoardService {
 	public int insert(Comments comments);
 	
 	List<Board> listByType(String bType);
+	
+	List<Comments> selectAllComments(User user);
+	
+	int deleteComment(int commentId);
 }

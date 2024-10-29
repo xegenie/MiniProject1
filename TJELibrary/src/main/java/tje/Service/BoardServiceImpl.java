@@ -172,4 +172,51 @@ public class BoardServiceImpl implements BoardService {
         }
         return boardList;
     }
+
+	@Override
+	public List<Comments> selectAllComments(User user) {
+	    List<Comments> commentsList = new ArrayList<>();
+	    
+	    // 전체 댓글을 조회하는 SQL 구문
+	    String sql = "SELECT comment_id, content, reg_date, board_id FROM comments";
+
+	    try (Connection conn = getConnection(); // DB 연결
+	         PreparedStatement pstmt = conn.prepareStatement(sql);
+	         ResultSet rs = pstmt.executeQuery()) {
+
+	        // ResultSet에서 댓글 데이터를 읽어와서 Comments 객체에 저장
+	        while (rs.next()) {
+	            Comments comment = new Comments();
+	            comment.setCommentId(rs.getInt("comment_id"));
+	            comment.setWriter(user.getId()); // User 객체에서 userId 설정
+	            comment.setContent(rs.getString("content"));
+	            comment.setRegDate(rs.getTimestamp("reg_date"));
+	            comment.setBoardId(rs.getInt("board_id"));
+
+	            commentsList.add(comment); // 리스트에 댓글 추가
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace(); // 예외 처리
+	    }
+
+	    return commentsList; // 전체 댓글 목록 반환
+	}
+
+	@Override
+    public int deleteComment(int commentId) {
+        int result = 0;
+        String sql = "DELETE FROM comments WHERE comment_id = ?"; // 댓글 테이블의 실제 이름과 열 이름에 맞게 조정
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             
+            pstmt.setInt(1, commentId);
+            result = pstmt.executeUpdate(); // 실행 결과, 삭제된 행 수 반환
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // 에러 발생 시 출력
+        }
+        return result; // 삭제 성공 시 1, 실패 시 0 반환
+    }
 }
