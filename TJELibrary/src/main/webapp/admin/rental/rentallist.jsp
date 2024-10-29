@@ -118,7 +118,7 @@
 					<tbody class="table-group-divider text-center">
 					<%
 						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-						
+						BookService bookService = new BookServiceImpl();
 						for (int i=0; i<rlist.size(); i++) {
 						Book book= bookService.select(rlist.get(i).getBookId());
 						Date returnDate = rlist.get(i).getRentalDate();
