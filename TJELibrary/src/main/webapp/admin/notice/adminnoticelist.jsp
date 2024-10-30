@@ -276,7 +276,7 @@
 				        <tr>
 				            <td>${board.boardNo}</td>
 				            <td>${board.title}</td>
-				            <td>${user.id}</td>
+				            <td>${board.writer}</td>
 				            <td>${board.regDate}</td>
 				            <td>${board.updDate}</td>
 				             <td>
