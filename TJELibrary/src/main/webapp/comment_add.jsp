@@ -12,7 +12,8 @@
 <%
 	int boardId = Integer.parseInt(request.getParameter("board_id"));
 	String content = request.getParameter("content");
-	String writer = "작성자"; // 현재 사용자 정보로 설정
+	User user = (User) session.getAttribute("user");
+    String writer = user != null ? user.getName() : "";
 	
 	Comments comment = new Comments();
 	comment.setBoardId(boardId);
