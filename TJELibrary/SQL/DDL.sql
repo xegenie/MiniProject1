@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `rental_list`;
 
 CREATE TABLE `rental_list` (
-	`no`		INT	NOT NULL	PRIMARY KEY	COMMENT 'PK',
+	`no`		INT	NOT NULL AUTO_INCREMENT	PRIMARY KEY	COMMENT 'PK',
 	`id`		VARCHAR(100)	NOT NULL	COMMENT '회원ID',
 	`book_id`	INT				NOT NULL	COMMENT '도서 ID',
 	`stock_id`	INT				NOT NULL	COMMENT '재고 ID',
@@ -26,7 +26,7 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `book`;
 
 CREATE TABLE `book` (
-	`id`	INT	NOT NULL	PRIMARY KEY	COMMENT '도서 ID',
+	`id`	INT	NOT NULL AUTO_INCREMENT	PRIMARY KEY	COMMENT '도서 ID',
 	`isbn`	VARCHAR(100)	NOT NULL	COMMENT 'ISBN',
 	`title`	VARCHAR(100)	NOT NULL	COMMENT '제목',
 	`author`	VARCHAR(25)	NOT NULL	COMMENT '저자 명',
@@ -47,7 +47,7 @@ CREATE TABLE `comments` (
 DROP TABLE IF EXISTS `board`;
 
 CREATE TABLE `board` (
-	`board_id`	INT	NOT NULL	PRIMARY KEY	COMMENT '게시판 ID',
+	`board_id`	INT	NOT NULL AUTO_INCREMENT	PRIMARY KEY	COMMENT '게시판 ID',
 	`title`		VARCHAR(100)	NOT NULL	COMMENT '게시글 제목',
 	`content`	VARCHAR(1000)	NOT NULL	COMMENT '게시글 내용',
 	`writer`	VARCHAR(100)	NOT NULL	COMMENT '작성자ID',
@@ -71,7 +71,7 @@ CREATE TABLE `hope_book` (
 DROP TABLE IF EXISTS `book_stock`;
 
 CREATE TABLE `book_stock` (
-	`stock_id`	INT	NOT NULL	PRIMARY KEY COMMENT '재고 ID',
+	`stock_id`	INT	NOT NULL AUTO_INCREMENT	PRIMARY KEY COMMENT '재고 ID',
 	`book_id`	INT	NOT NULL	COMMENT '도서 ID',
 	`status`	VARCHAR(30)	NOT NULL	DEFAULT '대출 가능'	COMMENT '상태(대출 가능, 대출 불가, 예약 중)',
 	
@@ -100,7 +100,7 @@ CREATE TABLE `user_auth` (
 DROP TABLE IF EXISTS `files`;
 
 CREATE TABLE `files` (
-	`no`	INT	NOT NULL	PRIMARY KEY	COMMENT 'PK',
+	`no`	INT	NOT NULL AUTO_INCREMENT	PRIMARY KEY	COMMENT 'PK',
 	`p_table`	VARCHAR(100)	NOT NULL	COMMENT '부모테이블 book',
 	`file_type`	ENUM('MAIN','SUB')	NULL	DEFAULT 'MAIN'	COMMENT '파일 종류(MAIN:대표or썸네일, SUB:일반or하위)',
 	`file_name`	TEXT	NOT NULL	COMMENT '파일명',
