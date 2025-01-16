@@ -1,6 +1,7 @@
 # 📖 **프로젝트 : 전자도서관 웹사이트**
 
-![jsp메인](https://chestnut-blinker-ca6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8cd794c0-c633-4008-b289-af6deeea8c4d%2Ffe1fbb5b-4dc0-461a-96a4-bcdabb325a44%2Fimage.png?table=block&id=169902bd-b12f-80eb-b7b9-cd98b3b4679a&spaceId=8cd794c0-c633-4008-b289-af6deeea8c4d&width=1420&userId=&cache=v2)
+![image](https://github.com/user-attachments/assets/88de6e81-be21-4b89-b512-f8431c7484fd)
+
 
 ---
 
