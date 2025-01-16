@@ -220,7 +220,7 @@
 <details>
   - <summary><h3>🛠️ <strong>관리자</strong></h3></summary>
     
-  ![관리자 화면 1]([https://drive.google.com/uc?id=1B8LTUYdehlfvMRUd_AXhCsrNtRSCAxP0](https://docs.google.com/presentation/d/1Fa9sXbBdp9ariz6lMzN7LSIQU_YSIG2-/edit#slide=id.p41))
+  ![관리자 화면 1]( )
   ![관리자 화면 2](https://drive.google.com/uc?id=11yqmvEDOs5DemuaqLkJ0RhJ-JkmdvOAx)
   ![관리자 화면 3](https://drive.google.com/uc?id=1gcoGjZpWV_wkz-ICyLhzw0Y9tHmcPOeP)
   ![관리자 화면 4](https://drive.google.com/uc?id=1wtZrhqDV9H6h6NplAFcTzQ8YPuzwYTKl)
