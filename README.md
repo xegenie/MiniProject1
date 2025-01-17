@@ -146,7 +146,8 @@
 
 
 </details>
----
+
+--- 
 
 <details>
 <summary><h2>📊 <strong>간트 차트</strong></h2></summary>
