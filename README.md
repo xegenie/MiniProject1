@@ -53,7 +53,7 @@
   
   ### Java, JSP, JavaScript, HTML5, CSS3, MySQL
 
-
+</details>
 ---
 
 <details>
