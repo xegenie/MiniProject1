@@ -97,7 +97,7 @@
   
   ![image](https://github.com/user-attachments/assets/004f2b24-2b56-4361-9d88-ffe83ba7298b)
 
-
+</details>
 
 ---
 
