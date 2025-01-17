@@ -54,7 +54,8 @@
   ### Java, JSP, JavaScript, HTML5, CSS3, MySQL
 
 </details>
----
+
+--- 
 
 <details>
 <summary><h2>📑 <strong>요구사항 정의서</strong></h2></summary>
