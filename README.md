@@ -92,6 +92,14 @@
 
 ---
 
+&nbsp;
+# 🎯 **주요 기능**
+## ✅ 회원가입 및 로그인/마이페이지
+## ✅ 도서 예약/대출 시스템
+## ✅ 게시판/댓글 기능
+
+--- 
+
 <details>
 <summary><h2>🗂️ <strong>ERD</strong></h2></summary>
   
@@ -166,40 +174,31 @@
     
 <summary><h2>💻 <strong>실제 화면</strong></h2></summary>
 
-    ![image](https://github.com/user-attachments/assets/e5ef1037-4e0a-42ed-ac8a-842dcd6645f5)
-    ![image](https://github.com/user-attachments/assets/db75e2b9-8f6f-46e8-bf07-7bb0fbed6271)
-    ![image](https://github.com/user-attachments/assets/bd077a8d-8ed0-421b-bba7-3cdad6fa105a)
-    ![image](https://github.com/user-attachments/assets/7e356dc9-5053-4801-bcc8-ab2a78df7d48)
-    ![image](https://github.com/user-attachments/assets/f61ab739-317c-4f0a-8c20-d3f578d1ea92)
-    ![image](https://github.com/user-attachments/assets/2daa07ee-4855-4384-b586-13dde28b3200)
-    ![image](https://github.com/user-attachments/assets/dd511ede-c083-4a84-9c63-eb463905ec8a)
-    ![image](https://github.com/user-attachments/assets/fb74c3e5-d86a-44a9-8163-0622e13a07b6)
-    ![image](https://github.com/user-attachments/assets/cf756960-e1fd-4d6a-b5ff-722c0b5e21f7)
-    ![image](https://github.com/user-attachments/assets/4aecd390-dcaf-4d0b-b17a-3a508b62f931)
-    ![image](https://github.com/user-attachments/assets/aa7f0aa3-4e68-4ded-ac5b-b624b651823e)
-    ![image](https://github.com/user-attachments/assets/2176ace6-01c7-4411-8245-a51f19df4bc4)
-    ![image](https://github.com/user-attachments/assets/63dfbf23-ca4d-4795-a73e-c0396b437bdf)
-    ![image](https://github.com/user-attachments/assets/194c4100-94cd-4655-a325-cef185ae1afa)
-    ![image](https://github.com/user-attachments/assets/f381f7cf-0ba0-4317-a2c8-b11a380b14d0)
-    ![image](https://github.com/user-attachments/assets/9ccc74fe-e520-4dc0-b9a1-73e4f17b08dd)
-    ![image](https://github.com/user-attachments/assets/35368de2-1526-41fc-9607-2f78f99811b6)
-    ![image](https://github.com/user-attachments/assets/57f91d25-33fd-4792-83c9-389981d29fc7)
-    ![image](https://github.com/user-attachments/assets/a8d8e315-5349-43da-9125-df69d101e562)
-    ![image](https://github.com/user-attachments/assets/6f1c662c-d953-4605-a5c0-af40d824d18e)
-    ![image](https://github.com/user-attachments/assets/82003687-345c-4437-9770-05b2b4b7ee74)
+![image](https://github.com/user-attachments/assets/e5ef1037-4e0a-42ed-ac8a-842dcd6645f5)
+![image](https://github.com/user-attachments/assets/db75e2b9-8f6f-46e8-bf07-7bb0fbed6271)
+![image](https://github.com/user-attachments/assets/bd077a8d-8ed0-421b-bba7-3cdad6fa105a)
+![image](https://github.com/user-attachments/assets/7e356dc9-5053-4801-bcc8-ab2a78df7d48)
+![image](https://github.com/user-attachments/assets/f61ab739-317c-4f0a-8c20-d3f578d1ea92)
+![image](https://github.com/user-attachments/assets/2daa07ee-4855-4384-b586-13dde28b3200)
+![image](https://github.com/user-attachments/assets/dd511ede-c083-4a84-9c63-eb463905ec8a)
+![image](https://github.com/user-attachments/assets/fb74c3e5-d86a-44a9-8163-0622e13a07b6)
+![image](https://github.com/user-attachments/assets/cf756960-e1fd-4d6a-b5ff-722c0b5e21f7)
+![image](https://github.com/user-attachments/assets/4aecd390-dcaf-4d0b-b17a-3a508b62f931)
+![image](https://github.com/user-attachments/assets/aa7f0aa3-4e68-4ded-ac5b-b624b651823e)
+![image](https://github.com/user-attachments/assets/2176ace6-01c7-4411-8245-a51f19df4bc4)
+![image](https://github.com/user-attachments/assets/63dfbf23-ca4d-4795-a73e-c0396b437bdf)
+![image](https://github.com/user-attachments/assets/194c4100-94cd-4655-a325-cef185ae1afa)
+![image](https://github.com/user-attachments/assets/f381f7cf-0ba0-4317-a2c8-b11a380b14d0)
+![image](https://github.com/user-attachments/assets/9ccc74fe-e520-4dc0-b9a1-73e4f17b08dd)
+![image](https://github.com/user-attachments/assets/35368de2-1526-41fc-9607-2f78f99811b6)
+![image](https://github.com/user-attachments/assets/57f91d25-33fd-4792-83c9-389981d29fc7)
+![image](https://github.com/user-attachments/assets/a8d8e315-5349-43da-9125-df69d101e562)
+![image](https://github.com/user-attachments/assets/6f1c662c-d953-4605-a5c0-af40d824d18e)
+![image](https://github.com/user-attachments/assets/82003687-345c-4437-9770-05b2b4b7ee74)
 
 
 </details>
 
-
----
-
-
-&nbsp;
-# 🎯 **주요 기능**
-## ✅ 회원가입 및 로그인/마이페이지
-## ✅ 도서 예약/대출 시스템
-## ✅ 게시판/댓글 기능
 
 ---
 
