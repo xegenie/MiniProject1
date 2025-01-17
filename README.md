@@ -59,7 +59,8 @@
 <details>
 <summary><h2>📑 <strong>요구사항 정의서</strong></h2></summary>
   
-   ![image](https://github.com/user-attachments/assets/6628cdef-0e84-469a-9f1a-c7409b145b70)
+   ![image](https://github.com/user-attachments/assets/495439ec-a54c-422c-95b3-b0a956b99cd6)
+
 </details>
 
 
@@ -68,12 +69,24 @@
 <details>
 <summary><h2>🗒️ <strong>기능 정의서</strong></h2></summary>
   
-  - 사용자(유저) 기능 정의서
+  - 기능 정의서
  
-    ![image](https://github.com/user-attachments/assets/36f473e1-be4c-412c-aa74-a4ae4850f6ea)  
-  - 관리자 기능 정의서
+    ![image](https://github.com/user-attachments/assets/1e109c67-eea7-48e2-9567-4f17d96349b2)
+    ![image](https://github.com/user-attachments/assets/973df756-798e-459b-b553-3d6f6eb77899)
 
-    ![image](https://github.com/user-attachments/assets/6e0eef6f-38a4-46fc-9309-9233e7c01a9a)
+
+</details>
+
+---
+
+<details>
+<summary><h2>⚙ <strong>프로젝트 구조</strong></h2></summary>
+  
+![image](https://github.com/user-attachments/assets/4df2531a-ae44-4600-a7cb-7f224a48ce25)
+![image](https://github.com/user-attachments/assets/e92e64b1-b361-4ca9-a8c7-7453d657f627)
+
+
+
 </details>
 
 ---
@@ -81,8 +94,8 @@
 <details>
 <summary><h2>🗂️ <strong>ERD</strong></h2></summary>
   
-  ![ERD 이미지](https://chestnut-blinker-ca6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8cd794c0-c633-4008-b289-af6deeea8c4d%2F2317d53d-12bb-40e1-bf7e-43a3f29dda8a%2Fimage.png?table=block&id=16b902bd-b12f-8032-8568-e03391399423&spaceId=8cd794c0-c633-4008-b289-af6deeea8c4d&width=1920&userId=&cache=v2)
-</details>
+  ![image](https://github.com/user-attachments/assets/004f2b24-2b56-4361-9d88-ffe83ba7298b)
+
 
 
 ---
@@ -91,135 +104,93 @@
   <summary><h2>📃 <strong>테이블 정의서</strong></h2></summary>
 
   **users**  
-  ![파일 1](https://drive.google.com/uc?export=view&id=1uIkf6OmogJD5af0uHBwp7YV3TTbpH3VZ)
-
+  ![image](https://github.com/user-attachments/assets/082db524-28be-495e-8d41-0db0b9afa0da)
+  
   **user_auth**  
-  ![파일 2](https://drive.google.com/uc?export=view&id=1jN24i-GWXzEaQF1ihnPVtD_BxswsBx_r)
+  ![image](https://github.com/user-attachments/assets/ba694529-57ea-4dbb-9f72-b2a28b8342f9)
 
-  **trainer_profile**  
-  ![파일 3](https://drive.google.com/uc?export=view&id=1TPs7lZxuO-pEYjJHMdNwJWV61aEUtdf9)
+  **wish list**  
+  ![image](https://github.com/user-attachments/assets/5cdc3bf0-09ce-4401-b242-86b208bec168)
 
-  **ticket**  
-  ![파일 4](https://drive.google.com/uc?export=view&id=1scpM-FcbpngM4dxbmNXPtbgUdVckzusZ)
+  **rental list**  
+  ![image](https://github.com/user-attachments/assets/6dbb6559-cb41-4fcb-971e-814754e9e208)
 
-  **reservation**  
-  ![파일 5](https://drive.google.com/uc?export=view&id=1xvzmCFNDani9r9_2bwRL4lEzRCZBXmIN)
+  **book**  
+  ![image](https://github.com/user-attachments/assets/eb927411-2b15-41d9-8857-ec18a7a658e1)
 
-  **qr_code**  
-  ![파일 6](https://drive.google.com/uc?export=view&id=18iWrwLE9zu-smJXRqkG0e2l2ZFN8uTqI)
+  **book stock**  
+  ![image](https://github.com/user-attachments/assets/1ef94fbc-4041-40e5-9f85-b05242f7d8e6)
 
-  **plan**  
-  ![파일 7](https://drive.google.com/uc?export=view&id=1b2RnAr5tEDigonnXHQxR9BaWqA42da09)
-
-  **persistent_logins**  
-  ![파일 8](https://drive.google.com/uc?export=view&id=18N74mHKPW_teWLFvMnrmO_g9BT7kMB_X)
-
-  **file**  
-  ![파일 9](https://drive.google.com/uc?export=view&id=1LZ9m864zA8lH-9QELMlB3eMvwYrSozVY)
-
-  **comment**  
-  ![파일 10](https://drive.google.com/uc?export=view&id=1XMzew_jB9ZQr48ADICPEvtZIUg27Fw4E)
-
-  **buy_list**  
-  ![파일 11](https://drive.google.com/uc?export=view&id=1jBHzorTvyaTU4mbavzbr8hU-AmjM0GAV)
+  **hope book**  
+  ![image](https://github.com/user-attachments/assets/6962a7dd-0886-433a-bd91-bed49d5792dd)
 
   **board**  
-  ![파일 12](https://drive.google.com/uc?export=view&id=1EttYQgue7v7_pV5ST8ZMe9LE25uHIALg)
+  ![image](https://github.com/user-attachments/assets/0603606f-d8ed-4e05-999e-10f70b9e7887)
 
-  **attendance**  
-  ![파일 13](https://drive.google.com/uc?export=view&id=1XhCdlUg7401eCwPyEmInVpV7fgyPHMJJ)
+  **comment**  
+  ![image](https://github.com/user-attachments/assets/c68d09ea-1325-4973-b7bb-ce8f95d44a0a)
 
-  **answer**  
-  ![파일 14](https://drive.google.com/uc?export=view&id=1ecTX_u14K37SFcFf8VHYahDJGN8yru5g)
+  **files**  
+  ![image](https://github.com/user-attachments/assets/89fd1c94-7338-42f3-b22e-98603e40b1aa)
 
 </details>                                                                                                                    
 
 ---
 
+<details>
+  <summary><h2>📃 <strong>화면 설계서</strong></h2></summary>
+
+  ![image](https://github.com/user-attachments/assets/746ce722-63b4-45fc-b7d2-a20dfa57cb3e)
+  ![image](https://github.com/user-attachments/assets/19e5c7a9-a81c-4adc-8dfc-16385f2acdd2)
+
+
+</details>
+---
+
+<details>
+<summary><h2>📊 <strong>간트 차트</strong></h2></summary>
+  
+  ![image](https://github.com/user-attachments/assets/81bb3cba-11ed-438d-af4d-9ce1ad572033)
+
+
+
+</details>
+
+---
+
 &nbsp;
 
-# ✨📊 **화면 설계**
+# ✨📊 **실제 화면**
 
 <details>
-  <summary><h3>🖥️ <strong>메인</strong></h3></summary>
     
-  ![메인 화면 1](https://drive.google.com/uc?id=1Uc68G_fKXEXpbpQwmw_ehMtj28TQcP8E)
-  ![메인 화면 2](https://drive.google.com/uc?id=1Uo2AOU0S0dM2wE4NOvHmBgi7-4WmaeVt)
-  ![메인 화면 3](https://drive.google.com/uc?id=1hSRDulnuxRf6r9kk7ylSZxzFKHRB786z)
-  ![메인 화면 4](https://drive.google.com/uc?id=1Up9a7utmk008C51bCwTNk0_pb48Jv1id)
-  
-</details>
+    ![image](https://github.com/user-attachments/assets/e5ef1037-4e0a-42ed-ac8a-842dcd6645f5)
+    ![image](https://github.com/user-attachments/assets/db75e2b9-8f6f-46e8-bf07-7bb0fbed6271)
+    ![image](https://github.com/user-attachments/assets/bd077a8d-8ed0-421b-bba7-3cdad6fa105a)
+    ![image](https://github.com/user-attachments/assets/7e356dc9-5053-4801-bcc8-ab2a78df7d48)
+    ![image](https://github.com/user-attachments/assets/f61ab739-317c-4f0a-8c20-d3f578d1ea92)
+    ![image](https://github.com/user-attachments/assets/2daa07ee-4855-4384-b586-13dde28b3200)
+    ![image](https://github.com/user-attachments/assets/dd511ede-c083-4a84-9c63-eb463905ec8a)
+    ![image](https://github.com/user-attachments/assets/fb74c3e5-d86a-44a9-8163-0622e13a07b6)
+    ![image](https://github.com/user-attachments/assets/cf756960-e1fd-4d6a-b5ff-722c0b5e21f7)
+    ![image](https://github.com/user-attachments/assets/4aecd390-dcaf-4d0b-b17a-3a508b62f931)
+    ![image](https://github.com/user-attachments/assets/aa7f0aa3-4e68-4ded-ac5b-b624b651823e)
+    ![image](https://github.com/user-attachments/assets/2176ace6-01c7-4411-8245-a51f19df4bc4)
+    ![image](https://github.com/user-attachments/assets/63dfbf23-ca4d-4795-a73e-c0396b437bdf)
+    ![image](https://github.com/user-attachments/assets/194c4100-94cd-4655-a325-cef185ae1afa)
+    ![image](https://github.com/user-attachments/assets/f381f7cf-0ba0-4317-a2c8-b11a380b14d0)
+    ![image](https://github.com/user-attachments/assets/9ccc74fe-e520-4dc0-b9a1-73e4f17b08dd)
+    ![image](https://github.com/user-attachments/assets/35368de2-1526-41fc-9607-2f78f99811b6)
+    ![image](https://github.com/user-attachments/assets/57f91d25-33fd-4792-83c9-389981d29fc7)
+    ![image](https://github.com/user-attachments/assets/a8d8e315-5349-43da-9125-df69d101e562)
+    ![image](https://github.com/user-attachments/assets/6f1c662c-d953-4605-a5c0-af40d824d18e)
+    ![image](https://github.com/user-attachments/assets/82003687-345c-4437-9770-05b2b4b7ee74)
 
----
 
-<details>
-  <summary><h3>👨‍💻 <strong>사용자</strong></h3></summary>
-    
-  ![사용자 화면 1](https://drive.google.com/uc?id=1Vns8UHr9Czb7mCp0oRkMvdlziCZicLsb)
-  ![사용자 화면 2](https://drive.google.com/uc?id=1gKsHrmqugAXwskpHHzOj2QhOeXQhdDNS)
-  ![사용자 화면 3](https://drive.google.com/uc?id=1hTpezJdzQLhH3LDQCH-kPDpb6x81u74a)
-  ![사용자 화면 4](https://drive.google.com/uc?id=1-AcOC5ooqzOqnshUxfqrcAs0YUFyUmvD)
-  ![사용자 화면 5](https://drive.google.com/uc?id=1ja-sOvZ2j7p15DMnEtXviqiN_18NJiFO)
-  ![사용자 화면 6](https://drive.google.com/uc?id=1rLu826EyHDDes2J4IM-6gAtZn4Cc6fnO)
-  ![사용자 화면 7](https://drive.google.com/uc?id=121WbRNX12d6LvIDWxccaLHhtfDm-Uls_)
-  ![사용자 화면 8](https://drive.google.com/uc?id=15MMalJR4fd_4Sw1fhrwTd9Slbw16W2Nb)
-  ![사용자 화면 9](https://drive.google.com/uc?id=1uQtkwajZWYumxgvRC3jHBNLXscEqlHeo)
-  ![사용자 화면 10](https://drive.google.com/uc?id=1ZvEBl78uv1MwJyduIHh-0K1Vk6SXxbLd)
-  ![사용자 화면 11](https://drive.google.com/uc?id=1mtO7EgM51fYJFiVh_QgKi_wR7rVK3xrM)
-  ![사용자 화면 12](https://drive.google.com/uc?id=1gI3UU8nHksHzgKc-NwUHKV531sbQYdz4)
-
-</details>
-
----
-
-<details>
-  <summary><h3>🛒 <strong>구매</strong></h3></summary>
-    
-  ![구매 화면 1](https://drive.google.com/uc?export=view&id=1mfs0TBP-93EDxgPWtjHDm4CnJVeJubfB)
-  ![구매 화면 2](https://drive.google.com/uc?export=view&id=18RUIJA9hgrSM4asnp4GHeVSeJUM5nU2U)
-  ![구매 화면 3](https://drive.google.com/uc?export=view&id=1O1zKaSeBCMyvTAML6RTrIiW_SLpC9a0Z) 
-  ![구매 화면 4](https://drive.google.com/uc?export=view&id=1Vg5ufkETUEam0LcLRuNLrD_yTwCPGmRk)
-  ![구매 화면 5](https://drive.google.com/uc?export=view&id=1e2nNdmhYeJwS6UnuKpsi71-YPCO8GnGT)
 </details>
 
 
 ---
-
-<details>
- <summary><h3>📝 <strong>게시판</strong></h3></summary>
-    
-  ![게시판 화면 1](https://drive.google.com/uc?id=1lhLfroTuvEUKkrS40B0SRMAAIXFGQDxh)
-  ![게시판 화면 2](https://drive.google.com/uc?id=1w7vIgGkxcYcaTNVFk99gEY_SWYGc5Cb_)
-</details>
-
----
-
-<details>
-  <summary><h3>🗓️ <strong>운동계획표</strong></h3></summary>
-    
-  ![운동계획표 화면](https://drive.google.com/uc?id=1sO1FP1Lua8ykdPyNZTe1AYWVymS02IGD)
-</details>
-
----
-
-<details>
-  - <summary><h3>🛠️ <strong>관리자</strong></h3></summary>
-    
-  ![관리자 화면 1]()
-  ![관리자 화면 2](https://drive.google.com/uc?id=11yqmvEDOs5DemuaqLkJ0RhJ-JkmdvOAx)
-  ![관리자 화면 3](https://drive.google.com/uc?id=1gcoGjZpWV_wkz-ICyLhzw0Y9tHmcPOeP)
-  ![관리자 화면 4](https://drive.google.com/uc?id=1wtZrhqDV9H6h6NplAFcTzQ8YPuzwYTKl)
-  ![관리자 화면 5](https://drive.google.com/uc?id=1773uAE71llv-bJMFk-D1brLXNzU6U_ez)
-  ![관리자 화면 6](https://drive.google.com/uc?id=1pjCkvkHeufRn-x5q0Bw39DPuT_83-0yX)
-  ![관리자 화면 7](https://drive.google.com/uc?id=1gRzloprNVjySX3Ec0ZQm-fFzWgoKt9N8)
-  ![관리자 화면 8](https://drive.google.com/uc?id=14XyRjNqg1T7f7kY1ZfO8JKdwCuqIGOdj)
-  ![관리자 화면 9](https://drive.google.com/uc?id=1Dfd6QNfg9ZojGtGAkNB9r0D4V3bkWBTN)
-  ![관리자 화면 10](https://drive.google.com/uc?id=1JhYmLXcIyMLIJhVfyU7UqtgbpuYWDFan)
-  ![관리자 화면 11](https://drive.google.com/uc?id=1IKwCA9CU7cHNaaULMDOWbQ2KHbLP3AiX)
-</details>
-
----
-
 
 
 &nbsp;
@@ -231,34 +202,6 @@
 ---
 
 
-&nbsp;
-<h2>📝 <strong>개별 평가</strong></h2>
-
-<details>
-<summary><h3><strong>조하은</strong></h3></summary>
-
-- **한계점**: 
-- **보완점**: 
-- **소감**: 
-
-</details>
-
-<details>
-<summary><h3><strong>박호영</strong></h3></summary>
-
-- **한계점**: 
-- **보완점**: 
-- **소감**: 
-</details>
-
-<details>
-<summary><h3><strong>이동현</strong></h3></summary>
-
-- **한계점**: 
-- **보완점**: 
-- **소감**: 
-
-</details>
 
 <details>
 <summary><h3><strong>이세진</strong></h3></summary>
